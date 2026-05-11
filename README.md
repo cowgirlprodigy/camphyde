@@ -12,6 +12,7 @@
       background: #eef2ff;
       color: #2d3748;
       min-height: 100vh;
+      width:100%;
     }
 
     /* ── HEADER ── */
