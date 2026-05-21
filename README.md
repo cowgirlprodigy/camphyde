@@ -1,0 +1,6253 @@
+
+# Camp Hyde · Credits & Licenses
+
+This app reuses content from the following open-source sources. All licenses
+permit personal/family/educational use without payment.
+
+## Content spines
+
+| Source | License | Used for |
+|---|---|---|
+| [dariusk/corpora](https://github.com/dariusk/corpora) | **CC0** (public domain) | Bird of the Week (North American birds list), plant names, dinosaur picks, animal trivia |
+| [uberspot/OpenTriviaQA](https://github.com/uberspot/OpenTriviaQA) | **CC-BY-SA 4.0** | Daily 3-choice trivia question (200 filtered easy questions from Animals / Science / Geography categories) |
+| [stdlib-js/datasets-us-states-capitals](https://github.com/stdlib-js/datasets-us-states-capitals) | **MIT** | State of the Week sidebar (capitals matched to state names) |
+| [NASA APOD](https://apod.nasa.gov) | **Public Domain** (NASA imagery) | Astronomy Picture spotlight (13 hand-curated kid-friendly entries) |
+| [Open-Meteo](https://open-meteo.com) | **CC-BY 4.0** | Heat-flag indoor-swap warnings (forecast highs ≥ 95°F for Boise) |
+
+## Original schedule
+
+Built on top of Maggie's `Summer_2026_Schedule.html` — all activity content,
+default schedules, field-trip list, STEM catalog (27 activities), and art
+catalog (12 projects) are preserved verbatim from her original file.
+
+## Fonts
+
+Google Fonts:
+- [Fraunces](https://fonts.google.com/specimen/Fraunces) — display (SIL Open Font License)
+- [Newsreader](https://fonts.google.com/specimen/Newsreader) — body (SIL OFL)
+- [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) — ledger/time (Apache 2.0)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camp Hyde · Summer 2026 Field Journal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400;9..144,600;9..144,800;9..144,900&family=Newsreader:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ════════════════════════════════════════════════════════════
+       CAMP HYDE · SUMMER FIELD JOURNAL
+       1970s national-park interpretive-sign aesthetic.
+       Fraunces display, Newsreader body, JetBrains Mono ledger time.
+       ════════════════════════════════════════════════════════════ */
+
+    :root {
+      --terracotta: #C9633D;
+      --terracotta-dark: #A24A26;
+      --cottonwood: #5C7D5A;
+      --cottonwood-dark: #3F5A3D;
+      --cream: #F5EEDD;
+      --cream-dark: #E8DEC4;
+      --ink: #1F2419;
+      --ink-soft: #4A4E3F;
+      --goldenrod: #E6A23B;
+      --sky: #7B9CB8;
+      --sky-dark: #4D6F8C;
+      --rust: #8C3A1C;
+      --moss: #6B7A3E;
+      --paper-line: rgba(31,36,25,0.08);
+      --paper-shadow: rgba(31,36,25,0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Newsreader', Georgia, serif;
+      background: var(--cream);
+      background-image:
+        /* faint horizontal ledger rules */
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0,
+          transparent 31px,
+          var(--paper-line) 31px,
+          var(--paper-line) 32px
+        ),
+        /* paper grain noise */
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.14 0 0 0 0 0.10 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/></svg>");
+      color: var(--ink);
+      min-height: 100vh;
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ────────── HEADER ────────── */
+    header {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 26px 36px 22px;
+      border-bottom: 4px double var(--terracotta);
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='100'><g fill='none' stroke='%23C9633D' stroke-width='1' opacity='0.18'><path d='M0,50 Q100,20 200,50 T400,50'/><path d='M0,60 Q100,30 200,60 T400,60'/><path d='M0,70 Q100,40 200,70 T400,70'/></g></svg>");
+      background-size: 400px 100px;
+      pointer-events: none;
+    }
+    header .wrap {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .wordmark {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-variation-settings: "SOFT" 100, "WONK" 0, "opsz" 144;
+      font-size: 3.4rem;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      color: var(--cream);
+    }
+    .wordmark .accent {
+      color: var(--terracotta);
+      font-style: italic;
+      font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+    }
+    .interpretive {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--goldenrod);
+      margin-top: 6px;
+      opacity: 0.9;
+    }
+    header .meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-align: right;
+      color: var(--cream);
+      opacity: 0.78;
+      line-height: 1.9;
+      text-transform: uppercase;
+    }
+    header .meta .lat {
+      color: var(--goldenrod);
+    }
+
+    /* ────────── TAB NAV ────────── */
+    .tab-nav {
+      display: flex;
+      gap: 0;
+      background: var(--ink);
+      border-bottom: 1px solid var(--paper-line);
+      padding: 0 24px;
+    }
+    .tab-btn {
+      flex: 0 0 auto;
+      background: transparent;
+      color: var(--cream);
+      opacity: 0.55;
+      border: none;
+      padding: 14px 26px;
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: opacity 0.18s, border-color 0.18s, background 0.18s;
+    }
+    .tab-btn:hover { opacity: 0.85; background: rgba(255,255,255,0.04); }
+    .tab-btn.active {
+      opacity: 1;
+      border-bottom-color: var(--terracotta);
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    /* ────────── WEEK NAV ────────── */
+    .week-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 16px 24px;
+      background: var(--cream-dark);
+      border-bottom: 1px solid var(--paper-line);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      flex-wrap: wrap;
+    }
+    .week-nav button {
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 0;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.15s;
+    }
+    .week-nav button:hover:not(:disabled) { background: var(--terracotta); }
+    .week-nav button:disabled { background: var(--cream-dark); color: var(--ink-soft); cursor: not-allowed; border: 1px solid var(--paper-line); }
+    .week-nav button.today-btn {
+      background: var(--terracotta);
+    }
+    .week-nav button.today-btn:hover { background: var(--rust); }
+
+    #weekLabel {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-variation-settings: "SOFT" 50, "opsz" 144;
+      font-size: 1.4rem;
+      color: var(--ink);
+      min-width: 260px;
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+    #weekProgress {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-soft);
+      text-align: center;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ────────── THEME STRIP ────────── */
+    .theme-strip {
+      background: var(--terracotta);
+      color: var(--cream);
+      padding: 14px 36px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid var(--paper-line);
+      position: relative;
+    }
+    .theme-strip .sigil {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+    .theme-strip .week-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      opacity: 0.75;
+      text-transform: uppercase;
+    }
+    .theme-strip .week-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 800;
+      font-style: italic;
+      font-size: 1.6rem;
+      letter-spacing: -0.01em;
+      font-variation-settings: "SOFT" 80, "WONK" 1, "opsz" 144;
+    }
+    .theme-strip .word-of-day {
+      margin-left: auto;
+      text-align: right;
+      font-size: 0.85rem;
+      max-width: 340px;
+      line-height: 1.35;
+    }
+    .theme-strip .word-of-day strong {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-variation-settings: "SOFT" 100;
+      font-size: 1rem;
+    }
+    .theme-strip .word-of-day em {
+      color: var(--goldenrod);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* ────────── HEAT BANNER ────────── */
+    #heatBanner {
+      display: none;
+      background: var(--rust);
+      color: var(--cream);
+      padding: 10px 36px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-align: center;
+      border-bottom: 1px solid var(--paper-line);
+    }
+    #heatBanner.show { display: block; }
+
+    /* ────────── LAYOUT ────────── */
+    .main-content {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 22px 24px 40px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 24px;
+    }
+
+    /* ────────── SCREEN-TIME LEDGER ────────── */
+    .screen-bar {
+      background: var(--cream);
+      border: 1px solid var(--ink);
+      padding: 12px 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .screen-bar .lbl { font-weight: 700; white-space: nowrap; color: var(--ink); }
+    .screen-bar .bar-wrap {
+      flex: 1;
+      background: var(--cream-dark);
+      height: 8px;
+      position: relative;
+      border: 1px solid var(--ink-soft);
+    }
+    .screen-bar .bar-fill {
+      height: 100%;
+      background: var(--cottonwood);
+      transition: width 0.4s, background 0.4s;
+    }
+    .screen-bar .bar-fill.over { background: var(--rust); }
+    .screen-bar .amt {
+      font-weight: 700;
+      white-space: nowrap;
+      min-width: 90px;
+      text-align: right;
+      color: var(--ink);
+    }
+
+    /* ────────── SCHEDULE GRID ────────── */
+    .grid-wrapper {
+      background: var(--cream);
+      border: 1px solid var(--ink);
+      overflow-x: auto;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: 82px repeat(5, 1fr);
+      min-width: 680px;
+    }
+
+    /* Headers */
+    .gh {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 12px 8px;
+      text-align: center;
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-variation-settings: "SOFT" 50;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      border-right: 1px solid var(--terracotta);
+      line-height: 1.35;
+    }
+    .gh:last-child { border-right: none; }
+    .gh.is-today {
+      background: var(--terracotta);
+      color: var(--cream);
+    }
+    .gh .day-date {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      opacity: 0.78;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* Time labels */
+    .tl {
+      padding: 0 10px;
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--ink-soft);
+      background: var(--cream-dark);
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--paper-line);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      min-height: 78px;
+    }
+
+    /* Parent-in-charge badge */
+    .parent-badge {
+      position: absolute;
+      bottom: 4px;
+      left: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 1px 7px;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.12s, box-shadow 0.12s;
+      letter-spacing: 0.05em;
+      border: 1px solid var(--ink);
+      z-index: 2;
+    }
+    .parent-badge:hover { transform: scale(1.12); }
+    .pb-none { background: var(--cream-dark); color: var(--ink-soft); }
+    .pb-M    { background: var(--terracotta); color: var(--cream); border-color: var(--terracotta-dark); }
+    .pb-S    { background: var(--sky); color: var(--cream); border-color: var(--sky-dark); }
+    .pb-both { background: var(--cottonwood); color: var(--cream); border-color: var(--cottonwood-dark); }
+
+    /* Heat flag overlay */
+    .heat-flag {
+      position: absolute;
+      top: 3px;
+      right: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 1px 5px;
+      background: var(--rust);
+      color: var(--cream);
+      text-transform: uppercase;
+      z-index: 2;
+      cursor: help;
+    }
+
+    /* Schedule cells */
+    .sc {
+      border-right: 1px solid var(--paper-line);
+      border-bottom: 1px solid var(--paper-line);
+      min-height: 78px;
+      position: relative;
+      cursor: pointer;
+      transition: filter 0.12s, box-shadow 0.15s, transform 0.15s;
+    }
+    .sc:last-child { border-right: none; }
+    .sc:hover { filter: brightness(0.97); box-shadow: inset 0 0 0 1px var(--ink-soft); }
+    .sc:hover .eh { opacity: 1; }
+    .sc.is-today {
+      box-shadow: inset 0 0 0 2px var(--terracotta);
+      animation: marching-ants 18s linear infinite;
+    }
+    @keyframes marching-ants { to { background-position: 32px 0; } }
+
+    .cc {
+      padding: 9px 11px;
+      height: 100%;
+      min-height: 78px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+    }
+    .ci {
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+    .ct {
+      font-family: 'Newsreader', serif;
+      font-size: 0.86rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+    .ct .sub {
+      display: block;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      margin-top: 2px;
+    }
+
+    /* Edit pencil hint */
+    .eh {
+      position: absolute;
+      top: 4px; right: 6px;
+      opacity: 0;
+      font-size: 0.66rem;
+      color: var(--ink-soft);
+      transition: opacity 0.18s;
+      pointer-events: none;
+    }
+
+    /* ────────── ACTIVITY TYPE COLORS ────────── */
+    /* All on cream base — accent comes from left border + soft tint */
+    .t-routine   { background: #F5EBD0; border-left: 4px solid var(--goldenrod); }
+    .t-reading   { background: #EFEAD8; border-left: 4px solid var(--cottonwood); }
+    .t-education { background: #EAEEF1; border-left: 4px solid var(--sky); }
+    .t-lunch     { background: #F2E5D5; border-left: 4px solid var(--rust); }
+    .t-screen    { background: #F0EAD8; border-left: 4px solid #B88A3D; }
+    .t-outdoor   { background: #E8EDD8; border-left: 4px solid var(--moss); }
+    .t-fieldtrip { background: #E5EAE0; border-left: 4px solid var(--cottonwood-dark); }
+    .t-free      { background: #F2E8DA; border-left: 4px solid var(--terracotta); }
+    .t-camp      { background: #F0DCD0; border-left: 4px solid var(--terracotta-dark); }
+    .t-trip      { background: #EAE2D5; border-left: 4px solid var(--sky-dark); }
+    .t-school    { background: #E8E6DC; border-left: 4px solid var(--ink-soft); }
+    .t-blank     { background: var(--cream); border-left: 4px solid var(--paper-line); }
+
+    /* Week notes */
+    .week-notes {
+      background: var(--cream);
+      border: 1px solid var(--ink);
+      padding: 14px 18px;
+      margin-top: 18px;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+    .week-notes h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-variation-settings: "SOFT" 50;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .week-notes textarea {
+      width: 100%;
+      min-height: 76px;
+      border: 1px solid var(--ink-soft);
+      background: var(--cream-dark);
+      padding: 9px 11px;
+      font-size: 0.92rem;
+      font-family: 'Newsreader', serif;
+      resize: vertical;
+      color: var(--ink);
+    }
+    .week-notes textarea:focus { outline: 2px solid var(--terracotta); border-color: transparent; background: var(--cream); }
+
+    /* ────────── SIDEBAR ────────── */
+    .card {
+      background: var(--cream);
+      border: 1px solid var(--ink);
+      padding: 16px 18px;
+      margin-bottom: 18px;
+      box-shadow: 4px 4px 0 var(--ink);
+      position: relative;
+    }
+    .card h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 800;
+      font-variation-settings: "SOFT" 50;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--paper-line);
+    }
+    .card h3 .stamp {
+      float: right;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
+      font-weight: 500;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+
+    /* Spotlight card */
+    .spotlight {
+      background: var(--ink);
+      color: var(--cream);
+      border-color: var(--ink);
+    }
+    .spotlight h3 { color: var(--cream); border-bottom-color: rgba(245,238,221,0.18); }
+    .spotlight h3 .stamp { color: var(--goldenrod); }
+    .spotlight .apod-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      margin: 8px 0 10px;
+      filter: contrast(1.05) saturate(0.92);
+      background: #000;
+    }
+    .spotlight .apod-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--goldenrod);
+      margin-bottom: 4px;
+    }
+    .spotlight .apod-credit {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      opacity: 0.6;
+      margin-bottom: 8px;
+    }
+    .spotlight .apod-kid {
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--cream);
+    }
+    .spotlight .divider {
+      border: none;
+      border-top: 1px solid rgba(245,238,221,0.18);
+      margin: 14px 0 10px;
+    }
+    .spotlight .state-block {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 12px;
+      font-size: 0.85rem;
+    }
+    .spotlight .state-block .lbl {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--goldenrod);
+      text-transform: uppercase;
+      align-self: center;
+    }
+    .spotlight .state-block .val {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+    }
+    .spotlight .bird {
+      font-style: italic;
+      font-size: 0.92rem;
+    }
+
+    /* Trivia card */
+    .trivia-q {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .trivia-choices { list-style: none; padding: 0; }
+    .trivia-choices li {
+      padding: 5px 9px;
+      margin: 3px 0;
+      background: var(--cream-dark);
+      cursor: pointer;
+      font-size: 0.85rem;
+      border-left: 3px solid transparent;
+      transition: all 0.15s;
+    }
+    .trivia-choices li:hover { border-left-color: var(--terracotta); }
+    .trivia-choices li.correct { background: #DCE8D6; border-left-color: var(--cottonwood); }
+    .trivia-choices li.wrong { background: #E8D5D0; border-left-color: var(--rust); opacity: 0.7; }
+    .trivia-q-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    /* Reading log */
+    .reading-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--paper-line);
+    }
+    .reading-row:last-child { border-bottom: none; }
+    .reading-row .kid-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .reading-row input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid var(--paper-line);
+      background: transparent;
+      font-family: 'Newsreader', serif;
+      font-size: 0.88rem;
+      padding: 3px 0;
+      color: var(--ink);
+    }
+    .reading-row input:focus { outline: none; border-bottom-color: var(--terracotta); }
+    .reading-row .pages-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--ink-soft);
+    }
+    .reading-row .pages-row input { max-width: 60px; }
+
+    /* Legend */
+    .leg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 10px; }
+    .leg-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8rem;
+      padding: 2px 0;
+    }
+    .leg-dot {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      border: 1px solid var(--ink);
+    }
+    .ld-routine   { background: var(--goldenrod); }
+    .ld-reading   { background: var(--cottonwood); }
+    .ld-education { background: var(--sky); }
+    .ld-lunch     { background: var(--rust); }
+    .ld-screen    { background: #B88A3D; }
+    .ld-outdoor   { background: var(--moss); }
+    .ld-fieldtrip { background: var(--cottonwood-dark); }
+    .ld-free      { background: var(--terracotta); }
+    .ld-camp      { background: var(--terracotta-dark); }
+    .ld-trip      { background: var(--sky-dark); }
+
+    /* Field-trip list */
+    .ft-section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.15em;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      margin: 8px 0 4px;
+      font-weight: 700;
+    }
+    .ft-item {
+      padding: 6px 9px;
+      margin-bottom: 4px;
+      background: var(--cream-dark);
+      cursor: pointer;
+      border-left: 3px solid var(--cottonwood);
+      font-size: 0.82rem;
+      transition: all 0.15s;
+      position: relative;
+    }
+    .ft-item:hover { background: var(--cream); border-left-color: var(--terracotta); }
+    .ft-item.paid { border-left-color: var(--goldenrod); }
+    .ft-item .ft-name {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      display: block;
+    }
+    .ft-item .ft-detail {
+      font-size: 0.74rem;
+      color: var(--ink-soft);
+      display: block;
+      margin-top: 1px;
+    }
+    .ft-item.copied::after {
+      content: 'COPIED';
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--cottonwood-dark);
+      font-weight: 700;
+    }
+
+    /* ────────── EDIT MODAL ────────── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(31,36,25,0.78);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .modal-overlay.show { display: flex; }
+    .modal {
+      background: var(--cream);
+      border: 2px solid var(--ink);
+      box-shadow: 8px 8px 0 var(--terracotta);
+      padding: 28px 30px;
+      max-width: 480px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 800;
+      font-style: italic;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .modal label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      margin: 12px 0 4px;
+      font-weight: 700;
+    }
+    .modal input, .modal select {
+      width: 100%;
+      padding: 9px 11px;
+      border: 1px solid var(--ink);
+      background: var(--cream);
+      font-family: 'Newsreader', serif;
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+    .modal input:focus, .modal select:focus { outline: 2px solid var(--terracotta); }
+    .modal-hint {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.05em;
+      color: var(--ink-soft);
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+    .modal-btns {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 9px 18px;
+      border: 1px solid var(--ink);
+      background: var(--cream);
+      color: var(--ink);
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.15s;
+    }
+    .btn:hover { background: var(--ink); color: var(--cream); }
+    .btn-primary { background: var(--terracotta); color: var(--cream); border-color: var(--terracotta-dark); }
+    .btn-primary:hover { background: var(--rust); border-color: var(--rust); color: var(--cream); }
+    .btn-danger { color: var(--rust); }
+    .btn-danger:hover { background: var(--rust); color: var(--cream); border-color: var(--rust); }
+
+    /* ────────── STEM / ART PAGES ────────── */
+    .stem-top {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 22px 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .stem-filter { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn {
+      padding: 7px 14px;
+      border: 1px solid var(--ink);
+      background: var(--cream);
+      color: var(--ink);
+      cursor: pointer;
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: all 0.15s;
+    }
+    .filter-btn:hover { background: var(--cream-dark); }
+    .filter-btn.active { background: var(--ink); color: var(--cream); }
+    .filter-btn.fs.active     { background: var(--sky-dark); border-color: var(--sky-dark); }
+    .filter-btn.ft.active     { background: var(--cottonwood-dark); border-color: var(--cottonwood-dark); }
+    .filter-btn.fe.active     { background: var(--terracotta); border-color: var(--terracotta-dark); }
+    .filter-btn.fm.active     { background: var(--goldenrod); color: var(--ink); border-color: #B88A3D; }
+    .filter-btn.fdr.active    { background: var(--rust); border-color: var(--rust); }
+    .filter-btn.fpa.active    { background: var(--sky-dark); border-color: var(--sky-dark); }
+    .filter-btn.fcr.active    { background: var(--terracotta); border-color: var(--terracotta-dark); }
+    .filter-btn.fdi.active    { background: var(--cottonwood-dark); border-color: var(--cottonwood-dark); }
+
+    .print-shop-btn {
+      padding: 9px 18px;
+      border: 1px solid var(--ink);
+      background: var(--goldenrod);
+      color: var(--ink);
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .print-shop-btn:hover { background: #C98E2B; }
+
+    .stem-grid {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 20px 24px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 22px;
+    }
+    @media (max-width: 700px) { .stem-grid { grid-template-columns: 1fr; } }
+
+    .ac {
+      background: var(--cream);
+      border: 1px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .ac-header {
+      padding: 14px 18px;
+      background: var(--ink);
+      color: var(--cream);
+      cursor: pointer;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .ac-header .emoji { font-size: 2rem; line-height: 1; flex-shrink: 0; }
+    .ac-header .meta-block { flex: 1; }
+    .ac-header .title {
+      font-family: 'Fraunces', serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+    .ac-header .tags {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--goldenrod);
+      text-transform: uppercase;
+    }
+    .ac-header .tags .dot { color: var(--cream); opacity: 0.4; margin: 0 6px; }
+    .ac-header .difficulty {
+      color: var(--terracotta);
+      font-weight: 700;
+    }
+    .ac-body {
+      padding: 16px 18px;
+      display: none;
+    }
+    .ac.expanded .ac-body { display: block; }
+    .ac-body .desc {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin-bottom: 14px;
+      color: var(--ink);
+    }
+    .ac-body .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin: 14px 0 8px;
+      border-bottom: 1px solid var(--paper-line);
+      padding-bottom: 4px;
+    }
+    .ac-body table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .ac-body td {
+      padding: 4px 8px 4px 0;
+      vertical-align: top;
+      border-bottom: 1px dashed var(--paper-line);
+    }
+    .ac-body td:first-child { font-weight: 600; }
+    .ac-body td:nth-child(2) {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+    .ac-body td:nth-child(3) {
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.8rem;
+    }
+    .ac-body ol {
+      padding-left: 22px;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .ac-body ol li {
+      margin-bottom: 7px;
+    }
+    .ac-body .tip {
+      background: #F0EAD8;
+      border-left: 3px solid var(--goldenrod);
+      padding: 10px 14px;
+      margin-top: 14px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* ────────── PRINT STYLESHEET ────────── */
+    @media print {
+      @page { size: landscape; margin: 0.4in; }
+      body { background: white !important; }
+      body::before { display: none; }
+      .tab-nav, .week-nav, .modal-overlay, .screen-bar,
+      .week-notes, .stem-top, #heatBanner { display: none !important; }
+      header { background: white !important; color: black !important; border-bottom: 3px solid black; }
+      header::before { display: none; }
+      .wordmark { color: black !important; }
+      .wordmark .accent { color: #888 !important; }
+      header .meta { color: #444 !important; }
+      .interpretive { color: #444 !important; }
+      .main-content {
+        grid-template-columns: 1fr !important;
+        padding: 8px 0 !important;
+        max-width: 100% !important;
+      }
+      .sidebar { display: none !important; }
+      .theme-strip {
+        background: white !important;
+        color: black !important;
+        border: 2px solid black;
+        page-break-after: avoid;
+      }
+      .theme-strip .week-title { color: black !important; }
+      .theme-strip .word-of-day { display: none; }
+      .grid-wrapper { box-shadow: none !important; border: 1.5px solid black; }
+      .gh { background: white !important; color: black !important; border: 1px solid black; }
+      .gh.is-today { background: #ddd !important; }
+      .sc { border: 1px solid #999 !important; min-height: 64px; box-shadow: none !important; }
+      .sc.is-today { box-shadow: inset 0 0 0 2px black !important; animation: none !important; }
+      .parent-badge, .heat-flag, .eh { display: none !important; }
+      .ct { font-size: 0.82rem !important; }
+      .ci { font-size: 0.95rem !important; }
+      .tl { background: white !important; }
+      /* STEM/Art print */
+      .ac { box-shadow: none !important; border: 1.5px solid black; page-break-inside: avoid; }
+      .ac-header { background: white !important; color: black !important; border-bottom: 1px solid black; }
+      .ac-header .tags { color: #444 !important; }
+      .ac-body { display: block !important; }
+    }
+
+    /* ────────── FOOTER ────────── */
+    footer {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 18px 24px 30px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      text-align: center;
+      border-top: 1px solid var(--paper-line);
+      margin-top: 30px;
+    }
+    footer a {
+      color: var(--terracotta);
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
+
+    /* ────────── ICONS ────────── */
+    .ico {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      stroke: currentColor;
+      color: var(--ink);
+      vertical-align: middle;
+    }
+    .ico-sm { width: 16px; height: 16px; }
+    .ico-md { width: 20px; height: 20px; }
+    .ico-lg { width: 28px; height: 28px; }
+    .ico-xl { width: 40px; height: 40px; }
+    /* Cell icon picks up the activity-type accent color */
+    .sc .ico { color: var(--ink-soft); }
+    .t-routine   .ico { color: #8C6815; }
+    .t-reading   .ico { color: var(--cottonwood-dark); }
+    .t-education .ico { color: var(--sky-dark); }
+    .t-lunch     .ico { color: var(--rust); }
+    .t-screen    .ico { color: #8C6815; }
+    .t-outdoor   .ico { color: var(--cottonwood-dark); }
+    .t-fieldtrip .ico { color: var(--cottonwood-dark); }
+    .t-free      .ico { color: var(--terracotta-dark); }
+    .t-camp      .ico { color: var(--terracotta-dark); }
+    .t-trip      .ico { color: var(--sky-dark); }
+    .t-school    .ico { color: var(--ink-soft); }
+    .t-blank     .ico { color: var(--ink-soft); opacity: 0.35; }
+
+    /* Sidebar at-a-glance icon list */
+    .glance-list {
+      display: grid;
+      grid-template-columns: 22px 1fr auto;
+      gap: 8px 12px;
+      align-items: center;
+      font-size: 0.88rem;
+    }
+    .glance-list .ico { color: var(--terracotta); }
+    .glance-list .when { font-weight: 600; font-family: 'Fraunces', serif; }
+    .glance-list .when.muted { color: var(--ink-soft); font-weight: 500; }
+
+    /* Theme strip sigil now uses a use-svg */
+    .theme-strip .sigil-svg { width: 40px; height: 40px; color: var(--cream); flex-shrink: 0; }
+
+    /* Rules card with check/cross marks */
+    .rules-list { font-size: 0.88rem; line-height: 1.6; }
+    .rules-list .row {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 8px;
+      align-items: start;
+      padding: 3px 0;
+    }
+    .rules-list .yes::before { content: '+'; color: var(--cottonwood-dark); font-weight: 800; font-family: 'JetBrains Mono', monospace; }
+    .rules-list .no::before { content: '×'; color: var(--rust); font-weight: 800; font-family: 'JetBrains Mono', monospace; font-size: 1.1em; line-height: 1; }
+    .rules-list .dot::before { content: '·'; color: var(--ink-soft); font-weight: 800; font-size: 1.4em; line-height: 0.8; }
+
+    /* STEM/Art card: replace giant emoji with icon block */
+    .ac-header .ico-block {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      background: var(--terracotta);
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--terracotta-dark);
+    }
+    .ac-header .ico-block.cat-science     { background: var(--sky-dark); border-color: #2A4F6D; }
+    .ac-header .ico-block.cat-technology  { background: var(--cottonwood-dark); border-color: #2A4128; }
+    .ac-header .ico-block.cat-engineering { background: var(--terracotta); border-color: var(--terracotta-dark); }
+    .ac-header .ico-block.cat-math        { background: var(--goldenrod); color: var(--ink); border-color: #B88A3D; }
+    .ac-header .ico-block.cat-drawing     { background: var(--rust); border-color: #6B2C12; }
+    .ac-header .ico-block.cat-painting    { background: var(--sky-dark); border-color: #2A4F6D; }
+    .ac-header .ico-block.cat-crafts      { background: var(--terracotta); border-color: var(--terracotta-dark); }
+    .ac-header .ico-block.cat-digital     { background: var(--cottonwood-dark); border-color: #2A4128; }
+    .ac-header .ico-block .ico { color: inherit; width: 26px; height: 26px; }
+
+    /* Heat flag refined */
+    .heat-flag {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      padding: 2px 5px 2px 4px;
+    }
+    .heat-flag .ico { width: 11px; height: 11px; color: var(--cream); }
+
+    /* Cell icon container */
+    .ci { display: flex; align-items: center; gap: 5px; line-height: 1; }
+    .ci .ico { width: 18px; height: 18px; }
+
+    /* Nav button icons */
+    .week-nav button .ico { width: 14px; height: 14px; color: inherit; }
+
+    /* Print button icon */
+    .print-shop-btn { display: inline-flex; align-items: center; gap: 8px; }
+    .print-shop-btn .ico { width: 16px; height: 16px; }
+
+    /* Modal option icons (use prefix text only) */
+    .modal select { font-variant-numeric: tabular-nums; }
+
+    /* Heat banner */
+    #heatBanner {
+      display: none;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+    }
+    #heatBanner.show { display: flex; }
+    #heatBanner .ico { color: var(--goldenrod); width: 18px; height: 18px; }
+
+    /* Screen time label */
+    .screen-bar .lbl { display: inline-flex; align-items: center; gap: 6px; }
+    .screen-bar .lbl .ico { color: var(--ink); width: 14px; height: 14px; }
+
+    /* Sidebar card h3 icon */
+    .card h3 .h-ico {
+      vertical-align: -3px;
+      width: 18px;
+      height: 18px;
+      margin-right: 5px;
+      color: var(--terracotta);
+    }
+    .spotlight h3 .h-ico { color: var(--goldenrod); }
+
+    /* Print: simplify icons */
+    @media print {
+      .ico { color: black !important; }
+      .glance-list .ico { color: #555 !important; }
+    }
+
+    /* ────────── SCROLLBAR (subtle) ────────── */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: var(--cream-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--ink-soft); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--ink); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SVG ICON SYMBOL BANK · Camp Hyde
+     Field-journal woodblock style. 24x24 viewBox, 1.4 stroke,
+     uses currentColor so icons inherit text color from context.
+     ══════════════════════════════════════════════════════════════ -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- ── ACTIVITY TYPE ICONS (12) ── -->
+    <symbol id="ico-routine" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Sun rising over horizon -->
+      <line x1="3" y1="18" x2="21" y2="18"/>
+      <path d="M6.5 18 A5.5 5.5 0 0 1 17.5 18"/>
+      <line x1="12" y1="6" x2="12" y2="3.5"/>
+      <line x1="5.5" y1="11.5" x2="3.8" y2="9.8"/>
+      <line x1="18.5" y1="11.5" x2="20.2" y2="9.8"/>
+      <line x1="3" y1="21" x2="6" y2="21"/>
+      <line x1="9" y1="21" x2="15" y2="21"/>
+      <line x1="18" y1="21" x2="21" y2="21"/>
+    </symbol>
+
+    <symbol id="ico-reading" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Open book -->
+      <path d="M3 5 C 6 4, 10 4.5, 12 6 C 14 4.5, 18 4, 21 5 L 21 19 C 18 18, 14 18.5, 12 20 C 10 18.5, 6 18, 3 19 Z"/>
+      <line x1="12" y1="6" x2="12" y2="20"/>
+      <line x1="6" y1="8.5" x2="9.5" y2="8"/>
+      <line x1="6" y1="11" x2="10" y2="10.6"/>
+      <line x1="14.5" y1="8" x2="18" y2="8.5"/>
+      <line x1="14" y1="10.6" x2="18" y2="11"/>
+    </symbol>
+
+    <symbol id="ico-education" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Pencil at angle -->
+      <path d="M4 20 L 8 16 L 18 6 L 20 8 L 10 18 L 4 20 Z"/>
+      <line x1="15.5" y1="8.5" x2="17.5" y2="10.5"/>
+      <line x1="4" y1="20" x2="6.5" y2="17.5"/>
+    </symbol>
+
+    <symbol id="ico-lunch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Apple with leaf -->
+      <path d="M12 7 C 8 7, 5 9.5, 5 14 C 5 18, 7.5 21, 10 21 C 11 21, 11.5 20.5, 12 20.5 C 12.5 20.5, 13 21, 14 21 C 16.5 21, 19 18, 19 14 C 19 9.5, 16 7, 12 7 Z"/>
+      <path d="M12 7 C 12 5, 11 3.5, 9.5 3"/>
+      <path d="M12 7 C 13.5 6, 15 5, 15.5 3.5"/>
+    </symbol>
+
+    <symbol id="ico-screen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Tablet -->
+      <rect x="5" y="3.5" width="14" height="17" rx="1.5"/>
+      <line x1="5" y1="17" x2="19" y2="17"/>
+      <circle cx="12" cy="18.8" r="0.5" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="ico-outdoor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Pine tree -->
+      <path d="M12 3 L 7 9 L 9 9 L 5 14 L 8 14 L 4 19 L 20 19 L 16 14 L 19 14 L 15 9 L 17 9 Z"/>
+      <line x1="12" y1="19" x2="12" y2="22"/>
+    </symbol>
+
+    <symbol id="ico-fieldtrip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Map pin -->
+      <path d="M12 2.5 C 7.5 2.5, 4.5 6, 4.5 10 C 4.5 15, 12 21.5, 12 21.5 C 12 21.5, 19.5 15, 19.5 10 C 19.5 6, 16.5 2.5, 12 2.5 Z"/>
+      <circle cx="12" cy="10" r="2.8"/>
+    </symbol>
+
+    <symbol id="ico-free" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Paintbrush -->
+      <path d="M15.5 3 L 21 8.5 L 11.5 18 L 6 12.5 Z"/>
+      <path d="M6 12.5 C 3 14, 2.5 17, 3 19.5 C 5.5 20, 8.5 19.5, 10 16.5"/>
+      <line x1="6" y1="12.5" x2="11.5" y2="18"/>
+    </symbol>
+
+    <symbol id="ico-camp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Pennant flag on pole -->
+      <line x1="5" y1="3.5" x2="5" y2="21"/>
+      <path d="M5 4 L 18.5 6.5 L 14 9 L 19 12 L 5 14"/>
+    </symbol>
+
+    <symbol id="ico-trip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Paper airplane -->
+      <path d="M3 12 L 21 4 L 14 21 L 11 13.5 L 3 12 Z"/>
+      <line x1="11" y1="13.5" x2="21" y2="4"/>
+    </symbol>
+
+    <symbol id="ico-school" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Schoolhouse with bell tower -->
+      <path d="M3 11 L 12 5 L 21 11"/>
+      <path d="M5 11 L 5 21 L 19 21 L 19 11"/>
+      <rect x="10" y="14" width="4" height="7"/>
+      <line x1="12" y1="5" x2="12" y2="2.5"/>
+      <path d="M11 2.5 L 13 2.5"/>
+    </symbol>
+
+    <symbol id="ico-blank" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+    </symbol>
+
+    <!-- ── STEM/ART CATEGORY ICONS (8) ── -->
+    <symbol id="ico-science" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Erlenmeyer flask -->
+      <line x1="8.5" y1="3" x2="15.5" y2="3"/>
+      <line x1="9.5" y1="3" x2="9.5" y2="9.5"/>
+      <line x1="14.5" y1="3" x2="14.5" y2="9.5"/>
+      <path d="M9.5 9.5 L 4.5 19.5 C 4 20.5, 4.5 21, 5.5 21 L 18.5 21 C 19.5 21, 20 20.5, 19.5 19.5 L 14.5 9.5"/>
+      <line x1="7" y1="15" x2="17" y2="15"/>
+      <circle cx="10" cy="17.5" r="0.6" fill="currentColor"/>
+      <circle cx="13" cy="18" r="0.6" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="ico-technology" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Circuit / chip -->
+      <rect x="6" y="6" width="12" height="12" rx="0.5"/>
+      <rect x="9" y="9" width="6" height="6"/>
+      <line x1="3" y1="9" x2="6" y2="9"/>
+      <line x1="3" y1="12" x2="6" y2="12"/>
+      <line x1="3" y1="15" x2="6" y2="15"/>
+      <line x1="18" y1="9" x2="21" y2="9"/>
+      <line x1="18" y1="12" x2="21" y2="12"/>
+      <line x1="18" y1="15" x2="21" y2="15"/>
+      <line x1="9" y1="3" x2="9" y2="6"/>
+      <line x1="12" y1="3" x2="12" y2="6"/>
+      <line x1="15" y1="3" x2="15" y2="6"/>
+      <line x1="9" y1="18" x2="9" y2="21"/>
+      <line x1="12" y1="18" x2="12" y2="21"/>
+      <line x1="15" y1="18" x2="15" y2="21"/>
+    </symbol>
+
+    <symbol id="ico-engineering" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Wrench -->
+      <path d="M14.5 3.5 A 5 5 0 0 0 8 10 L 3 15 L 5 17 L 9 14 L 17.5 22 L 21 18.5 L 13 10.5 A 5 5 0 0 0 14.5 3.5 Z"/>
+      <circle cx="14" cy="6.5" r="1" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="ico-math" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Drafting compass -->
+      <circle cx="12" cy="5" r="1.5"/>
+      <line x1="12" y1="6.5" x2="6" y2="20"/>
+      <line x1="12" y1="6.5" x2="18" y2="20"/>
+      <path d="M8 16 A 8 8 0 0 0 16 16"/>
+      <line x1="6" y1="20" x2="6" y2="21.5"/>
+      <line x1="18" y1="20" x2="18" y2="21.5"/>
+    </symbol>
+
+    <symbol id="ico-drawing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Pencil vertical -->
+      <path d="M12 2 L 16 6 L 16 20 L 12 22 L 8 20 L 8 6 Z"/>
+      <line x1="8" y1="6" x2="16" y2="6"/>
+      <line x1="12" y1="2" x2="12" y2="22"/>
+      <line x1="8" y1="18" x2="16" y2="18"/>
+    </symbol>
+
+    <symbol id="ico-painting" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Palette -->
+      <path d="M12 3 C 6.5 3, 3 7, 3 11.5 C 3 16, 6.5 19, 11 19 C 12 19, 12.5 18, 12 17 C 11.5 16, 12.5 14, 14.5 14 L 18 14 C 20 14, 21 13, 21 11 C 21 6.5, 17 3, 12 3 Z"/>
+      <circle cx="8" cy="10" r="1.2" fill="currentColor"/>
+      <circle cx="12.5" cy="7.5" r="1.2" fill="currentColor"/>
+      <circle cx="16" cy="10.5" r="1.2" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="ico-crafts" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Scissors -->
+      <circle cx="6.5" cy="6.5" r="3"/>
+      <circle cx="6.5" cy="17.5" r="3"/>
+      <line x1="9" y1="8.5" x2="21" y2="20"/>
+      <line x1="9" y1="15.5" x2="21" y2="4"/>
+    </symbol>
+
+    <symbol id="ico-digital" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Tablet with stylus -->
+      <rect x="3" y="4" width="13" height="17" rx="1"/>
+      <line x1="3" y1="18" x2="16" y2="18"/>
+      <line x1="16" y1="3" x2="20" y2="7"/>
+      <line x1="20" y1="7" x2="14" y2="13"/>
+      <line x1="14" y1="13" x2="13" y2="14"/>
+    </symbol>
+
+    <!-- ── UTILITY ICONS (8) ── -->
+    <symbol id="ico-heat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Thermometer -->
+      <path d="M10 3 C 10 2, 11 1.5, 12 1.5 C 13 1.5, 14 2, 14 3 L 14 15 A 3 3 0 1 1 10 15 Z"/>
+      <circle cx="12" cy="17.5" r="2" fill="currentColor" stroke="none"/>
+      <line x1="14" y1="6" x2="16" y2="6"/>
+      <line x1="14" y1="9" x2="16" y2="9"/>
+      <line x1="14" y1="12" x2="16" y2="12"/>
+    </symbol>
+
+    <symbol id="ico-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3.5" y="5" width="17" height="16" rx="0.5"/>
+      <line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/>
+      <line x1="8" y1="3" x2="8" y2="7"/>
+      <line x1="16" y1="3" x2="16" y2="7"/>
+      <circle cx="8" cy="14" r="0.7" fill="currentColor"/>
+      <circle cx="12" cy="14" r="0.7" fill="currentColor"/>
+      <circle cx="16" cy="14" r="0.7" fill="currentColor"/>
+      <circle cx="8" cy="18" r="0.7" fill="currentColor"/>
+      <circle cx="12" cy="18" r="0.7" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="ico-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- School bell -->
+      <path d="M6 18 C 6 12, 8 8, 12 8 C 16 8, 18 12, 18 18 Z"/>
+      <line x1="4.5" y1="18" x2="19.5" y2="18"/>
+      <path d="M10 20 A 2 2 0 0 0 14 20"/>
+      <line x1="12" y1="6" x2="12" y2="8"/>
+      <circle cx="12" cy="5" r="1" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="ico-mountain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Mountain range -->
+      <path d="M2 19 L 8 9 L 12 14 L 16 6 L 22 19 Z"/>
+      <path d="M6.5 14 L 8 12.5 L 9.5 14"/>
+      <path d="M14.5 11 L 16 9 L 17.5 11"/>
+    </symbol>
+
+    <symbol id="ico-tent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Camping tent -->
+      <path d="M2 20 L 12 3 L 22 20 Z"/>
+      <line x1="12" y1="3" x2="12" y2="20"/>
+      <path d="M9 20 L 12 15 L 15 20"/>
+    </symbol>
+
+    <symbol id="ico-family" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Two figures, side by side -->
+      <circle cx="8" cy="6" r="2.5"/>
+      <path d="M3.5 19 C 3.5 14, 6 12, 8 12 C 10 12, 12.5 14, 12.5 19"/>
+      <circle cx="16" cy="6" r="2.5"/>
+      <path d="M11.5 19 C 11.5 14, 14 12, 16 12 C 18 12, 20.5 14, 20.5 19"/>
+    </symbol>
+
+    <symbol id="ico-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 9 L 6 3 L 18 3 L 18 9"/>
+      <rect x="3.5" y="9" width="17" height="9" rx="1"/>
+      <rect x="6" y="14" width="12" height="7"/>
+      <circle cx="16.5" cy="12" r="0.7" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="ico-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="19" y1="12" x2="5" y2="12"/>
+      <polyline points="11,6 5,12 11,18"/>
+    </symbol>
+
+    <symbol id="ico-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12"/>
+      <polyline points="13,6 19,12 13,18"/>
+    </symbol>
+
+    <!-- ── THEME STRIP SIGIL ── -->
+    <symbol id="ico-sigil" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Sun behind mountains — Camp Hyde mark -->
+      <circle cx="18" cy="18" r="15"/>
+      <circle cx="18" cy="15" r="5"/>
+      <path d="M4 23 L 11 14 L 16 19 L 22 11 L 32 23 Z" fill="currentColor" fill-opacity="0.18"/>
+      <path d="M4 23 L 11 14 L 16 19 L 22 11 L 32 23"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap">
+    <div>
+      <div class="wordmark">Camp <span class="accent">Hyde</span></div>
+      <div class="interpretive">Field Journal · Summer 2026</div>
+    </div>
+    <div class="meta">
+      <span class="lat">43.61°N · 116.20°W</span><br>
+      Boise, Idaho · Ages 8 &amp; 10<br>
+      May 21 – August 12 · 13 weeks
+    </div>
+  </div>
+</header>
+
+<div class="tab-nav">
+  <button class="tab-btn active" id="tab-schedule" onclick="showPage('schedule')">Weekly Schedule</button>
+  <button class="tab-btn" id="tab-stem" onclick="showPage('stem')">STEM Curriculum</button>
+  <button class="tab-btn" id="tab-art" onclick="showPage('art')">Art &amp; Creative</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SCHEDULE PAGE
+     ══════════════════════════════════════════════════════════════ -->
+<div id="page-schedule">
+
+  <div class="week-nav">
+    <button onclick="changeWeek(-1)" id="prevBtn">← Prev</button>
+    <div>
+      <div id="weekLabel">—</div>
+      <div id="weekProgress">—</div>
+    </div>
+    <button onclick="changeWeek(1)" id="nextBtn">Next →</button>
+    <button class="today-btn" onclick="jumpToToday()">Today</button>
+    <button onclick="window.print()">Print</button>
+  </div>
+
+  <div class="theme-strip" id="themeStrip">
+    <svg class="sigil-svg"><use href="#ico-sigil"/></svg>
+    <div>
+      <div class="week-num" id="weekNum">Week —</div>
+      <div class="week-title" id="weekTitle">—</div>
+    </div>
+    <div class="word-of-day" id="wordOfDay"></div>
+  </div>
+
+  <div id="heatBanner">
+    <svg class="ico"><use href="#ico-heat"/></svg>
+    HEAT FLAG · forecast highs above 95°F — outdoor afternoon blocks auto-flagged
+  </div>
+
+  <div class="main-content">
+
+    <!-- LEFT: Schedule -->
+    <div class="schedule-section">
+
+      <div class="screen-bar">
+        <span class="lbl"><svg class="ico"><use href="#ico-screen"/></svg>Screen Time</span>
+        <div class="bar-wrap"><div class="bar-fill" id="screenFill" style="width:0%"></div></div>
+        <span class="amt" id="screenAmt">0.0 / 2.0 hrs</span>
+      </div>
+
+      <div class="grid-wrapper">
+        <div class="schedule-grid" id="scheduleGrid"></div>
+      </div>
+
+      <div class="week-notes">
+        <h3>Week Notes &amp; Reminders</h3>
+        <textarea id="weekNotes" placeholder="Notes, reminders, or special plans for this week…" oninput="saveNotes()"></textarea>
+      </div>
+    </div>
+
+    <!-- RIGHT: Sidebar -->
+    <div class="sidebar">
+
+      <!-- Spotlight -->
+      <div class="card spotlight" id="spotlightCard">
+        <h3>This Week <span class="stamp">Spotlight</span></h3>
+        <div id="spotlightContent"></div>
+      </div>
+
+      <!-- Daily Trivia -->
+      <div class="card" id="triviaCard">
+        <h3>Daily Trivia <span class="stamp" id="triviaDate"></span></h3>
+        <div id="triviaContent"></div>
+      </div>
+
+      <!-- Reading log -->
+      <div class="card">
+        <h3>Reading Log <span class="stamp">This Week</span></h3>
+        <div id="readingLog"></div>
+      </div>
+
+      <!-- Legend -->
+      <div class="card">
+        <h3>Legend</h3>
+        <div class="leg-grid">
+          <div class="leg-item"><div class="leg-dot ld-routine"></div>Morning Routine</div>
+          <div class="leg-item"><div class="leg-dot ld-reading"></div>Reading</div>
+          <div class="leg-item"><div class="leg-dot ld-education"></div>Education</div>
+          <div class="leg-item"><div class="leg-dot ld-lunch"></div>Lunch / Break</div>
+          <div class="leg-item"><div class="leg-dot ld-screen"></div>Screen Time</div>
+          <div class="leg-item"><div class="leg-dot ld-outdoor"></div>Outdoor Play</div>
+          <div class="leg-item"><div class="leg-dot ld-fieldtrip"></div>Field Trip</div>
+          <div class="leg-item"><div class="leg-dot ld-free"></div>Free / Creative</div>
+          <div class="leg-item"><div class="leg-dot ld-camp"></div>Sports Camp</div>
+          <div class="leg-item"><div class="leg-dot ld-trip"></div>Family Trip</div>
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--paper-line);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.66rem;letter-spacing:0.12em;color:var(--terracotta);text-transform:uppercase;font-weight:700;margin-bottom:7px;">Parent In Charge</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:0.8rem;">
+            <span class="parent-badge pb-M" style="position:static;">M</span> Mom
+            <span class="parent-badge pb-S" style="position:static;margin-left:4px;">S</span> Dad
+            <span class="parent-badge pb-both" style="position:static;margin-left:4px;">M+S</span> Both
+          </div>
+          <p style="font-size:0.74rem;color:var(--ink-soft);margin-top:6px;font-style:italic;">Click the badge on any time row to assign.</p>
+        </div>
+      </div>
+
+      <!-- Summer at a Glance -->
+      <div class="card" style="background:var(--cream-dark);">
+        <h3><svg class="h-ico"><use href="#ico-calendar"/></svg>Summer at a Glance</h3>
+        <div class="glance-list">
+          <svg class="ico"><use href="#ico-bell"/></svg>
+          <span>School Out</span>
+          <span class="when">Thu, May 21</span>
+
+          <svg class="ico"><use href="#ico-routine"/></svg>
+          <span>Memorial Day</span>
+          <span class="when">Mon, May 25</span>
+
+          <svg class="ico"><use href="#ico-tent"/></svg>
+          <span>Camping Trip</span>
+          <span class="when">Fri, Jun 5</span>
+
+          <svg class="ico"><use href="#ico-camp"/></svg>
+          <span>Sports Camp</span>
+          <span class="when">Jun 15–19</span>
+
+          <svg class="ico"><use href="#ico-trip"/></svg>
+          <span>Fallon / June Lake</span>
+          <span class="when">Jun 22–24</span>
+
+          <svg class="ico"><use href="#ico-family"/></svg>
+          <span>Family Visiting</span>
+          <span class="when">Jun 25–26</span>
+
+          <svg class="ico"><use href="#ico-trip"/></svg>
+          <span>Family Trip</span>
+          <span class="when">Jul 2–7</span>
+
+          <svg class="ico"><use href="#ico-school"/></svg>
+          <span>School Resumes</span>
+          <span class="when">Wed, Aug 12</span>
+        </div>
+      </div>
+
+      <!-- Screen time rules -->
+      <div class="card" style="background:#F5EBD0;border-left:6px solid var(--goldenrod);">
+        <h3><svg class="h-ico"><use href="#ico-screen"/></svg>Screen Time Rules</h3>
+        <div class="rules-list">
+          <div class="row dot"><div>Max <strong>2 hours / day</strong> total</div></div>
+          <div class="row yes"><div>Earn extra time with chores</div></div>
+          <div class="row yes"><div>Educational apps: relaxed rules</div></div>
+          <div class="row no"><div>No screens before 1:00 PM</div></div>
+          <div class="row no"><div>No screens 1 hr before bed</div></div>
+          <div class="row no"><div>Devices off during meals</div></div>
+        </div>
+      </div>
+
+      <!-- Field trips -->
+      <div class="card">
+        <h3><svg class="h-ico"><use href="#ico-fieldtrip"/></svg>Boise Field Trips</h3>
+        <p style="font-size:0.74rem;color:var(--ink-soft);margin-bottom:6px;font-style:italic;">Click any trip to copy its name.</p>
+        <div id="ftList"></div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- end page-schedule -->
+
+<!-- ══════════════════════════════════════════════════════════════
+     STEM CURRICULUM PAGE
+     ══════════════════════════════════════════════════════════════ -->
+<div id="page-stem" style="display:none">
+  <div class="stem-top">
+    <div class="stem-filter">
+      <button class="filter-btn active" id="f-all"         onclick="filterStem('all')">All Activities</button>
+      <button class="filter-btn fs"     id="f-science"     onclick="filterStem('science')">Science</button>
+      <button class="filter-btn ft"     id="f-technology"  onclick="filterStem('technology')">Technology</button>
+      <button class="filter-btn fe"     id="f-engineering" onclick="filterStem('engineering')">Engineering</button>
+      <button class="filter-btn fm"     id="f-math"        onclick="filterStem('math')">Math</button>
+    </div>
+    <button class="print-shop-btn" onclick="printShoppingList()"><svg class="ico"><use href="#ico-print"/></svg>Print Shopping List</button>
+  </div>
+  <div class="stem-grid" id="stemGrid"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     ART & CREATIVE PAGE
+     ══════════════════════════════════════════════════════════════ -->
+<div id="page-art" style="display:none">
+  <div class="stem-top">
+    <div class="stem-filter">
+      <button class="filter-btn active" id="af-all"     onclick="filterArt('all')">All Projects</button>
+      <button class="filter-btn fdr"   id="af-drawing"  onclick="filterArt('drawing')">Drawing</button>
+      <button class="filter-btn fpa"   id="af-painting" onclick="filterArt('painting')">Painting</button>
+      <button class="filter-btn fcr"   id="af-crafts"   onclick="filterArt('crafts')">Crafts</button>
+      <button class="filter-btn fdi"   id="af-digital"  onclick="filterArt('digital')">Digital</button>
+    </div>
+    <button class="print-shop-btn" onclick="printArtList()"><svg class="ico"><use href="#ico-print"/></svg>Print Art Supplies</button>
+  </div>
+  <div class="stem-grid" id="artGrid"></div>
+</div>
+
+<!-- ────────── EDIT MODAL ────────── -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <h3>Edit Time Block</h3>
+    <label>Activity</label>
+    <input type="text" id="editText" placeholder="e.g., Summer Workbook">
+    <p class="modal-hint">Enter to save · Esc to cancel</p>
+    <label>Type</label>
+    <select id="editType">
+      <option value="routine">Morning Routine</option>
+      <option value="reading">Reading</option>
+      <option value="education">Education</option>
+      <option value="lunch">Lunch / Break</option>
+      <option value="screen">Screen Time</option>
+      <option value="outdoor">Outdoor Play</option>
+      <option value="fieldtrip">Field Trip</option>
+      <option value="free">Free / Creative</option>
+      <option value="camp">Sports Camp</option>
+      <option value="trip">Family Trip</option>
+      <option value="school">School</option>
+      <option value="blank">Blank</option>
+    </select>
+    <div class="modal-btns">
+      <button class="btn btn-danger" onclick="resetCell()">↩ Reset</button>
+      <button class="btn" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveCell()">Save</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Camp Hyde · Built on Maggie's original · Content spines:
+  <a href="https://github.com/dariusk/corpora" target="_blank">corpora</a> ·
+  <a href="https://github.com/uberspot/OpenTriviaQA" target="_blank">OpenTriviaQA</a> ·
+  <a href="https://github.com/stdlib-js/datasets-us-states-capitals" target="_blank">state capitals</a> ·
+  <a href="https://apod.nasa.gov" target="_blank">NASA APOD</a> ·
+  <a href="https://open-meteo.com" target="_blank">Open-Meteo</a>
+</footer>
+
+<!-- DATA: verbatim catalogs from Maggie's original, then content spines -->
+<script src="./data/legacy_catalogs.js"></script>
+<script src="./data/spines.js"></script>
+
+<script>
+// ════════════════════════════════════════════════════════════
+//  CAMP HYDE · APP LOGIC
+// ════════════════════════════════════════════════════════════
+
+const DAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday'];
+const DAY_ABBR = ['Mon','Tue','Wed','Thu','Fri'];
+const HOURS = ['8:00','9:00','10:00','11:00','12:00','1:00','2:00','3:00'];
+const HOURS_LONG = ['8 AM','9 AM','10 AM','11 AM','12 PM','1 PM','2 PM','3 PM'];
+
+// SVG symbol IDs by activity type — overrides legacy TYPE_ICONS (emoji)
+const TYPE_ICON_IDS = {
+  routine: 'ico-routine', reading: 'ico-reading', education: 'ico-education',
+  lunch: 'ico-lunch', screen: 'ico-screen', outdoor: 'ico-outdoor',
+  fieldtrip: 'ico-fieldtrip', free: 'ico-free', camp: 'ico-camp',
+  trip: 'ico-trip', school: 'ico-school', blank: 'ico-blank',
+};
+const CATEGORY_ICON_IDS = {
+  science: 'ico-science', technology: 'ico-technology',
+  engineering: 'ico-engineering', math: 'ico-math',
+  drawing: 'ico-drawing', painting: 'ico-painting',
+  crafts: 'ico-crafts', digital: 'ico-digital',
+};
+
+// Strip emoji characters from any text — Maggie's catalogs use emoji
+// prefixes; the SVG icon system replaces them.
+function stripEmoji(s) {
+  if (!s) return '';
+  return s.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{1F000}-\u{1F02F}\u{1F0A0}-\u{1F0FF}\u{1F100}-\u{1F1FF}️‍⃣]/gu, '').replace(/\s+/g,' ').trim();
+}
+
+const SUMMER_START = new Date('2026-05-21T00:00:00');
+const SUMMER_END   = new Date('2026-08-12T00:00:00');
+const TRIP_START   = new Date('2026-07-02T00:00:00');
+const TRIP_END     = new Date('2026-07-07T00:00:00');
+const MEMORIAL_DAY = new Date('2026-05-25T00:00:00');
+const CAMP_WEEK    = '2026-06-15';
+const SPORTS_CAMP_DAYS = ['2026-06-15','2026-06-16','2026-06-17','2026-06-18','2026-06-19'];
+
+// ── Weekly themes (one per week, indexed by week start ISO date) ──
+const WEEKLY_THEMES = {
+  '2026-05-18': { num:'01', title:'Last Bell, First Bonfire',  stemId:null, artId:null,  fieldTrip:'Boise River Greenbelt' },
+  '2026-05-25': { num:'02', title:'Backyard Naturalist',       stemId:3,    artId:101,   fieldTrip:'MK Nature Center' },
+  '2026-06-01': { num:'03', title:'Water & Wonder',            stemId:2,    artId:104,   fieldTrip:'Lucky Peak State Park' },
+  '2026-06-08': { num:'04', title:'Build It Week',             stemId:6,    artId:107,   fieldTrip:'Discovery Center of Idaho' },
+  '2026-06-15': { num:'05', title:'Sports Camp',               stemId:1,    artId:108,   fieldTrip:'Jump Time Trampoline Park' },
+  '2026-06-22': { num:'06', title:'Mountain West Travelers',   stemId:null, artId:null,  fieldTrip:'Fallon / June Lake' },
+  '2026-06-29': { num:'07', title:'Stars & Sky',               stemId:8,    artId:103,   fieldTrip:'Idaho Botanical Garden' },
+  '2026-07-06': { num:'08', title:'Family Trip',               stemId:null, artId:null,  fieldTrip:'Family Trip' },
+  '2026-07-13': { num:'09', title:'Idaho Stories',             stemId:10,   artId:109,   fieldTrip:'Idaho State Museum' },
+  '2026-07-20': { num:'10', title:'Maker Days',                stemId:7,    artId:110,   fieldTrip:'Wahooz Family Fun Zone' },
+  '2026-07-27': { num:'11', title:'Heat Wave Workshop',        stemId:9,    artId:111,   fieldTrip:'Roaring Springs Water Park' },
+  '2026-08-03': { num:'12', title:'Long Light',                stemId:11,   artId:106,   fieldTrip:'Zoo Boise' },
+  '2026-08-10': { num:'13', title:'Last Hurrah',               stemId:12,   artId:102,   fieldTrip:'Shoshone Falls (Day Trip)' },
+};
+
+// ── Build week list ──
+function generateWeeks() {
+  const weeks = [];
+  let d = new Date('2026-05-18T00:00:00');
+  const stop = new Date('2026-08-17T00:00:00');
+  while (d <= stop) {
+    weeks.push(new Date(d));
+    d = new Date(d.getTime() + 7 * 86400000);
+  }
+  return weeks;
+}
+const WEEKS = generateWeeks();
+
+function weekKey(d) { return d.toISOString().slice(0,10); }
+function dayDate(wDate, i) { const d = new Date(wDate); d.setDate(d.getDate()+i); return d; }
+function dayKey(d) { return d.toISOString().slice(0,10); }
+function sameDay(a, b) { return a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate(); }
+function isSchoolDay(d) { return d < SUMMER_START || d >= SUMMER_END; }
+function isTripDay(d) { return d >= TRIP_START && d <= TRIP_END; }
+function isMemorialDay(d) { return sameDay(d, MEMORIAL_DAY); }
+function isSportsCamp(d) { return SPORTS_CAMP_DAYS.includes(dayKey(d)); }
+function dayOfYear(d) {
+  const start = new Date(d.getFullYear(),0,0);
+  return Math.floor((d - start)/86400000);
+}
+
+// ── State ──
+let currentWeekIndex = 0;
+let editContext = null;
+let userEditedName = false;
+let currentCatFilter = 'all';
+let currentArtFilter = 'all';
+let stemExpanded = new Set();
+let artExpanded = new Set();
+let forecastData = null;
+
+// ── localStorage helpers ──
+const PREFIX = 'hyde26_';
+const lsKey = (wk,d,s) => `${PREFIX}cell_${wk}_${d}_${s}`;
+const parentKey = (wk,d,s) => `${PREFIX}parent_${wk}_${d}_${s}`;
+const notesKey = wk => `${PREFIX}notes_${wk}`;
+const readingKey = (wk,kid) => `${PREFIX}reading_${wk}_${kid}`;
+const heatDismissKey = d => `${PREFIX}heatdismiss_${d}`;
+
+function getSaved(wk,d,s) { try { const v = localStorage.getItem(lsKey(wk,d,s)); return v?JSON.parse(v):null; } catch(e){return null;} }
+function setSaved(wk,d,s,data) { try { localStorage.setItem(lsKey(wk,d,s), JSON.stringify(data)); } catch(e){} }
+function removeSaved(wk,d,s) { try { localStorage.removeItem(lsKey(wk,d,s)); } catch(e){} }
+function getNotes(wk) { try { return localStorage.getItem(notesKey(wk))||''; } catch(e){return '';} }
+function saveNotes() {
+  const wk = weekKey(WEEKS[currentWeekIndex]);
+  try { localStorage.setItem(notesKey(wk), document.getElementById('weekNotes').value); } catch(e){}
+}
+function getParent(wk,d,s) { try { return localStorage.getItem(parentKey(wk,d,s))||''; } catch(e){return '';} }
+function setParent(wk,d,s,v) { try { v?localStorage.setItem(parentKey(wk,d,s),v):localStorage.removeItem(parentKey(wk,d,s)); } catch(e){} }
+
+const PARENT_CYCLE  = ['', 'M', 'S', 'both'];
+const PARENT_LABELS = { '':'+', 'M':'M', 'S':'S', 'both':'M+S' };
+const PARENT_CLASSES = { '':'pb-none', 'M':'pb-M', 'S':'pb-S', 'both':'pb-both' };
+
+// ── Apply weekly theme to default schedule ──
+function applyWeeklyOverrides(wDate, dayIdx, slotIdx, baseData) {
+  const theme = WEEKLY_THEMES[weekKey(wDate)];
+  if (!theme) return baseData;
+
+  // Tuesday slot 2 (10 AM) → STEM pick
+  if (dayIdx === 1 && slotIdx === 2 && theme.stemId) {
+    const stem = STEM_ACTIVITIES.find(a => a.id === theme.stemId);
+    if (stem) return { text: `${stem.emoji} ${stem.title}`, type: 'education', spotlight: true };
+  }
+  // Tuesday slot 6 (2 PM) → Art project
+  if (dayIdx === 1 && slotIdx === 6 && theme.artId) {
+    const art = ART_ACTIVITIES.find(a => a.id === theme.artId);
+    if (art) return { text: `${art.emoji} ${art.title}`, type: 'free', spotlight: true };
+  }
+  // Wednesday slots 5 & 6 (1–3 PM) → Field trip
+  if (dayIdx === 2 && (slotIdx === 5 || slotIdx === 6) && theme.fieldTrip
+      && theme.fieldTrip !== 'Family Trip') {
+    return { text: theme.fieldTrip, type: 'fieldtrip', spotlight: true };
+  }
+  // Friday slot 6 (2 PM) → STEM project as Crunch Labs replacement
+  if (dayIdx === 4 && slotIdx === 6 && theme.stemId) {
+    const stem = STEM_ACTIVITIES.find(a => a.id === theme.stemId);
+    if (stem) return { text: `${stripEmoji(stem.title)} (Pt. 2)`, type: 'education' };
+  }
+  return baseData;
+}
+
+// ── Cell data resolver ──
+function getCellData(wDate, dayIdx, slotIdx) {
+  const wk = weekKey(wDate);
+  const saved = getSaved(wk, dayIdx, slotIdx);
+  if (saved) return saved;
+
+  const dd = dayDate(wDate, dayIdx);
+
+  if (isSchoolDay(dd)) return { text:'School', type:'school' };
+  if (isMemorialDay(dd)) return { text:'Memorial Day', type:'free' };
+  if (isTripDay(dd)) return { text:'Family Trip', type:'trip' };
+
+  const ddKey = dayKey(dd);
+  if (SPECIAL_DAY_EVENTS[ddKey]) return SPECIAL_DAY_EVENTS[ddKey];
+
+  // Sports Camp week: block 9 AM – 4 PM (slots 1–7)
+  if (isSportsCamp(dd) && slotIdx >= 1) {
+    const labels = ['', 'Drop-off', 'Sports Camp', 'Sports Camp', 'Sports Camp (Lunch)', 'Sports Camp', 'Sports Camp', 'Sports Camp / Pick-up'];
+    return { text: labels[slotIdx], type: 'camp' };
+  }
+
+  const base = DEFAULT_SCHEDULE[dayIdx][slotIdx];
+  return applyWeeklyOverrides(wDate, dayIdx, slotIdx, base);
+}
+
+// ── Heat-flag check ──
+function isHeatDay(d) {
+  if (!forecastData) return false;
+  const k = dayKey(d);
+  if (forecastData[k] !== undefined && forecastData[k] >= 95) {
+    if (!localStorage.getItem(heatDismissKey(k))) return true;
+  }
+  return false;
+}
+
+// ── Grid render ──
+function el(tag, cls, txt) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (txt != null) e.textContent = txt;
+  return e;
+}
+
+function renderGrid() {
+  const wDate = WEEKS[currentWeekIndex];
+  const wk = weekKey(wDate);
+  const grid = document.getElementById('scheduleGrid');
+  grid.innerHTML = '';
+  const today = new Date();
+
+  // Header row
+  grid.appendChild(el('div','gh','Time'));
+  for (let i = 0; i < 5; i++) {
+    const dd = dayDate(wDate, i);
+    const isT = sameDay(dd, today);
+    const h = el('div','gh' + (isT ? ' is-today' : ''));
+    const dateStr = dd.toLocaleDateString('en-US',{ month:'short', day:'numeric' });
+    h.innerHTML = `${DAYS[i]}<span class="day-date">${dateStr}</span>`;
+    grid.appendChild(h);
+  }
+
+  // Time rows
+  for (let slotIdx = 0; slotIdx < HOURS.length; slotIdx++) {
+    grid.appendChild(el('div','tl', HOURS_LONG[slotIdx]));
+    for (let dayIdx = 0; dayIdx < 5; dayIdx++) {
+      const data = getCellData(wDate, dayIdx, slotIdx);
+      const parent = getParent(wk, dayIdx, slotIdx);
+      const dd = dayDate(wDate, dayIdx);
+      const isT = sameDay(dd, today);
+
+      const cell = document.createElement('div');
+      cell.className = `sc t-${data.type || 'blank'}${isT ? ' is-today' : ''}`;
+      cell.onclick = () => openModal(dayIdx, slotIdx, wDate);
+
+      const iconId = TYPE_ICON_IDS[data.type] || 'ico-blank';
+      const iconSvg = data.type && data.type !== 'blank'
+        ? `<svg class="ico"><use href="#${iconId}"/></svg>` : '';
+      const cleanText = stripEmoji(data.text);
+      const cc = document.createElement('div');
+      cc.className = 'cc';
+      cc.innerHTML = `<div class="ci">${iconSvg}<span class="ct">${cleanText}</span></div>`;
+      cell.appendChild(cc);
+
+      // Parent badge
+      const badge = document.createElement('button');
+      badge.className = `parent-badge ${PARENT_CLASSES[parent]}`;
+      badge.textContent = PARENT_LABELS[parent];
+      badge.id = `pb_${dayIdx}_${slotIdx}`;
+      badge.onclick = (e) => { e.stopPropagation(); toggleParent(dayIdx, slotIdx); };
+      cell.appendChild(badge);
+
+      // Heat flag (outdoor / free type, 1–3 PM slots, hot days)
+      if (isHeatDay(dd) && (data.type === 'outdoor' || (data.type === 'free' && slotIdx >= 5))
+          && slotIdx >= 5) {
+        const hf = document.createElement('span');
+        hf.className = 'heat-flag';
+        hf.innerHTML = '<svg class="ico"><use href="#ico-heat"/></svg>SWAP';
+        hf.title = `Forecast high ${forecastData[dayKey(dd)]}°F — consider swapping to indoor activity. Click to dismiss.`;
+        hf.onclick = (e) => {
+          e.stopPropagation();
+          localStorage.setItem(heatDismissKey(dayKey(dd)), '1');
+          renderGrid();
+        };
+        cell.appendChild(hf);
+      }
+
+      const eh = document.createElement('span');
+      eh.className = 'eh';
+      eh.textContent = '✎';
+      cell.appendChild(eh);
+      grid.appendChild(cell);
+    }
+  }
+}
+
+function toggleParent(dayIdx, slotIdx) {
+  const wk = weekKey(WEEKS[currentWeekIndex]);
+  const cur = getParent(wk, dayIdx, slotIdx);
+  const next = PARENT_CYCLE[(PARENT_CYCLE.indexOf(cur) + 1) % PARENT_CYCLE.length];
+  setParent(wk, dayIdx, slotIdx, next);
+  const badge = document.getElementById(`pb_${dayIdx}_${slotIdx}`);
+  badge.className = `parent-badge ${PARENT_CLASSES[next]}`;
+  badge.textContent = PARENT_LABELS[next];
+}
+
+// ── Theme strip ──
+function updateThemeStrip(wDate) {
+  const wk = weekKey(wDate);
+  const theme = WEEKLY_THEMES[wk];
+  if (!theme) {
+    document.getElementById('weekNum').textContent = '';
+    document.getElementById('weekTitle').textContent = 'Off-Season';
+    return;
+  }
+  document.getElementById('weekNum').textContent = `Week ${theme.num}`;
+  document.getElementById('weekTitle').textContent = theme.title;
+
+  // Word/Bird of the day — pull from CORPORA, deterministic per week
+  const idx = parseInt(theme.num, 10) - 1;
+  const bird = CORPORA.birds_backyard[idx * 11 % CORPORA.birds_backyard.length];
+  const plant = CORPORA.plants[idx * 7 % CORPORA.plants.length];
+  document.getElementById('wordOfDay').innerHTML =
+    `<strong>Bird of the week</strong> · <em>${bird.name}</em><br>Plant · <em>${plant}</em>`;
+}
+
+// ── Spotlight (right sidebar top card) ──
+function updateSpotlight(wDate) {
+  const wk = weekKey(wDate);
+  const theme = WEEKLY_THEMES[wk];
+  const idx = theme ? (parseInt(theme.num, 10) - 1) : 0;
+
+  // APOD pick
+  const apod = APOD_WEEKS.weeks[idx] || APOD_WEEKS.weeks[0];
+  // State of the week
+  const stateTour = ['Idaho','Nevada','Oregon','Wyoming','Montana','California',
+                     'Washington','Utah','Colorado','New Mexico','Arizona','Alaska','Hawaii'];
+  const stateName = stateTour[idx] || 'Idaho';
+  const statePair = STATE_CAPITALS.pairs.find(p => p.state === stateName) || STATE_CAPITALS.pairs[11];
+
+  // Bird of the week
+  const bird = CORPORA.birds_backyard[idx * 11 % CORPORA.birds_backyard.length];
+
+  const html = `
+    <div class="apod-title">${apod.title}</div>
+    <div class="apod-credit">${apod.credit}</div>
+    <img class="apod-img" src="${apod.img}" alt="${apod.title}" onerror="this.style.display='none'">
+    <div class="apod-kid">${apod.kid}</div>
+    <hr class="divider">
+    <div class="state-block">
+      <div class="lbl">State</div><div class="val">${statePair.state}</div>
+      <div class="lbl">Capital</div><div class="val">${statePair.capital}</div>
+      <div class="lbl">Bird</div><div class="val bird">${bird.name}</div>
+    </div>
+  `;
+  document.getElementById('spotlightContent').innerHTML = html;
+}
+
+// ── Daily trivia (deterministic per day-of-year) ──
+function updateTrivia() {
+  const today = new Date();
+  const doy = dayOfYear(today);
+  const q = TRIVIA.questions[doy % TRIVIA.questions.length];
+  document.getElementById('triviaDate').textContent =
+    today.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  const choicesHtml = q.choices.map((c,i) =>
+    `<li onclick="answerTrivia(this, '${c.replace(/'/g,"\\'")}', '${q.a.replace(/'/g,"\\'")}')">${String.fromCharCode(65+i)}. ${c}</li>`
+  ).join('');
+  document.getElementById('triviaContent').innerHTML = `
+    <div class="trivia-q-num">${q.cat}</div>
+    <div class="trivia-q">${q.q}</div>
+    <ul class="trivia-choices">${choicesHtml}</ul>
+  `;
+}
+function answerTrivia(li, picked, correct) {
+  const ul = li.parentElement;
+  [...ul.children].forEach(c => {
+    const text = c.textContent.replace(/^[A-D]\.\s/,'');
+    if (text === correct) c.classList.add('correct');
+    else if (text === picked) c.classList.add('wrong');
+    c.onclick = null;
+  });
+}
+
+// ── Reading log ──
+function updateReadingLog() {
+  const wk = weekKey(WEEKS[currentWeekIndex]);
+  const container = document.getElementById('readingLog');
+  const kids = ['kid1','kid2'];
+  const labels = ['Big Kid (10)','Little Kid (8)'];
+  container.innerHTML = kids.map((k, i) => {
+    const saved = JSON.parse(localStorage.getItem(readingKey(wk,k)) || '{}');
+    return `
+      <div class="reading-row">
+        <div class="kid-label">${labels[i]}</div>
+        <input type="text" placeholder="Book title…" value="${(saved.title || '').replace(/"/g,'&quot;')}"
+               onchange="saveReading('${k}','title',this.value)">
+        <div class="pages-row">
+          <span>Pages:</span>
+          <input type="number" min="0" placeholder="0" value="${saved.pages || ''}"
+                 onchange="saveReading('${k}','pages',this.value)">
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+function saveReading(kid, field, val) {
+  const wk = weekKey(WEEKS[currentWeekIndex]);
+  const cur = JSON.parse(localStorage.getItem(readingKey(wk,kid)) || '{}');
+  cur[field] = val;
+  localStorage.setItem(readingKey(wk,kid), JSON.stringify(cur));
+}
+
+// ── Week label + nav buttons ──
+function updateWeekLabel(wDate) {
+  const endDate = new Date(wDate); endDate.setDate(endDate.getDate()+4);
+  const start = wDate.toLocaleDateString('en-US',{month:'long',day:'numeric'});
+  const end   = endDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  document.getElementById('weekLabel').textContent = `${start} – ${end}`;
+  const idx = currentWeekIndex + 1;
+  document.getElementById('weekProgress').textContent = `Week ${idx} of ${WEEKS.length}`;
+}
+
+function updateNotes(wk) {
+  document.getElementById('weekNotes').value = getNotes(wk);
+}
+
+// ── Screen-time bar (fixed math: count slots as hours, cap 2) ──
+function updateScreenBar() {
+  const wDate = WEEKS[currentWeekIndex];
+  const wk = weekKey(wDate);
+  // Average across the 5 weekdays
+  let total = 0;
+  for (let dayIdx = 0; dayIdx < 5; dayIdx++) {
+    for (let slotIdx = 0; slotIdx < HOURS.length; slotIdx++) {
+      const data = getCellData(wDate, dayIdx, slotIdx);
+      if (data.type === 'screen') total++;
+    }
+  }
+  const avg = total / 5;
+  const pct = Math.min((avg / 2) * 100, 130);
+  const fill = document.getElementById('screenFill');
+  fill.style.width = pct + '%';
+  fill.classList.toggle('over', avg > 2);
+  document.getElementById('screenAmt').textContent = `${avg.toFixed(1)} / 2.0 hrs · avg`;
+}
+
+function updateNavBtns() {
+  document.getElementById('prevBtn').disabled = currentWeekIndex === 0;
+  document.getElementById('nextBtn').disabled = currentWeekIndex === WEEKS.length - 1;
+}
+
+function changeWeek(dir) {
+  const ni = currentWeekIndex + dir;
+  if (ni < 0 || ni >= WEEKS.length) return;
+  currentWeekIndex = ni;
+  renderAll();
+}
+
+function jumpToToday() {
+  const today = new Date();
+  let bestIdx = 0;
+  for (let i = 0; i < WEEKS.length; i++) {
+    if (today >= WEEKS[i]) bestIdx = i;
+  }
+  currentWeekIndex = bestIdx;
+  renderAll();
+}
+
+function renderAll() {
+  const wDate = WEEKS[currentWeekIndex];
+  const wk = weekKey(wDate);
+  updateWeekLabel(wDate);
+  updateThemeStrip(wDate);
+  renderGrid();
+  updateNotes(wk);
+  updateScreenBar();
+  updateNavBtns();
+  updateSpotlight(wDate);
+  updateReadingLog();
+  document.getElementById('heatBanner').classList.toggle('show', hasAnyHeatDay());
+}
+
+function hasAnyHeatDay() {
+  if (!forecastData) return false;
+  const wDate = WEEKS[currentWeekIndex];
+  for (let i = 0; i < 5; i++) {
+    const d = dayDate(wDate, i);
+    if (isHeatDay(d)) return true;
+  }
+  return false;
+}
+
+// ── Modal ──
+function openModal(dayIdx, slotIdx, wDate) {
+  editContext = { dayIdx, slotIdx, wDate };
+  userEditedName = false;
+  const data = getCellData(wDate, dayIdx, slotIdx);
+  document.getElementById('editText').value = data.text || '';
+  document.getElementById('editType').value = data.type || 'blank';
+  document.getElementById('editModal').classList.add('show');
+  setTimeout(() => document.getElementById('editText').select(), 50);
+}
+function closeModal() {
+  document.getElementById('editModal').classList.remove('show');
+  editContext = null;
+}
+function saveCell() {
+  if (!editContext) return;
+  const { dayIdx, slotIdx, wDate } = editContext;
+  const wk = weekKey(wDate);
+  const text = document.getElementById('editText').value.trim();
+  const type = document.getElementById('editType').value;
+  if (!text) { removeSaved(wk, dayIdx, slotIdx); }
+  else { setSaved(wk, dayIdx, slotIdx, { text, type }); }
+  closeModal();
+  renderGrid();
+  updateScreenBar();
+}
+function resetCell() {
+  if (!editContext) return;
+  const { dayIdx, slotIdx, wDate } = editContext;
+  removeSaved(weekKey(wDate), dayIdx, slotIdx);
+  closeModal();
+  renderGrid();
+  updateScreenBar();
+}
+
+document.addEventListener('keydown', (e) => {
+  if (!document.getElementById('editModal').classList.contains('show')) return;
+  if (e.key === 'Enter') { e.preventDefault(); saveCell(); }
+  else if (e.key === 'Escape') closeModal();
+});
+document.getElementById('editModal').addEventListener('click', (e) => {
+  if (e.target.id === 'editModal') closeModal();
+});
+document.getElementById('editText').addEventListener('input', () => { userEditedName = true; });
+document.getElementById('editType').addEventListener('change', () => {
+  if (userEditedName) return;
+  // Auto-fill name from type
+  const map = {
+    routine:'Morning Routine & Chores', reading:'Reading Time',
+    education:'Summer Workbook', lunch:'Lunch & Free Reading',
+    screen:'Screen Time', outdoor:'Outdoor Free Play',
+    fieldtrip:'Field Trip', free:'Creative Time',
+    camp:'Sports Camp', trip:'Family Trip', school:'School', blank:''
+  };
+  document.getElementById('editText').value = map[document.getElementById('editType').value] || '';
+});
+
+// ── Field trip list ──
+function renderFieldTrips() {
+  const list = document.getElementById('ftList');
+  list.innerHTML = '';
+  const lblFree = el('div','ft-section-label','Free & low-cost');
+  list.appendChild(lblFree);
+  FREE_TRIPS.forEach(t => {
+    const d = document.createElement('div');
+    d.className = 'ft-item';
+    d.innerHTML = `<span class="ft-name">${stripEmoji(t.name)}</span><span class="ft-detail">${stripEmoji(t.detail)}</span>`;
+    d.onclick = () => copyTrip(d, stripEmoji(t.name));
+    list.appendChild(d);
+  });
+  const lblPaid = el('div','ft-section-label','Paid');
+  list.appendChild(lblPaid);
+  PAID_TRIPS.forEach(t => {
+    const d = document.createElement('div');
+    d.className = 'ft-item paid';
+    d.innerHTML = `<span class="ft-name">${stripEmoji(t.name)}</span><span class="ft-detail">${stripEmoji(t.detail)}</span>`;
+    d.onclick = () => copyTrip(d, stripEmoji(t.name));
+    list.appendChild(d);
+  });
+}
+function copyTrip(el, name) {
+  try { navigator.clipboard.writeText(name); } catch(e) {}
+  el.classList.add('copied');
+  setTimeout(() => el.classList.remove('copied'), 1400);
+}
+
+// ── Weather: Open-Meteo (no API key, CC-BY) ──
+async function loadForecast() {
+  const cacheKey = PREFIX + 'forecast_v1';
+  try {
+    const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
+    if (cached && Date.now() - cached.ts < 6 * 3600 * 1000) {
+      forecastData = cached.data;
+      return;
+    }
+  } catch(e) {}
+
+  try {
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=43.61&longitude=-116.20'
+              + '&daily=temperature_2m_max&temperature_unit=fahrenheit&timezone=America%2FDenver'
+              + '&forecast_days=14';
+    const res = await fetch(url);
+    const j = await res.json();
+    forecastData = {};
+    j.daily.time.forEach((d, i) => { forecastData[d] = Math.round(j.daily.temperature_2m_max[i]); });
+    localStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), data: forecastData }));
+  } catch(e) {
+    console.warn('Open-Meteo fetch failed (likely CORS on file://):', e);
+    forecastData = null;
+  }
+}
+
+// ── Tab navigation ──
+function showPage(name) {
+  ['schedule','stem','art'].forEach(p => {
+    document.getElementById('page-'+p).style.display = (p===name) ? '' : 'none';
+    document.getElementById('tab-'+p).classList.toggle('active', p===name);
+  });
+  if (name === 'stem' && document.getElementById('stemGrid').children.length === 0) renderStem();
+  if (name === 'art' && document.getElementById('artGrid').children.length === 0) renderArt();
+}
+
+// ── STEM cards ──
+function renderStem() {
+  const grid = document.getElementById('stemGrid');
+  grid.innerHTML = '';
+  const items = currentCatFilter === 'all'
+    ? STEM_ACTIVITIES
+    : STEM_ACTIVITIES.filter(a => a.cat === currentCatFilter);
+  items.forEach(a => grid.appendChild(buildActivityCard(a, stemExpanded)));
+}
+function filterStem(cat) {
+  currentCatFilter = cat;
+  document.querySelectorAll('#page-stem .filter-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('f-' + (cat === 'all' ? 'all' : cat)).classList.add('active');
+  renderStem();
+}
+function renderArt() {
+  const grid = document.getElementById('artGrid');
+  grid.innerHTML = '';
+  const items = currentArtFilter === 'all'
+    ? ART_ACTIVITIES
+    : ART_ACTIVITIES.filter(a => a.cat === currentArtFilter);
+  items.forEach(a => grid.appendChild(buildActivityCard(a, artExpanded)));
+}
+function filterArt(cat) {
+  currentArtFilter = cat;
+  document.querySelectorAll('#page-art .filter-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('af-' + (cat === 'all' ? 'all' : cat)).classList.add('active');
+  renderArt();
+}
+function buildActivityCard(a, expandedSet) {
+  const card = document.createElement('div');
+  card.className = 'ac' + (expandedSet.has(a.id) ? ' expanded' : '');
+  const stars = '★'.repeat(a.difficulty || 1) + '☆'.repeat(3 - (a.difficulty || 1));
+  const catIcon = CATEGORY_ICON_IDS[a.cat] || 'ico-blank';
+  card.innerHTML = `
+    <div class="ac-header" onclick="this.parentElement.classList.toggle('expanded')">
+      <div class="ico-block cat-${a.cat}">
+        <svg class="ico"><use href="#${catIcon}"/></svg>
+      </div>
+      <div class="meta-block">
+        <div class="title">${stripEmoji(a.title)}</div>
+        <div class="tags">
+          ${a.duration} <span class="dot">·</span>
+          <span class="difficulty">${stars}</span> <span class="dot">·</span>
+          ${a.ages}
+        </div>
+      </div>
+    </div>
+    <div class="ac-body">
+      <div class="desc">${a.description}</div>
+      <div class="section-label">Materials</div>
+      <table>
+        ${a.materials.map(m => `<tr><td>${m.item}</td><td>${m.qty}</td><td>${m.where}</td></tr>`).join('')}
+      </table>
+      <div class="section-label">Steps</div>
+      <ol>${a.steps.map(s => `<li>${s}</li>`).join('')}</ol>
+      ${a.tip ? `<div class="tip">${a.tip}</div>` : ''}
+    </div>
+  `;
+  return card;
+}
+
+// ── Print shopping list ──
+function printShoppingList() {
+  const items = currentCatFilter === 'all'
+    ? STEM_ACTIVITIES
+    : STEM_ACTIVITIES.filter(a => a.cat === currentCatFilter);
+  printList(items, 'STEM Shopping List');
+}
+function printArtList() {
+  const items = currentArtFilter === 'all'
+    ? ART_ACTIVITIES
+    : ART_ACTIVITIES.filter(a => a.cat === currentArtFilter);
+  printList(items, 'Art Supplies List');
+}
+function printList(items, title) {
+  const w = window.open('','_blank');
+  const rows = items.map(a => `
+    <h3 style="font-family:Georgia,serif;border-bottom:2px solid #C9633D;padding-bottom:4px;margin-top:20px;">
+      ${stripEmoji(a.title)} <span style="float:right;font-family:monospace;font-size:0.7rem;color:#666;text-transform:uppercase;">${a.cat}</span>
+    </h3>
+    <table style="width:100%;border-collapse:collapse;font-family:Georgia,serif;font-size:0.92rem;">
+      ${a.materials.map(m => `
+        <tr>
+          <td style="padding:4px 8px;border-bottom:1px dashed #ccc;"><input type="checkbox"></td>
+          <td style="padding:4px 8px;border-bottom:1px dashed #ccc;font-weight:600;">${m.item}</td>
+          <td style="padding:4px 8px;border-bottom:1px dashed #ccc;font-family:monospace;font-size:0.85rem;">${m.qty}</td>
+          <td style="padding:4px 8px;border-bottom:1px dashed #ccc;font-style:italic;color:#666;">${m.where}</td>
+        </tr>
+      `).join('')}
+    </table>
+  `).join('');
+  w.document.write(`<!doctype html><html><head><title>${title}</title></head>
+    <body style="font-family:Georgia,serif;max-width:760px;margin:30px auto;padding:0 20px;color:#1F2419;">
+      <h1 style="font-family:Georgia,serif;font-style:italic;color:#C9633D;">${title}</h1>
+      <p style="color:#666;font-size:0.9rem;">Camp Hyde · Summer 2026</p>
+      ${rows}
+    </body></html>`);
+  w.document.close();
+  setTimeout(() => w.print(), 300);
+}
+
+// ── Boot ──
+async function boot() {
+  renderFieldTrips();
+  jumpToToday();        // sets currentWeekIndex
+  updateTrivia();
+  await loadForecast(); // async, non-blocking re-render
+  renderAll();          // re-render with forecast data
+}
+boot();
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camp Hyde · Summer 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,900&family=DM+Mono:wght@400;500&family=Caprasimo&display=swap" rel="stylesheet">
+
+  <style>
+    /* ════════════════════════════════════════════════════════════
+       CAMP HYDE · RISOGRAPH CAMP POSTER
+       Cherry + cyan overprint on cream, halftone textures,
+       sticker cells with offset shadows, kid-facing maximalist.
+       ════════════════════════════════════════════════════════════ */
+
+    :root {
+      --cherry: #E63946;
+      --cherry-dark: #B92A35;
+      --cyan: #1098C7;
+      --cyan-dark: #0A6F92;
+      --canary: #F4D35E;
+      --canary-dark: #C9A82F;
+      --grass: #4A6741;
+      --grass-light: #B5D4A2;
+      --rose-light: #FAB7BF;
+      --cyan-light: #B0DEF4;
+      --ink: #0B1418;
+      --ink-soft: #3F4850;
+      --paper: #F4EDD2;
+      --paper-light: #FAF4DC;
+      --paper-dark: #E8DCAE;
+      --line: rgba(11,20,24,0.18);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      font-weight: 500;
+      background: var(--paper);
+      /* Two-tone halftone texture (cherry + cyan dots offset) */
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(230,57,70,0.10) 1px, transparent 1.5px),
+        radial-gradient(circle at 5px 5px, rgba(16,152,199,0.08) 1px, transparent 1.5px);
+      background-size: 8px 8px, 12px 12px;
+      background-attachment: fixed;
+      color: var(--ink);
+      min-height: 100vh;
+      font-size: 16px;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ════════════ HEADER ════════════ */
+    header {
+      padding: 30px 36px 22px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .sunburst {
+      position: absolute;
+      top: -70px;
+      right: -70px;
+      width: 280px;
+      height: 280px;
+      color: var(--canary);
+      transform: rotate(-12deg);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.85;
+    }
+    .sunburst svg { width: 100%; height: 100%; }
+    .header-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: flex-end;
+      gap: 30px;
+    }
+    .wordmark {
+      font-family: 'Caprasimo', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 0.88;
+      color: var(--cherry);
+      letter-spacing: -0.03em;
+      text-shadow: 3px 3px 0 var(--cyan), 6px 6px 0 var(--ink);
+    }
+    .wordmark em {
+      font-style: italic;
+      color: var(--cyan);
+      text-shadow: 3px 3px 0 var(--cherry), 6px 6px 0 var(--ink);
+    }
+    .wordmark .sub {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      color: var(--ink);
+      text-shadow: none;
+      margin-top: 14px;
+      font-weight: 500;
+    }
+    .header-meta {
+      text-align: right;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+      line-height: 1.85;
+      text-transform: uppercase;
+    }
+    .header-meta .accent {
+      color: var(--cherry);
+      font-weight: 700;
+    }
+    .header-meta .stamp {
+      display: inline-block;
+      border: 2.5px solid var(--cherry);
+      color: var(--cherry);
+      padding: 5px 11px;
+      transform: rotate(6deg);
+      margin-top: 8px;
+      font-weight: 700;
+      background: var(--paper);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    /* ════════════ TAB NAV ════════════ */
+    .tab-nav {
+      display: flex;
+      gap: 0;
+      padding: 0 36px;
+      border-bottom: 4px solid var(--ink);
+      background: var(--paper-dark);
+      position: relative;
+    }
+    .tab-btn {
+      background: var(--paper);
+      color: var(--ink);
+      border: 3px solid var(--ink);
+      border-bottom: none;
+      padding: 10px 22px;
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1rem;
+      letter-spacing: 0;
+      cursor: pointer;
+      transition: all 0.15s;
+      margin-right: 6px;
+      margin-bottom: -4px;
+      position: relative;
+      box-shadow: 4px 0 0 var(--ink);
+    }
+    .tab-btn:hover { background: var(--canary); }
+    .tab-btn.active {
+      background: var(--ink);
+      color: var(--canary);
+      transform: translateY(-2px);
+    }
+
+    /* ════════════ WEEK NAV ════════════ */
+    .week-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 14px 24px;
+      background: var(--paper-dark);
+      border-bottom: 3px solid var(--ink);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 0 var(--ink), 0 5px 16px rgba(11,20,24,0.08);
+    }
+    .week-nav button {
+      background: var(--paper);
+      color: var(--ink);
+      border: 2.5px solid var(--ink);
+      padding: 7px 16px;
+      cursor: pointer;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: all 0.12s;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    .week-nav button:hover:not(:disabled) {
+      background: var(--canary);
+      transform: translate(-1px,-1px);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+    .week-nav button:active:not(:disabled) {
+      transform: translate(1px,1px);
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+    .week-nav button:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: 2px 2px 0 var(--ink); }
+    .week-nav button.today-btn { background: var(--cherry); color: var(--paper); }
+    .week-nav button.today-btn:hover { background: var(--cherry-dark); }
+
+    #weekLabel {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--ink);
+      min-width: 280px;
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+    #weekProgress {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      color: var(--ink-soft);
+      text-align: center;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ════════════ BIG WEEK BANNER ════════════ */
+    .week-banner {
+      background: var(--cherry);
+      color: var(--paper);
+      padding: 26px 36px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 30px;
+      align-items: center;
+      position: relative;
+      border-bottom: 4px solid var(--ink);
+      overflow: hidden;
+    }
+    .week-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(11,20,24,0.16) 1px, transparent 1.5px);
+      background-size: 4px 4px;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+    .wk-numeral {
+      font-family: 'Caprasimo', serif;
+      font-size: clamp(5rem, 12vw, 7.5rem);
+      line-height: 0.85;
+      color: var(--canary);
+      text-shadow: 3px 3px 0 var(--ink);
+      position: relative;
+      z-index: 1;
+    }
+    .wk-title-block { position: relative; z-index: 1; }
+    .wk-kicker {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      opacity: 0.88;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .wk-title {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .wk-of-week {
+      background: var(--cyan);
+      color: var(--paper);
+      padding: 11px 18px;
+      transform: rotate(-3deg);
+      border: 3px solid var(--ink);
+      box-shadow: 5px 5px 0 var(--ink);
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      position: relative;
+      z-index: 1;
+      min-width: 170px;
+    }
+    .wk-of-week .lbl {
+      font-size: 0.64rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.88;
+      font-weight: 600;
+    }
+    .wk-of-week .nm {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      margin-top: 4px;
+      line-height: 1.1;
+    }
+
+    /* ════════════ HEAT BANNER ════════════ */
+    #heatBanner {
+      display: none;
+      background: var(--canary);
+      color: var(--ink);
+      padding: 10px 36px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-align: center;
+      border-bottom: 3px solid var(--ink);
+      font-weight: 600;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+    #heatBanner.show { display: flex; }
+    #heatBanner svg { color: var(--cherry); }
+
+    /* ════════════ LAYOUT ════════════ */
+    .main-content {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 30px 24px 50px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 30px;
+    }
+
+    /* ════════════ SCREEN-TIME STICKER ════════════ */
+    .screen-bar {
+      background: var(--canary);
+      border: 3px solid var(--ink);
+      box-shadow: 5px 5px 0 var(--ink);
+      padding: 11px 18px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transform: rotate(-0.4deg);
+    }
+    .screen-bar .lbl {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .screen-bar .lbl svg { width: 16px; height: 16px; }
+    .screen-bar .bar-wrap {
+      flex: 1;
+      background: var(--paper);
+      height: 11px;
+      position: relative;
+      border: 2px solid var(--ink);
+    }
+    .screen-bar .bar-fill {
+      height: 100%;
+      background: var(--cyan);
+      transition: width 0.4s, background 0.4s;
+    }
+    .screen-bar .bar-fill.over { background: var(--cherry); }
+    .screen-bar .amt {
+      font-weight: 700;
+      white-space: nowrap;
+      min-width: 110px;
+      text-align: right;
+      color: var(--ink);
+    }
+
+    /* ════════════ STICKER GRID ════════════ */
+    .grid-wrapper {
+      padding: 4px;
+      margin-bottom: 18px;
+    }
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: 78px repeat(5, 1fr);
+      gap: 8px;
+    }
+    .gh {
+      background: var(--ink);
+      color: var(--canary);
+      padding: 13px 8px;
+      text-align: center;
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.1;
+      border: 3px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--cherry);
+    }
+    .gh.is-today {
+      background: var(--cherry);
+      color: var(--canary);
+      box-shadow: 4px 4px 0 var(--cyan);
+    }
+    .gh .day-date {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--paper);
+      opacity: 0.78;
+      margin-top: 4px;
+    }
+
+    .tl {
+      padding: 8px 8px 0 0;
+      text-align: right;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      min-height: 84px;
+    }
+    .tl .num {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--cherry);
+      margin-right: 4px;
+      line-height: 1;
+    }
+
+    /* Sticker cells */
+    .sc {
+      background: var(--paper-light);
+      border: 2.5px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 0;
+      min-height: 84px;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .sc:hover {
+      transform: translate(-2px,-2px);
+      box-shadow: 6px 6px 0 var(--ink);
+      z-index: 5;
+    }
+    .sc:hover .eh { opacity: 1; }
+    .sc.is-today {
+      box-shadow: 4px 4px 0 var(--cherry), 8px 8px 0 var(--ink);
+      animation: marching-cherry 4s linear infinite;
+    }
+    @keyframes marching-cherry {
+      0%, 100% { box-shadow: 4px 4px 0 var(--cherry), 8px 8px 0 var(--ink); }
+      50% { box-shadow: 5px 5px 0 var(--cherry), 9px 9px 0 var(--ink); }
+    }
+
+    /* Random sticker tilts via nth-child */
+    .sc:nth-child(11n+1) { transform: rotate(-0.4deg); }
+    .sc:nth-child(11n+4) { transform: rotate(0.3deg); }
+    .sc:nth-child(11n+7) { transform: rotate(-0.25deg); }
+    .sc:nth-child(11n+9) { transform: rotate(0.45deg); }
+    .sc:hover { transform: translate(-2px,-2px) rotate(0deg); }
+
+    .cc {
+      padding: 9px 11px;
+      height: 100%;
+      min-height: 84px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+    }
+    .ci {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      line-height: 1;
+    }
+    .ci svg { width: 17px; height: 17px; flex-shrink: 0; color: currentColor; }
+    .ct {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+    .ct-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.62;
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+
+    /* Edit pencil hint */
+    .eh {
+      position: absolute;
+      top: 5px; right: 7px;
+      opacity: 0;
+      font-size: 0.7rem;
+      color: var(--ink);
+      transition: opacity 0.18s;
+      pointer-events: none;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ════════════ CELL TYPE COLORS ════════════ */
+    .t-routine   { background: var(--canary); }
+    .t-reading   { background: var(--paper-dark); }
+    .t-education { background: var(--cyan-light); border-color: var(--cyan-dark); }
+    .t-lunch     { background: var(--rose-light); border-color: var(--cherry); }
+    .t-screen    { background: #F5D89E; }
+    .t-outdoor   { background: var(--grass-light); border-color: var(--grass); }
+    .t-fieldtrip { background: var(--cyan); color: var(--paper); border-color: var(--ink); }
+    .t-fieldtrip .ct { color: var(--paper); }
+    .t-fieldtrip .ct-tag { color: var(--canary); opacity: 1; }
+    .t-free      { background: var(--cherry); color: var(--paper); border-color: var(--ink); }
+    .t-free .ct { color: var(--paper); }
+    .t-free .ct-tag { color: var(--canary); opacity: 1; }
+    .t-camp      { background: var(--cherry); color: var(--canary); }
+    .t-camp .ct { color: var(--canary); }
+    .t-camp .ct-tag { color: var(--paper); opacity: 1; }
+    .t-trip      { background: var(--cyan); color: var(--canary); }
+    .t-trip .ct { color: var(--canary); }
+    .t-trip .ct-tag { color: var(--paper); opacity: 1; }
+    .t-school    { background: #C0BFB6; }
+    .t-blank     { background: var(--paper); opacity: 0.55; }
+
+    /* ════════════ PARENT BADGE ════════════ */
+    .parent-badge {
+      position: absolute;
+      bottom: 4px;
+      left: 4px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 1px 7px;
+      cursor: pointer;
+      user-select: none;
+      letter-spacing: 0.06em;
+      border: 2px solid var(--ink);
+      z-index: 2;
+      transition: transform 0.12s;
+    }
+    .parent-badge:hover { transform: scale(1.18); }
+    .pb-none { background: var(--paper); color: var(--ink-soft); }
+    .pb-M    { background: var(--cherry); color: var(--paper); }
+    .pb-S    { background: var(--cyan); color: var(--paper); }
+    .pb-both { background: var(--canary); color: var(--ink); }
+
+    /* ════════════ HEAT FLAG OVERLAY ════════════ */
+    .heat-flag {
+      position: absolute;
+      top: 3px;
+      right: 4px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 2px 5px;
+      background: var(--cherry);
+      color: var(--paper);
+      text-transform: uppercase;
+      z-index: 2;
+      cursor: help;
+      border: 1.5px solid var(--ink);
+    }
+    .heat-flag svg { width: 10px; height: 10px; color: var(--canary); }
+
+    /* ════════════ WEEK NOTES (NOTEBOOK) ════════════ */
+    .week-notes {
+      background: var(--paper-light);
+      border: 3px solid var(--ink);
+      box-shadow: 5px 5px 0 var(--ink);
+      padding: 16px 20px;
+      transform: rotate(-0.3deg);
+    }
+    .week-notes h3 {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--cherry);
+    }
+    .week-notes textarea {
+      width: 100%;
+      min-height: 82px;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      padding: 10px 12px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 0.95rem;
+      color: var(--ink);
+      resize: vertical;
+      /* Notebook lines */
+      background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 23px,
+        rgba(16,152,199,0.18) 23px,
+        rgba(16,152,199,0.18) 24px
+      );
+      line-height: 24px;
+    }
+    .week-notes textarea:focus { outline: 3px solid var(--cherry); border-color: transparent; }
+
+    /* ════════════ SIDEBAR CARDS ════════════ */
+    .card {
+      background: var(--paper);
+      border: 3px solid var(--ink);
+      box-shadow: 5px 5px 0 var(--ink);
+      padding: 16px 18px;
+      margin-bottom: 22px;
+      position: relative;
+    }
+    .card:nth-child(1) { transform: rotate(0.5deg); }
+    .card:nth-child(2) { transform: rotate(-0.6deg); box-shadow: 5px 5px 0 var(--cherry); }
+    .card:nth-child(3) { transform: rotate(0.4deg); box-shadow: 5px 5px 0 var(--cyan); }
+    .card:nth-child(4) { transform: rotate(-0.3deg); box-shadow: 5px 5px 0 var(--ink); }
+    .card:nth-child(5) { transform: rotate(0.5deg); box-shadow: 5px 5px 0 var(--canary-dark); }
+    .card:nth-child(6) { transform: rotate(-0.5deg); }
+    .card h3 {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .card h3 .h-ico {
+      vertical-align: -4px;
+      width: 22px;
+      height: 22px;
+      margin-right: 6px;
+      color: var(--cherry);
+    }
+
+    /* ════════════ SPOTLIGHT (APOD) ════════════ */
+    .spotlight {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0;
+      overflow: visible;
+      border: 3px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--canary);
+    }
+    .spotlight h3 { color: var(--canary); padding: 14px 18px 0; }
+    .spotlight h3 .h-ico { color: var(--cherry); }
+    .spotlight .img-wrap {
+      position: relative;
+      background: var(--ink);
+      margin: 6px 18px 12px;
+      border: 3px solid var(--paper);
+      box-shadow: 4px 4px 0 var(--cherry);
+      overflow: hidden;
+    }
+    .spotlight .img-wrap img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .spotlight .img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 2px 2px, var(--cherry) 0.8px, transparent 1.4px) 0 0 / 6px 6px,
+        radial-gradient(circle at 3px 3px, var(--cyan) 0.8px, transparent 1.4px) 1px 1px / 8px 8px;
+      mix-blend-mode: multiply;
+      opacity: 0.22;
+      pointer-events: none;
+    }
+    .spotlight .body { padding: 0 18px 18px; }
+    .spotlight .apod-title {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1.35rem;
+      line-height: 1.05;
+      color: var(--cherry);
+      margin-bottom: 4px;
+    }
+    .spotlight .apod-credit {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      color: var(--canary);
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 10px;
+    }
+    .spotlight .apod-kid {
+      font-size: 0.92rem;
+      line-height: 1.45;
+      color: var(--paper);
+    }
+    .spotlight .divider {
+      border: none;
+      border-top: 2px dashed rgba(244,237,210,0.25);
+      margin: 14px 0 12px;
+    }
+    .spotlight .state-block {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 14px;
+      font-size: 0.9rem;
+    }
+    .spotlight .state-block .lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      color: var(--canary);
+      text-transform: uppercase;
+      align-self: center;
+      font-weight: 600;
+    }
+    .spotlight .state-block .val {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--paper);
+      line-height: 1;
+    }
+
+    /* ════════════ TRIVIA ════════════ */
+    .trivia-card { background: var(--canary); }
+    .trivia-q-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      color: var(--cherry);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .trivia-q {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+    .trivia-choices { list-style: none; padding: 0; }
+    .trivia-choices li {
+      padding: 7px 11px;
+      margin: 5px 0;
+      background: var(--paper);
+      cursor: pointer;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      border: 2px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      transition: all 0.12s;
+    }
+    .trivia-choices li:hover {
+      transform: translate(-1px,-1px);
+      box-shadow: 4px 4px 0 var(--ink);
+      background: var(--paper-light);
+    }
+    .trivia-choices li.correct { background: var(--grass-light); border-color: var(--grass); }
+    .trivia-choices li.wrong { background: var(--rose-light); border-color: var(--cherry); opacity: 0.7; }
+
+    /* ════════════ READING LOG ════════════ */
+    .reading-card { background: var(--cyan-light); }
+    .reading-row {
+      padding: 8px 0;
+      border-bottom: 2px dashed var(--cyan);
+    }
+    .reading-row:last-child { border-bottom: none; }
+    .reading-row .kid-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      color: var(--cherry);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .reading-row input {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid var(--ink);
+      background: transparent;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 3px 0;
+      color: var(--ink);
+    }
+    .reading-row input:focus { outline: none; border-bottom-color: var(--cherry); }
+    .reading-row .pages-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 4px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+    }
+    .reading-row .pages-row input { max-width: 70px; }
+
+    /* ════════════ LEGEND ════════════ */
+    .leg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 11px; }
+    .leg-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 2px 0;
+    }
+    .leg-dot {
+      width: 14px; height: 14px;
+      flex-shrink: 0;
+      border: 1.5px solid var(--ink);
+    }
+    .ld-routine   { background: var(--canary); }
+    .ld-reading   { background: var(--paper-dark); }
+    .ld-education { background: var(--cyan-light); }
+    .ld-lunch     { background: var(--rose-light); }
+    .ld-screen    { background: #F5D89E; }
+    .ld-outdoor   { background: var(--grass-light); }
+    .ld-fieldtrip { background: var(--cyan); }
+    .ld-free      { background: var(--cherry); }
+    .ld-camp      { background: var(--cherry-dark); }
+    .ld-trip      { background: var(--cyan-dark); }
+
+    /* ════════════ GLANCE LIST ════════════ */
+    .glance-list {
+      display: grid;
+      grid-template-columns: 22px 1fr auto;
+      gap: 9px 14px;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .glance-list svg { width: 22px; height: 22px; color: var(--cherry); }
+    .glance-list .when {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    /* ════════════ RULES LIST ════════════ */
+    .rules-list { font-size: 0.92rem; line-height: 1.65; }
+    .rules-list .row {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 8px;
+      align-items: start;
+      padding: 3px 0;
+    }
+    .rules-list .yes::before { content: '+'; color: var(--grass); font-weight: 800; font-family: 'DM Mono', monospace; font-size: 1.1em; }
+    .rules-list .no::before { content: '×'; color: var(--cherry); font-weight: 800; font-family: 'DM Mono', monospace; font-size: 1.2em; line-height: 1; }
+    .rules-list .dot::before { content: '·'; color: var(--ink-soft); font-weight: 800; font-size: 1.5em; line-height: 0.8; }
+
+    /* ════════════ FIELD TRIP SECTION (full-width, 3 columns) ════════════ */
+    .ft-section {
+      margin-top: 16px;
+    }
+    .ft-section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--ink);
+      border-bottom: 4px solid var(--ink);
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+    }
+    .ft-section-header .h-ico {
+      width: 22px; height: 22px;
+      color: var(--cherry);
+      flex-shrink: 0;
+    }
+    .ft-hint {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-style: normal;
+      margin-left: auto;
+    }
+    .ft-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+    .ft-col-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--paper);
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+    }
+    .ft-col-quick .ft-col-label  { background: var(--grass); }
+    .ft-col-half  .ft-col-label  { background: var(--cyan-dark); }
+    .ft-col-full  .ft-col-label  { background: var(--cherry); }
+    .ft-item {
+      padding: 9px 11px;
+      margin-bottom: 6px;
+      background: var(--paper-light);
+      cursor: pointer;
+      border: 2px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      font-size: 0.85rem;
+      transition: all 0.12s;
+      position: relative;
+    }
+    .ft-item:hover {
+      transform: translate(-1px,-1px);
+      box-shadow: 4px 4px 0 var(--ink);
+      background: var(--canary);
+    }
+    .ft-item .ft-name {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 0.98rem;
+      display: block;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+    .ft-item .ft-detail {
+      font-size: 0.74rem;
+      color: var(--ink-soft);
+      display: block;
+      margin-top: 3px;
+      font-weight: 500;
+    }
+    .ft-item.copied::after {
+      content: 'COPIED';
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--grass);
+      font-weight: 700;
+    }
+
+    @media (max-width: 700px) {
+      .ft-columns { grid-template-columns: 1fr; }
+    }
+
+    /* ════════════ MODAL ════════════ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(11,20,24,0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      backdrop-filter: blur(2px);
+    }
+    .modal-overlay.show { display: flex; }
+    .modal {
+      background: var(--paper);
+      border: 3px solid var(--ink);
+      box-shadow: 8px 8px 0 var(--cherry);
+      padding: 28px 32px;
+      max-width: 480px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: rotate(-0.8deg);
+    }
+    .modal h3 {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+      color: var(--cherry);
+    }
+    .modal label {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      color: var(--ink);
+      text-transform: uppercase;
+      margin: 12px 0 5px;
+      font-weight: 700;
+    }
+    .modal input, .modal select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2.5px solid var(--ink);
+      background: var(--paper-light);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    .modal input:focus, .modal select:focus { outline: 3px solid var(--cherry); }
+    .modal-hint {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+    .modal-btns {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 9px 18px;
+      border: 2.5px solid var(--ink);
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 3px 3px 0 var(--ink);
+      transition: all 0.12s;
+    }
+    .btn:hover {
+      transform: translate(-1px,-1px);
+      box-shadow: 4px 4px 0 var(--ink);
+      background: var(--canary);
+    }
+    .btn:active { transform: translate(1px,1px); box-shadow: 1px 1px 0 var(--ink); }
+    .btn-primary { background: var(--cherry); color: var(--paper); }
+    .btn-primary:hover { background: var(--cherry-dark); color: var(--paper); }
+    .btn-danger { background: var(--paper); color: var(--cherry); border-color: var(--cherry); }
+    .btn-danger:hover { background: var(--cherry); color: var(--paper); }
+
+    /* ════════════ STEM / ART PAGES ════════════ */
+    .stem-top {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 28px 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .stem-filter { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn {
+      padding: 8px 16px;
+      border: 2.5px solid var(--ink);
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1rem;
+      box-shadow: 3px 3px 0 var(--ink);
+      transition: all 0.12s;
+    }
+    .filter-btn:hover {
+      transform: translate(-1px,-1px);
+      box-shadow: 4px 4px 0 var(--ink);
+      background: var(--canary);
+    }
+    .filter-btn.active { background: var(--ink); color: var(--canary); }
+    .filter-btn.fs.active     { background: var(--cyan); color: var(--paper); }
+    .filter-btn.ft.active     { background: var(--grass); color: var(--paper); }
+    .filter-btn.fe.active     { background: var(--cherry); color: var(--paper); }
+    .filter-btn.fm.active     { background: var(--canary); color: var(--ink); }
+    .filter-btn.fdr.active    { background: var(--cherry); color: var(--paper); }
+    .filter-btn.fpa.active    { background: var(--cyan); color: var(--paper); }
+    .filter-btn.fcr.active    { background: var(--cherry-dark); color: var(--paper); }
+    .filter-btn.fdi.active    { background: var(--grass); color: var(--paper); }
+
+    .print-shop-btn {
+      padding: 9px 18px;
+      border: 2.5px solid var(--ink);
+      background: var(--canary);
+      color: var(--ink);
+      cursor: pointer;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 3px 3px 0 var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.12s;
+    }
+    .print-shop-btn:hover {
+      transform: translate(-1px,-1px);
+      box-shadow: 4px 4px 0 var(--ink);
+      background: var(--cherry);
+      color: var(--paper);
+    }
+    .print-shop-btn svg { width: 16px; height: 16px; }
+
+    .stem-grid {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 22px 24px 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
+      gap: 28px;
+    }
+    @media (max-width: 700px) { .stem-grid { grid-template-columns: 1fr; } }
+
+    /* Activity sticker card */
+    .ac {
+      background: var(--paper);
+      border: 3px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .ac:nth-child(5n+1) { transform: rotate(-0.4deg); }
+    .ac:nth-child(5n+3) { transform: rotate(0.3deg); }
+    .ac:nth-child(5n+5) { transform: rotate(-0.2deg); }
+    .ac:hover { transform: translate(-2px,-2px) rotate(0deg); box-shadow: 8px 8px 0 var(--ink); }
+    .ac-header {
+      padding: 14px 18px;
+      background: var(--ink);
+      color: var(--canary);
+      cursor: pointer;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      border-bottom: 3px solid var(--ink);
+    }
+    .ac-header .ico-block {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+      background: var(--cherry);
+      color: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2.5px solid var(--paper);
+      box-shadow: 3px 3px 0 var(--paper);
+      transform: rotate(-3deg);
+    }
+    .ac-header .ico-block.cat-science     { background: var(--cyan); }
+    .ac-header .ico-block.cat-technology  { background: var(--grass); }
+    .ac-header .ico-block.cat-engineering { background: var(--cherry); }
+    .ac-header .ico-block.cat-math        { background: var(--canary); color: var(--ink); }
+    .ac-header .ico-block.cat-drawing     { background: var(--cherry); }
+    .ac-header .ico-block.cat-painting    { background: var(--cyan); }
+    .ac-header .ico-block.cat-crafts      { background: var(--cherry-dark); }
+    .ac-header .ico-block.cat-digital     { background: var(--grass); }
+    .ac-header .ico-block svg { width: 30px; height: 30px; }
+    .ac-header .meta-block { flex: 1; }
+    .ac-header .title {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+      line-height: 1.05;
+      color: var(--canary);
+    }
+    .ac-header .tags {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.1em;
+      color: var(--paper);
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .ac-header .tags .dot { color: var(--cherry); margin: 0 6px; opacity: 1; }
+    .ac-header .difficulty { color: var(--cherry); font-weight: 700; }
+    .ac-body {
+      padding: 16px 18px;
+      display: none;
+    }
+    .ac.expanded .ac-body { display: block; }
+    .ac-body .desc {
+      font-size: 0.96rem;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+    .ac-body .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: var(--cherry);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin: 14px 0 9px;
+      border-bottom: 2px dashed var(--ink);
+      padding-bottom: 5px;
+    }
+    .ac-body table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+    .ac-body td {
+      padding: 5px 8px 5px 0;
+      vertical-align: top;
+      border-bottom: 1px dashed rgba(11,20,24,0.15);
+    }
+    .ac-body td:first-child { font-weight: 600; }
+    .ac-body td:nth-child(2) {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+    .ac-body td:nth-child(3) {
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.82rem;
+    }
+    .ac-body ol {
+      padding-left: 24px;
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+    .ac-body ol li { margin-bottom: 7px; }
+    .ac-body ol li::marker {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      color: var(--cherry);
+      font-weight: 800;
+    }
+    .ac-body .tip {
+      background: var(--canary);
+      border: 2.5px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 11px 15px;
+      margin-top: 16px;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      transform: rotate(-0.4deg);
+    }
+
+    /* ════════════ ICONS ════════════ */
+    .ico {
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+      stroke: currentColor;
+      vertical-align: middle;
+    }
+    .ico-sm { width: 14px; height: 14px; }
+    .ico-md { width: 18px; height: 18px; }
+    .ico-lg { width: 28px; height: 28px; }
+
+    /* Cell icons take type accent */
+    .sc .ico { color: var(--ink); }
+    .t-routine   .ico { color: var(--cherry-dark); }
+    .t-reading   .ico { color: var(--grass); }
+    .t-education .ico { color: var(--cyan-dark); }
+    .t-lunch     .ico { color: var(--cherry-dark); }
+    .t-screen    .ico { color: var(--cherry-dark); }
+    .t-outdoor   .ico { color: var(--grass); }
+    .t-fieldtrip .ico { color: var(--canary); }
+    .t-free      .ico { color: var(--canary); }
+    .t-camp      .ico { color: var(--canary); }
+    .t-trip      .ico { color: var(--canary); }
+    .t-school    .ico { color: var(--ink); }
+    .t-blank     .ico { color: var(--ink-soft); opacity: 0.35; }
+
+    /* ════════════ PRINT STYLESHEET ════════════ */
+    @media print {
+      @page { size: landscape; margin: 0.4in; }
+      body { background: white !important; background-image: none !important; }
+      .tab-nav, .week-nav, .modal-overlay, .screen-bar,
+      .week-notes, .stem-top, #heatBanner, .sunburst { display: none !important; }
+      header { padding: 14px 0 !important; }
+      .wordmark { color: black !important; text-shadow: none !important; font-size: 2.2rem !important; }
+      .wordmark em { color: #888 !important; text-shadow: none !important; }
+      .wordmark .sub { color: #555 !important; }
+      .header-meta { color: #555 !important; }
+      .header-meta .stamp { display: none; }
+      .main-content {
+        grid-template-columns: 1fr !important;
+        padding: 8px 0 !important;
+        max-width: 100% !important;
+      }
+      .sidebar { display: none !important; }
+      .week-banner {
+        background: white !important;
+        color: black !important;
+        border: 2px solid black !important;
+        page-break-after: avoid;
+      }
+      .week-banner::after { display: none; }
+      .wk-numeral { color: #888 !important; text-shadow: none !important; font-size: 4rem !important; }
+      .wk-of-week { background: white !important; color: black !important; transform: none !important; border: 2px solid black !important; box-shadow: none !important; }
+      .grid-wrapper { padding: 0 !important; }
+      .schedule-grid { gap: 4px !important; }
+      .gh { background: white !important; color: black !important; border: 1.5px solid black !important; box-shadow: none !important; }
+      .gh.is-today { background: #ddd !important; }
+      .gh .day-date { color: #555 !important; }
+      .sc { border: 1px solid #888 !important; box-shadow: none !important; transform: none !important; min-height: 64px; background: white !important; }
+      .sc.is-today { box-shadow: inset 0 0 0 2px black !important; animation: none !important; }
+      .t-fieldtrip, .t-free, .t-camp, .t-trip { background: #eee !important; color: black !important; }
+      .t-fieldtrip .ct, .t-free .ct, .t-camp .ct, .t-trip .ct { color: black !important; }
+      .ct-tag { color: #555 !important; opacity: 1 !important; }
+      .parent-badge, .heat-flag, .eh { display: none !important; }
+      .ct { font-size: 0.82rem !important; }
+      .tl .num { color: #555 !important; }
+      .ac { box-shadow: none !important; border: 1.5px solid black !important; transform: none !important; page-break-inside: avoid; }
+      .ac-header { background: white !important; color: black !important; border-bottom: 1px solid black; }
+      .ac-header .title { color: black !important; }
+      .ac-header .tags { color: #555 !important; }
+      .ac-header .ico-block { background: #ddd !important; color: black !important; box-shadow: none !important; transform: none !important; border: 1px solid black !important; }
+      .ac-body { display: block !important; }
+      .ac-body .tip { background: #f5f5f5 !important; box-shadow: none !important; transform: none !important; }
+    }
+
+    /* ════════════ KID-EXPERIENCE + PARENT-OPS ════════════ */
+    .header-tools {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .boredom-btn {
+      font-family: 'Caprasimo', Georgia, serif;
+      font-style: italic;
+      background: var(--cherry);
+      color: var(--cream);
+      border: 2px solid var(--ink);
+      padding: 8px 18px;
+      font-size: 1rem;
+      box-shadow: 3px 3px 0 var(--ink);
+      cursor: pointer;
+      transform: rotate(-1deg);
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .boredom-btn:hover { transform: rotate(0deg) translateY(-1px); box-shadow: 4px 4px 0 var(--ink); }
+    .boredom-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+    .kidmode-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--canary);
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      padding: 8px 14px;
+      box-shadow: 2px 2px 0 var(--ink);
+      cursor: pointer;
+    }
+    .kidmode-btn.on { background: var(--cyan); color: var(--cream); }
+
+    /* Kid mode: simplified UI */
+    body.kid-mode .parent-badge,
+    body.kid-mode .screen-bar,
+    body.kid-mode .week-notes,
+    body.kid-mode #heatBanner,
+    body.kid-mode .sunburst,
+    body.kid-mode .parent-pivot,
+    body.kid-mode .eh { display: none !important; }
+    body.kid-mode .sc { min-height: 80px; }
+    body.kid-mode .sc .ct { font-size: 1.05rem; font-weight: 600; }
+    body.kid-mode .ac-header .title { font-size: 1.4rem; }
+
+    /* Cell done indicator */
+    .cell-done {
+      position: absolute;
+      top: 4px; left: 4px;
+      width: 22px; height: 22px;
+      border: 2px solid var(--ink);
+      background: var(--cream);
+      color: var(--ink);
+      border-radius: 50%;
+      font-size: 0.8rem;
+      line-height: 18px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 900;
+      padding: 0;
+      z-index: 4;
+    }
+    .cell-done.is-done { background: var(--cherry); color: var(--cream); }
+    .sc.is-done::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(135deg, transparent 0 12px, rgba(11,20,24,0.04) 12px 13px);
+      pointer-events: none;
+    }
+
+    /* Activity card footer */
+    .ac-footer {
+      padding: 12px 18px;
+      border-top: 1.5px dashed var(--ink);
+      background: var(--cream);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .ac-footer label.done-toggle {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ac-footer label.done-toggle input { width: 18px; height: 18px; accent-color: #E63946; }
+    .ac-footer .photo-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--cyan);
+      color: var(--cream);
+      border: 2px solid var(--ink);
+      padding: 5px 12px;
+      box-shadow: 2px 2px 0 var(--ink);
+      cursor: pointer;
+    }
+    .ac-footer .thumb-strip {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-left: auto;
+    }
+    .ac-footer .thumb-strip img {
+      width: 56px; height: 56px;
+      object-fit: cover;
+      border: 2px solid var(--ink);
+      box-shadow: 2px 2px 0 var(--ink);
+      cursor: pointer;
+    }
+    .ac.is-done { background: rgba(244,211,94,0.18); }
+    .ac.is-done .ac-header::after {
+      content: '✓ DONE';
+      position: absolute;
+      top: 8px; right: 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--cherry);
+      background: var(--cream);
+      padding: 3px 8px;
+      border: 1.5px solid var(--cherry);
+    }
+    .ac-header { position: relative; }
+
+    /* Parent divide pivot */
+    .parent-pivot {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 10px 16px;
+      background: var(--cream);
+      border: 2px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      margin: 0 0 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .pivot-pill {
+      padding: 4px 12px;
+      border: 2px solid var(--ink);
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .pivot-pill.pp-M { background: var(--cyan); color: var(--cream); }
+    .pivot-pill.pp-S { background: var(--cherry); color: var(--cream); }
+    .pivot-pill.pp-both { background: var(--canary); color: var(--ink); }
+    .pivot-balance { margin-left: auto; font-style: italic; font-family: 'Caprasimo', Georgia, serif; font-size: 0.9rem; text-transform: none; letter-spacing: 0; }
+    .sc.pivot-highlight { outline: 3px solid var(--cherry); outline-offset: -3px; }
+
+    /* Badges page */
+    .badges-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 18px;
+      padding: 22px;
+    }
+    .badge-card {
+      background: var(--cream);
+      border: 2.5px solid var(--ink);
+      box-shadow: 5px 5px 0 var(--ink);
+      padding: 18px 14px 16px;
+      text-align: center;
+      transform: rotate(-0.5deg);
+    }
+    .badge-card:nth-child(even) { transform: rotate(0.6deg); }
+    .badge-card.locked { filter: grayscale(1) opacity(0.45); transform: rotate(0deg); }
+    .badge-card svg { width: 90px; height: 90px; display: block; margin: 0 auto 10px; }
+    .badge-card .b-title { font-family: 'Caprasimo', Georgia, serif; font-style: italic; color: var(--cherry); font-size: 1.25rem; }
+    .badge-card .b-blurb { font-family: Georgia, serif; font-size: 0.82rem; color: var(--ink); margin: 6px 0; line-height: 1.35; }
+    .badge-card .b-status { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
+    .badge-card .b-status.unlocked { color: var(--cherry); font-weight: 700; }
+    .badges-header { padding: 22px 22px 0; }
+    .badges-header h2 { font-family: 'Caprasimo', Georgia, serif; font-style: italic; color: var(--cherry); font-size: 2rem; }
+    .badge-progress-bar {
+      height: 8px; background: rgba(11,20,24,0.1); margin-top: 8px;
+      border: 1.5px solid var(--ink);
+    }
+    .badge-progress-bar .fill { height: 100%; background: var(--cherry); }
+
+    /* Album */
+    .album-header { padding: 22px 22px 0; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .album-header h2 { font-family: 'Caprasimo', Georgia, serif; font-style: italic; color: var(--cherry); font-size: 2rem; flex: 1; }
+    .album-empty { padding: 60px 22px; text-align: center; font-family: 'DM Mono', monospace; color: var(--ink-soft); }
+    .album-week { padding: 16px 22px; border-bottom: 1.5px dashed var(--ink); }
+    .album-week h3 { font-family: 'Caprasimo', Georgia, serif; font-style: italic; color: var(--cherry); font-size: 1.3rem; margin-bottom: 10px; }
+    .album-photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+    .album-photo { background: var(--cream); border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); padding: 6px; }
+    .album-photo img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+    .album-photo .caption { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 6px 0 0; text-align: center; letter-spacing: 0.05em; }
+
+    /* Shopping list */
+    .shopping-header { padding: 22px 22px 0; }
+    .shopping-header h2 { font-family: 'Caprasimo', Georgia, serif; font-style: italic; color: var(--cherry); font-size: 2rem; }
+    .week-toggles { display: flex; gap: 6px; flex-wrap: wrap; margin: 14px 0; }
+    .week-toggle {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      padding: 5px 10px;
+      border: 2px solid var(--ink);
+      background: var(--cream);
+      cursor: pointer;
+    }
+    .week-toggle.on { background: var(--cyan); color: var(--cream); }
+    .shopping-table {
+      width: 100%;
+      border-collapse: collapse;
+      padding: 0 22px;
+      font-family: Georgia, serif;
+    }
+    .shopping-table th { text-align: left; padding: 8px 12px; background: var(--ink); color: var(--cream); font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .shopping-table td { padding: 8px 12px; border-bottom: 1px dashed var(--ink-soft); }
+    .shopping-table input[type=checkbox] { width: 18px; height: 18px; accent-color: #E63946; }
+    .shopping-table tr.checked td { opacity: 0.4; text-decoration: line-through; }
+    .shopping-wrap { padding: 0 22px 30px; }
+
+    /* Poster */
+    .poster-page {
+      background: var(--cream);
+      border: 3px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+      margin: 22px;
+      padding: 28px;
+      max-width: 1100px;
+    }
+    .poster-page .poster-head { display: flex; align-items: flex-end; gap: 20px; border-bottom: 3px solid var(--ink); padding-bottom: 14px; margin-bottom: 18px; }
+    .poster-page .pw-num { font-family: 'Caprasimo', Georgia, serif; font-style: italic; color: var(--cherry); font-size: 5rem; line-height: 1; }
+    .poster-page .pw-title { font-family: 'Caprasimo', Georgia, serif; font-style: italic; color: var(--ink); font-size: 2.4rem; flex: 1; }
+    .poster-page .pw-dates { font-family: 'DM Mono', monospace; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
+    .poster-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 18px; }
+    .poster-day {
+      border: 2px solid var(--ink); background: var(--cream); padding: 8px;
+      min-height: 100px; font-size: 0.78rem; font-family: Georgia, serif;
+    }
+    .poster-day h4 { font-family: 'Caprasimo', Georgia, serif; font-style: italic; color: var(--cherry); margin-bottom: 4px; font-size: 1rem; }
+    .poster-day ul { list-style: none; padding: 0; }
+    .poster-day li { padding: 2px 0; border-bottom: 1px dotted #ccc; }
+    .poster-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+    .poster-feature { border: 2px solid var(--ink); padding: 10px; background: var(--canary); }
+    .poster-feature h5 { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+    .poster-feature .val { font-family: 'Caprasimo', Georgia, serif; font-style: italic; font-size: 1.1rem; color: var(--ink); line-height: 1.2; }
+    .poster-weather { display: flex; gap: 6px; margin: 14px 0; }
+    .poster-day-temp { flex: 1; text-align: center; border: 1.5px solid var(--ink); padding: 6px 4px; font-family: 'DM Mono', monospace; font-size: 0.74rem; background: var(--cream); }
+    .poster-day-temp .t-d { font-weight: 700; letter-spacing: 0.05em; }
+    .poster-day-temp .t-hi { font-size: 1.1rem; color: var(--cherry); font-weight: 700; }
+    .poster-day-temp.hot { background: rgba(230,57,70,0.15); }
+    .poster-shop { padding: 12px; border: 2px solid var(--ink); background: var(--cream); margin-bottom: 14px; }
+    .poster-shop h5 { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+    .poster-shop ul { padding-left: 18px; font-size: 0.85rem; font-family: Georgia, serif; }
+    .poster-footer { display: flex; justify-content: space-between; padding-top: 10px; border-top: 2px solid var(--ink); font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
+    .poster-actions { padding: 0 22px 22px; display: flex; gap: 10px; }
+    .poster-actions button {
+      font-family: 'DM Mono', monospace; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+      background: var(--cherry); color: var(--cream); border: 2px solid var(--ink); padding: 8px 16px;
+      box-shadow: 3px 3px 0 var(--ink); cursor: pointer;
+    }
+    .poster-actions button.alt { background: var(--cyan); }
+
+    /* Boredom modal */
+    .boredom-modal-overlay {
+      display: none;
+      position: fixed; inset: 0; background: rgba(11,20,24,0.7); z-index: 200;
+      align-items: center; justify-content: center;
+    }
+    .boredom-modal-overlay.show { display: flex; }
+    .boredom-modal {
+      background: var(--cream); border: 3px solid var(--ink); box-shadow: 8px 8px 0 var(--ink);
+      padding: 28px; max-width: 460px; text-align: center; transform: rotate(-1deg);
+    }
+    .boredom-modal .emoji { font-size: 3.5rem; line-height: 1; margin-bottom: 10px; }
+    .boredom-modal h3 { font-family: 'Caprasimo', Georgia, serif; font-style: italic; color: var(--cherry); font-size: 2rem; margin-bottom: 8px; }
+    .boredom-modal .blurb { font-family: Georgia, serif; font-size: 0.95rem; margin-bottom: 18px; }
+    .boredom-modal .actions { display: flex; gap: 10px; justify-content: center; }
+    .boredom-modal button {
+      font-family: 'DM Mono', monospace; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+      background: var(--ink); color: var(--cream); border: 2px solid var(--ink); padding: 8px 16px;
+      box-shadow: 3px 3px 0 var(--ink); cursor: pointer;
+    }
+    .boredom-modal button.alt { background: var(--cherry); }
+
+    /* Print rules for poster — landscape one-pager */
+    @media print {
+      body.printing-poster { background: white !important; }
+      body.printing-poster > *:not(#page-poster) { display: none !important; }
+      body.printing-poster #page-poster { display: block !important; }
+      body.printing-poster .poster-actions { display: none !important; }
+      body.printing-poster .poster-page {
+        box-shadow: none !important; border: 2px solid black !important;
+        margin: 0 !important; padding: 16px !important; max-width: 100% !important;
+      }
+    }
+
+    /* ════════════ FOOTER ════════════ */
+    footer {
+      max-width: 1440px;
+      margin: 30px auto 0;
+      padding: 20px 24px 36px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      text-transform: uppercase;
+      text-align: center;
+      border-top: 2px dashed var(--ink);
+    }
+    footer a { color: var(--cherry); text-decoration: none; font-weight: 700; }
+    footer a:hover { text-decoration: underline; }
+    footer .swatch {
+      display: inline-flex;
+      gap: 5px;
+      margin: 0 14px;
+      vertical-align: middle;
+    }
+    footer .swatch span {
+      width: 14px; height: 14px;
+      border: 1.5px solid var(--ink);
+      display: inline-block;
+    }
+
+    /* ════════════ SCROLLBAR ════════════ */
+    ::-webkit-scrollbar { width: 11px; height: 11px; }
+    ::-webkit-scrollbar-track { background: var(--paper-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--ink); border: 2px solid var(--paper-dark); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--cherry); }
+
+    @media (max-width: 900px) {
+      .main-content { grid-template-columns: 1fr; }
+      .schedule-grid { grid-template-columns: 60px repeat(5, 1fr); }
+      .wordmark { font-size: 3rem; }
+    }
+
+    /* ════════════ SUMMER JOBS PAGE ════════════ */
+    .jobs-header {
+      padding: 22px 24px 0;
+    }
+    .jobs-header h2 {
+      font-family: 'Caprasimo', serif;
+      font-style: italic;
+      color: var(--cherry);
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+    .jobs-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .jobs-earned-banner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--canary);
+      border: 3px solid var(--ink);
+      box-shadow: 5px 5px 0 var(--ink);
+      padding: 12px 20px;
+      margin-bottom: 16px;
+      transform: rotate(-0.3deg);
+    }
+    .jobs-earned-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .jobs-earned-amount {
+      font-family: 'Caprasimo', serif;
+      font-size: 2.4rem;
+      color: var(--cherry);
+      text-shadow: 2px 2px 0 var(--ink);
+      line-height: 1;
+      flex: 1;
+    }
+    .jobs-reset-btn {
+      background: var(--ink);
+      color: var(--paper);
+      border: none;
+      padding: 7px 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--cherry);
+    }
+    .jobs-reset-btn:hover { background: var(--cherry-dark); }
+    .jobs-cat-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 10px;
+      padding: 0 24px 40px;
+    }
+    .job-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--paper-light);
+      border: 2.5px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .job-card:hover {
+      transform: translate(-1px,-1px);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+    .job-card input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      cursor: pointer;
+      accent-color: var(--cherry);
+    }
+    .job-emoji { font-size: 1.3rem; flex-shrink: 0; }
+    .job-label {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      flex: 1;
+      color: var(--ink);
+    }
+    .job-pay {
+      font-family: 'Caprasimo', serif;
+      font-size: 1.1rem;
+      color: var(--grass);
+      flex-shrink: 0;
+    }
+    .job-card.is-done {
+      background: var(--grass-light);
+      border-color: var(--grass);
+      box-shadow: 3px 3px 0 var(--grass);
+    }
+    .job-card.is-done .job-label { text-decoration: line-through; opacity: 0.6; }
+
+    /* ════════════ 3D PRINTER PAGE ════════════ */
+    .print-tagline {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      padding-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════ SVG ICON SYMBOL BANK ════════════ -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="ico-routine" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="18" x2="21" y2="18"/>
+      <path d="M6.5 18 A5.5 5.5 0 0 1 17.5 18"/>
+      <line x1="12" y1="6" x2="12" y2="3.5"/>
+      <line x1="5.5" y1="11.5" x2="3.8" y2="9.8"/>
+      <line x1="18.5" y1="11.5" x2="20.2" y2="9.8"/>
+      <line x1="3" y1="21" x2="6" y2="21"/>
+      <line x1="9" y1="21" x2="15" y2="21"/>
+      <line x1="18" y1="21" x2="21" y2="21"/>
+    </symbol>
+    <symbol id="ico-reading" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 5 C 6 4, 10 4.5, 12 6 C 14 4.5, 18 4, 21 5 L 21 19 C 18 18, 14 18.5, 12 20 C 10 18.5, 6 18, 3 19 Z"/>
+      <line x1="12" y1="6" x2="12" y2="20"/>
+      <line x1="6" y1="8.5" x2="9.5" y2="8"/>
+      <line x1="6" y1="11" x2="10" y2="10.6"/>
+      <line x1="14.5" y1="8" x2="18" y2="8.5"/>
+      <line x1="14" y1="10.6" x2="18" y2="11"/>
+    </symbol>
+    <symbol id="ico-education" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 20 L 8 16 L 18 6 L 20 8 L 10 18 L 4 20 Z"/>
+      <line x1="15.5" y1="8.5" x2="17.5" y2="10.5"/>
+      <line x1="4" y1="20" x2="6.5" y2="17.5"/>
+    </symbol>
+    <symbol id="ico-lunch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 7 C 8 7, 5 9.5, 5 14 C 5 18, 7.5 21, 10 21 C 11 21, 11.5 20.5, 12 20.5 C 12.5 20.5, 13 21, 14 21 C 16.5 21, 19 18, 19 14 C 19 9.5, 16 7, 12 7 Z"/>
+      <path d="M12 7 C 12 5, 11 3.5, 9.5 3"/>
+      <path d="M12 7 C 13.5 6, 15 5, 15.5 3.5"/>
+    </symbol>
+    <symbol id="ico-screen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="3.5" width="14" height="17" rx="1.5"/>
+      <line x1="5" y1="17" x2="19" y2="17"/>
+      <circle cx="12" cy="18.8" r="0.5" fill="currentColor"/>
+    </symbol>
+    <symbol id="ico-outdoor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3 L 7 9 L 9 9 L 5 14 L 8 14 L 4 19 L 20 19 L 16 14 L 19 14 L 15 9 L 17 9 Z"/>
+      <line x1="12" y1="19" x2="12" y2="22"/>
+    </symbol>
+    <symbol id="ico-fieldtrip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2.5 C 7.5 2.5, 4.5 6, 4.5 10 C 4.5 15, 12 21.5, 12 21.5 C 12 21.5, 19.5 15, 19.5 10 C 19.5 6, 16.5 2.5, 12 2.5 Z"/>
+      <circle cx="12" cy="10" r="2.8"/>
+    </symbol>
+    <symbol id="ico-free" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15.5 3 L 21 8.5 L 11.5 18 L 6 12.5 Z"/>
+      <path d="M6 12.5 C 3 14, 2.5 17, 3 19.5 C 5.5 20, 8.5 19.5, 10 16.5"/>
+      <line x1="6" y1="12.5" x2="11.5" y2="18"/>
+    </symbol>
+    <symbol id="ico-camp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="5" y1="3.5" x2="5" y2="21"/>
+      <path d="M5 4 L 18.5 6.5 L 14 9 L 19 12 L 5 14"/>
+    </symbol>
+    <symbol id="ico-trip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12 L 21 4 L 14 21 L 11 13.5 L 3 12 Z"/>
+      <line x1="11" y1="13.5" x2="21" y2="4"/>
+    </symbol>
+    <symbol id="ico-school" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 11 L 12 5 L 21 11"/>
+      <path d="M5 11 L 5 21 L 19 21 L 19 11"/>
+      <rect x="10" y="14" width="4" height="7"/>
+      <line x1="12" y1="5" x2="12" y2="2.5"/>
+      <path d="M11 2.5 L 13 2.5"/>
+    </symbol>
+    <symbol id="ico-blank" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="ico-science" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="8.5" y1="3" x2="15.5" y2="3"/>
+      <line x1="9.5" y1="3" x2="9.5" y2="9.5"/>
+      <line x1="14.5" y1="3" x2="14.5" y2="9.5"/>
+      <path d="M9.5 9.5 L 4.5 19.5 C 4 20.5, 4.5 21, 5.5 21 L 18.5 21 C 19.5 21, 20 20.5, 19.5 19.5 L 14.5 9.5"/>
+      <line x1="7" y1="15" x2="17" y2="15"/>
+    </symbol>
+    <symbol id="ico-technology" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="6" y="6" width="12" height="12" rx="0.5"/>
+      <rect x="9" y="9" width="6" height="6"/>
+      <line x1="3" y1="9" x2="6" y2="9"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="3" y1="15" x2="6" y2="15"/>
+      <line x1="18" y1="9" x2="21" y2="9"/><line x1="18" y1="12" x2="21" y2="12"/><line x1="18" y1="15" x2="21" y2="15"/>
+      <line x1="9" y1="3" x2="9" y2="6"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="15" y1="3" x2="15" y2="6"/>
+      <line x1="9" y1="18" x2="9" y2="21"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="15" y1="18" x2="15" y2="21"/>
+    </symbol>
+    <symbol id="ico-engineering" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14.5 3.5 A 5 5 0 0 0 8 10 L 3 15 L 5 17 L 9 14 L 17.5 22 L 21 18.5 L 13 10.5 A 5 5 0 0 0 14.5 3.5 Z"/>
+    </symbol>
+    <symbol id="ico-math" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="5" r="1.5"/>
+      <line x1="12" y1="6.5" x2="6" y2="20"/>
+      <line x1="12" y1="6.5" x2="18" y2="20"/>
+      <path d="M8 16 A 8 8 0 0 0 16 16"/>
+    </symbol>
+    <symbol id="ico-drawing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2 L 16 6 L 16 20 L 12 22 L 8 20 L 8 6 Z"/>
+      <line x1="8" y1="6" x2="16" y2="6"/>
+      <line x1="12" y1="2" x2="12" y2="22"/>
+    </symbol>
+    <symbol id="ico-painting" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3 C 6.5 3, 3 7, 3 11.5 C 3 16, 6.5 19, 11 19 C 12 19, 12.5 18, 12 17 C 11.5 16, 12.5 14, 14.5 14 L 18 14 C 20 14, 21 13, 21 11 C 21 6.5, 17 3, 12 3 Z"/>
+      <circle cx="8" cy="10" r="1.2" fill="currentColor"/>
+      <circle cx="12.5" cy="7.5" r="1.2" fill="currentColor"/>
+      <circle cx="16" cy="10.5" r="1.2" fill="currentColor"/>
+    </symbol>
+    <symbol id="ico-crafts" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="6.5" cy="6.5" r="3"/>
+      <circle cx="6.5" cy="17.5" r="3"/>
+      <line x1="9" y1="8.5" x2="21" y2="20"/>
+      <line x1="9" y1="15.5" x2="21" y2="4"/>
+    </symbol>
+    <symbol id="ico-digital" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="13" height="17" rx="1"/>
+      <line x1="3" y1="18" x2="16" y2="18"/>
+      <line x1="16" y1="3" x2="20" y2="7"/>
+      <line x1="20" y1="7" x2="14" y2="13"/>
+    </symbol>
+    <symbol id="ico-heat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 3 C 10 2, 11 1.5, 12 1.5 C 13 1.5, 14 2, 14 3 L 14 15 A 3 3 0 1 1 10 15 Z"/>
+      <circle cx="12" cy="17.5" r="2" fill="currentColor" stroke="none"/>
+      <line x1="14" y1="6" x2="16" y2="6"/>
+      <line x1="14" y1="9" x2="16" y2="9"/>
+      <line x1="14" y1="12" x2="16" y2="12"/>
+    </symbol>
+    <symbol id="ico-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3.5" y="5" width="17" height="16" rx="0.5"/>
+      <line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/>
+      <line x1="8" y1="3" x2="8" y2="7"/>
+      <line x1="16" y1="3" x2="16" y2="7"/>
+    </symbol>
+    <symbol id="ico-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 18 C 6 12, 8 8, 12 8 C 16 8, 18 12, 18 18 Z"/>
+      <line x1="4.5" y1="18" x2="19.5" y2="18"/>
+      <path d="M10 20 A 2 2 0 0 0 14 20"/>
+    </symbol>
+    <symbol id="ico-tent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 20 L 12 3 L 22 20 Z"/>
+      <line x1="12" y1="3" x2="12" y2="20"/>
+      <path d="M9 20 L 12 15 L 15 20"/>
+    </symbol>
+    <symbol id="ico-family" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="8" cy="6" r="2.5"/>
+      <path d="M3.5 19 C 3.5 14, 6 12, 8 12 C 10 12, 12.5 14, 12.5 19"/>
+      <circle cx="16" cy="6" r="2.5"/>
+      <path d="M11.5 19 C 11.5 14, 14 12, 16 12 C 18 12, 20.5 14, 20.5 19"/>
+    </symbol>
+    <symbol id="ico-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 9 L 6 3 L 18 3 L 18 9"/>
+      <rect x="3.5" y="9" width="17" height="9" rx="1"/>
+      <rect x="6" y="14" width="12" height="7"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <svg class="sunburst" viewBox="0 0 200 200" fill="currentColor" aria-hidden="true">
+    <g><circle cx="100" cy="100" r="38"/>
+    <g stroke="currentColor" stroke-width="7" stroke-linecap="round" fill="none">
+      <line x1="100" y1="18" x2="100" y2="52"/>
+      <line x1="100" y1="148" x2="100" y2="182"/>
+      <line x1="18" y1="100" x2="52" y2="100"/>
+      <line x1="148" y1="100" x2="182" y2="100"/>
+      <line x1="42" y1="42" x2="66" y2="66"/>
+      <line x1="134" y1="134" x2="158" y2="158"/>
+      <line x1="42" y1="158" x2="66" y2="134"/>
+      <line x1="134" y1="66" x2="158" y2="42"/>
+    </g></g>
+  </svg>
+
+  <div class="header-grid">
+    <h1 class="wordmark">CAMP <em>HYDE</em>
+      <span class="sub">SUMMER MMXXVI · BOISE · AGES 8 &amp; 10</span>
+    </h1>
+    <div class="header-meta">
+      <span class="accent">43.6°N · 116.2°W</span><br>
+      May 21 — Aug 12 · 13 weeks<br>
+      <span class="stamp">Field Edition · Vol I</span>
+      <div class="header-tools">
+        <button class="boredom-btn" onclick="openBoredom()">I'm bored</button>
+        <button class="kidmode-btn" id="kidmodeBtn" onclick="toggleKidMode()">Kid Mode: Off</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="tab-nav">
+  <button class="tab-btn active" id="tab-schedule" onclick="showPage('schedule')">Schedule</button>
+  <button class="tab-btn" id="tab-stem" onclick="showPage('stem')">STEM</button>
+  <button class="tab-btn" id="tab-art" onclick="showPage('art')">Art</button>
+  <button class="tab-btn" id="tab-album" onclick="showPage('album')">Album</button>
+  <button class="tab-btn" id="tab-badges" onclick="showPage('badges')">Badges</button>
+  <button class="tab-btn" id="tab-shopping" onclick="showPage('shopping')">Shopping</button>
+  <button class="tab-btn" id="tab-poster" onclick="showPage('poster')">Poster</button>
+  <button class="tab-btn" id="tab-jobs" onclick="showPage('jobs')">Jobs 💰</button>
+  <button class="tab-btn" id="tab-3dprint" onclick="showPage('3dprint')">3D Print 🖨️</button>
+</div>
+
+<!-- ════════════ SCHEDULE PAGE ════════════ -->
+<div id="page-schedule">
+
+  <div class="week-nav">
+    <button onclick="changeWeek(-1)" id="prevBtn">← Prev</button>
+    <div>
+      <div id="weekLabel">—</div>
+      <div id="weekProgress">—</div>
+    </div>
+    <button onclick="changeWeek(1)" id="nextBtn">Next →</button>
+    <button class="today-btn" onclick="jumpToToday()">Today</button>
+    <button onclick="window.print()">Print</button>
+  </div>
+
+  <div class="week-banner">
+    <div class="wk-numeral" id="wkNum">03</div>
+    <div class="wk-title-block">
+      <div class="wk-kicker" id="wkKicker">WEEK OF —</div>
+      <div class="wk-title" id="wkTitle">—</div>
+    </div>
+    <div class="wk-of-week" id="wkBirdBlock">
+      <div class="lbl">Bird of the Week</div>
+      <div class="nm" id="wkBird">—</div>
+    </div>
+  </div>
+
+  <div class="parent-pivot" id="parentPivot" style="display:none">
+    <span>This week:</span>
+    <button class="pivot-pill pp-M" onclick="highlightParent('M')">M: <span id="pivCountM">0</span></button>
+    <button class="pivot-pill pp-S" onclick="highlightParent('S')">S: <span id="pivCountS">0</span></button>
+    <button class="pivot-pill pp-both" onclick="highlightParent('both')">M+S: <span id="pivCountB">0</span></button>
+    <span class="pivot-balance" id="pivBalance">—</span>
+  </div>
+
+  <div id="heatBanner">
+    <svg class="ico"><use href="#ico-heat"/></svg>
+    HEAT FLAG · FORECAST HIGHS ABOVE 95°F · OUTDOOR AFTERNOON SWAPS RECOMMENDED
+  </div>
+
+  <div class="main-content">
+
+    <div class="schedule-section">
+
+      <div class="screen-bar">
+        <span class="lbl"><svg class="ico"><use href="#ico-screen"/></svg>Screen Time</span>
+        <div class="bar-wrap"><div class="bar-fill" id="screenFill" style="width:0%"></div></div>
+        <span class="amt" id="screenAmt">0.0 / 2.0 HRS · AVG</span>
+      </div>
+
+      <div class="grid-wrapper">
+        <div class="schedule-grid" id="scheduleGrid"></div>
+      </div>
+
+      <div class="week-notes">
+        <h3>Week Notes</h3>
+        <textarea id="weekNotes" placeholder="Reminders, surprises, plans for this week…" oninput="saveNotes()"></textarea>
+      </div>
+
+      <!-- ── FIELD TRIPS — below week notes, matches schedule width ── -->
+      <div class="ft-section" id="ftSection">
+        <div class="ft-section-header">
+          <svg class="h-ico"><use href="#ico-fieldtrip"/></svg>
+          <span>Boise Field Trips</span>
+          <span class="ft-hint">Click any trip to copy its name</span>
+        </div>
+        <div class="ft-columns" id="ftList"></div>
+      </div>
+
+    </div>
+
+    <div class="sidebar">
+
+      <div class="card spotlight">
+        <h3><svg class="h-ico"><use href="#ico-tent"/></svg>Spotlight</h3>
+        <div class="img-wrap"><img id="apodImg" src="" alt="" onerror="this.style.display='none'"></div>
+        <div class="body">
+          <div class="apod-title" id="apodTitle">—</div>
+          <div class="apod-credit" id="apodCredit">—</div>
+          <div class="apod-kid" id="apodKid">—</div>
+          <hr class="divider">
+          <div class="state-block">
+            <div class="lbl">State</div><div class="val" id="spotState">—</div>
+            <div class="lbl">Capital</div><div class="val" id="spotCap">—</div>
+            <div class="lbl">Plant</div><div class="val" id="spotPlant">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card trivia-card">
+        <h3>Daily Trivia <span style="float:right;font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.15em;color:var(--ink-soft);text-transform:uppercase;margin-top:8px;" id="triviaDate"></span></h3>
+        <div id="triviaContent"></div>
+      </div>
+
+      <div class="card reading-card">
+        <h3>Reading Log</h3>
+        <div id="readingLog"></div>
+      </div>
+
+      <div class="card">
+        <h3><svg class="h-ico"><use href="#ico-calendar"/></svg>Summer at a Glance</h3>
+        <div class="glance-list">
+          <svg><use href="#ico-bell"/></svg><span>School Out</span><span class="when">May 21</span>
+          <svg><use href="#ico-routine"/></svg><span>Memorial Day</span><span class="when">May 25</span>
+          <svg><use href="#ico-camp"/></svg><span>Leo Football Camp</span><span class="when">Jun 1–4</span>
+          <svg><use href="#ico-tent"/></svg><span>Camping Trip</span><span class="when">Jun 5</span>
+          <svg><use href="#ico-camp"/></svg><span>Leo STEM Camp</span><span class="when">Jun 15–19</span>
+          <svg><use href="#ico-trip"/></svg><span>Fallon Trip</span><span class="when">Jun 22–24</span>
+          <svg><use href="#ico-family"/></svg><span>Family Visiting</span><span class="when">Jun 25–26</span>
+          <svg><use href="#ico-trip"/></svg><span>Family Trip</span><span class="when">Jul 2–7</span>
+          <svg><use href="#ico-school"/></svg><span>School Resumes</span><span class="when">Aug 12</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><svg class="h-ico"><use href="#ico-screen"/></svg>Screen Time Rules</h3>
+        <div class="rules-list">
+          <div class="row dot"><div>Max <strong>2 hours / day</strong></div></div>
+          <div class="row yes"><div>Earn extra time with chores</div></div>
+          <div class="row yes"><div>Educational apps: relaxed</div></div>
+          <div class="row no"><div>No screens before 1 PM</div></div>
+          <div class="row no"><div>No screens 1 hr before bed</div></div>
+          <div class="row no"><div>Devices off during meals</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Legend</h3>
+        <div class="leg-grid">
+          <div class="leg-item"><div class="leg-dot ld-routine"></div>Routine</div>
+          <div class="leg-item"><div class="leg-dot ld-reading"></div>Reading</div>
+          <div class="leg-item"><div class="leg-dot ld-education"></div>Education</div>
+          <div class="leg-item"><div class="leg-dot ld-lunch"></div>Lunch</div>
+          <div class="leg-item"><div class="leg-dot ld-screen"></div>Screen</div>
+          <div class="leg-item"><div class="leg-dot ld-outdoor"></div>Outdoor</div>
+          <div class="leg-item"><div class="leg-dot ld-fieldtrip"></div>Field Trip</div>
+          <div class="leg-item"><div class="leg-dot ld-free"></div>Free</div>
+          <div class="leg-item"><div class="leg-dot ld-camp"></div>Camp</div>
+          <div class="leg-item"><div class="leg-dot ld-trip"></div>Trip</div>
+        </div>
+        <div style="margin-top:14px;padding-top:11px;border-top:2px dashed var(--ink);">
+          <div style="font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.16em;color:var(--cherry);text-transform:uppercase;font-weight:700;margin-bottom:8px;">Parent in Charge</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:0.86rem;font-weight:500;">
+            <span class="parent-badge pb-M" style="position:static;">M</span>Mom
+            <span class="parent-badge pb-S" style="position:static;margin-left:4px;">S</span>Dad
+            <span class="parent-badge pb-both" style="position:static;margin-left:4px;">M+S</span>Both
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+<!-- ════════════ STEM PAGE ════════════ -->
+<div id="page-stem" style="display:none">
+  <div class="stem-top">
+    <div class="stem-filter">
+      <button class="filter-btn active" id="f-all"         onclick="filterStem('all')">All</button>
+      <button class="filter-btn fs"     id="f-science"     onclick="filterStem('science')">Science</button>
+      <button class="filter-btn ft"     id="f-technology"  onclick="filterStem('technology')">Tech</button>
+      <button class="filter-btn fe"     id="f-engineering" onclick="filterStem('engineering')">Engineering</button>
+      <button class="filter-btn fm"     id="f-math"        onclick="filterStem('math')">Math</button>
+    </div>
+    <button class="print-shop-btn" onclick="printShoppingList()"><svg class="ico"><use href="#ico-print"/></svg>Print Shopping List</button>
+  </div>
+  <div class="stem-grid" id="stemGrid"></div>
+</div>
+
+<!-- ════════════ ART PAGE ════════════ -->
+<div id="page-art" style="display:none">
+  <div class="stem-top">
+    <div class="stem-filter">
+      <button class="filter-btn active" id="af-all"     onclick="filterArt('all')">All</button>
+      <button class="filter-btn fdr"   id="af-drawing"  onclick="filterArt('drawing')">Drawing</button>
+      <button class="filter-btn fpa"   id="af-painting" onclick="filterArt('painting')">Painting</button>
+      <button class="filter-btn fcr"   id="af-crafts"   onclick="filterArt('crafts')">Crafts</button>
+      <button class="filter-btn fdi"   id="af-digital"  onclick="filterArt('digital')">Digital</button>
+    </div>
+    <button class="print-shop-btn" onclick="printArtList()"><svg class="ico"><use href="#ico-print"/></svg>Print Art Supplies</button>
+  </div>
+  <div class="stem-grid" id="artGrid"></div>
+</div>
+
+<!-- ════════════ ALBUM PAGE ════════════ -->
+<div id="page-album" style="display:none">
+  <div class="album-header">
+    <h2>Summer Album</h2>
+    <button class="photo-btn" onclick="exportScrapbook()">📦 Export Scrapbook</button>
+    <button class="photo-btn" onclick="checkStorage()">📊 Storage</button>
+  </div>
+  <div id="albumBody"></div>
+</div>
+
+<!-- ════════════ BADGES PAGE ════════════ -->
+<div id="page-badges" style="display:none">
+  <div class="badges-header">
+    <h2>Merit Badges</h2>
+    <p style="font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.08em;color:#666;text-transform:uppercase;margin-top:6px">
+      Earn a badge by completing activities in that category.
+    </p>
+  </div>
+  <div class="badges-grid" id="badgesGrid"></div>
+</div>
+
+<!-- ════════════ SHOPPING PAGE ════════════ -->
+<div id="page-shopping" style="display:none">
+  <div class="shopping-header">
+    <h2>Shopping List</h2>
+    <div class="week-toggles" id="weekToggles"></div>
+    <div style="display:flex;gap:10px;margin-bottom:14px">
+      <button class="photo-btn" onclick="emailShoppingList()">📧 Email List</button>
+      <button class="photo-btn" onclick="window.print()">🖨 Print</button>
+    </div>
+  </div>
+  <div class="shopping-wrap">
+    <table class="shopping-table" id="shoppingTable">
+      <thead><tr><th></th><th>Item</th><th>Qty</th><th>For</th><th>Where</th></tr></thead>
+      <tbody id="shoppingBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════════ POSTER PAGE ════════════ -->
+<div id="page-poster" style="display:none">
+  <div class="poster-actions">
+    <button onclick="printPoster()">🖨 Print / Save as PDF</button>
+    <button class="alt" onclick="shareWeekEmail()">📧 Share with co-parent</button>
+  </div>
+  <div id="posterPage" class="poster-page"></div>
+</div>
+
+<!-- ════════════ SUMMER JOBS PAGE ════════════ -->
+<div id="page-jobs" style="display:none">
+  <div class="jobs-header">
+    <h2>Summer Jobs 💰</h2>
+    <p class="jobs-sub">Complete a job → earn $1. Check it off below. Total tracked all summer.</p>
+    <div class="jobs-earned-banner">
+      <span class="jobs-earned-label">Total Earned This Summer</span>
+      <span class="jobs-earned-amount" id="jobsTotal">$0.00</span>
+      <button class="jobs-reset-btn" onclick="resetJobs()">Reset</button>
+    </div>
+    <div class="jobs-cat-filter">
+      <button class="filter-btn active" id="jf-all"      onclick="filterJobs('all')">All</button>
+      <button class="filter-btn"        id="jf-inside"   onclick="filterJobs('inside')">Cleaning</button>
+      <button class="filter-btn"        id="jf-kitchen"  onclick="filterJobs('kitchen')">Kitchen &amp; Laundry</button>
+      <button class="filter-btn"        id="jf-organize" onclick="filterJobs('organize')">Organization</button>
+      <button class="filter-btn"        id="jf-outside"  onclick="filterJobs('outside')">Yard</button>
+      <button class="filter-btn"        id="jf-car"      onclick="filterJobs('car')">Car</button>
+    </div>
+  </div>
+  <div class="jobs-grid" id="jobsGrid"></div>
+</div>
+
+<!-- ════════════ 3D PRINTER PAGE ════════════ -->
+<div id="page-3dprint" style="display:none">
+  <div class="stem-top">
+    <div class="stem-filter">
+      <button class="filter-btn active" id="pf-all"        onclick="filterPrint('all')">All</button>
+      <button class="filter-btn"        id="pf-functional" onclick="filterPrint('functional')">Functional</button>
+      <button class="filter-btn"        id="pf-toys"       onclick="filterPrint('toys')">Toys &amp; Games</button>
+      <button class="filter-btn"        id="pf-games"      onclick="filterPrint('games')">Board Games</button>
+      <button class="filter-btn"        id="pf-science"    onclick="filterPrint('science')">Science Models</button>
+      <button class="filter-btn"        id="pf-art"        onclick="filterPrint('art')">Art &amp; Display</button>
+    </div>
+    <span class="print-tagline">Bambulab P1S · Boise 2026</span>
+  </div>
+  <div class="stem-grid" id="printGrid"></div>
+</div>
+
+<!-- ════════════ BOREDOM MODAL ════════════ -->
+<div class="boredom-modal-overlay" id="boredomOverlay" onclick="if(event.target===this)closeBoredom()">
+  <div class="boredom-modal">
+    <div class="emoji" id="boredomEmoji">🎲</div>
+    <h3 id="boredomTitle">—</h3>
+    <div class="blurb" id="boredomBlurb">—</div>
+    <div class="actions">
+      <button onclick="openBoredom()">Pick another</button>
+      <button class="alt" onclick="openBoredomTab()">Open in tab</button>
+      <button onclick="closeBoredom()" style="background:var(--ink-soft)">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden photo upload input -->
+<input type="file" id="photoInput" accept="image/*" capture="environment" style="display:none">
+
+<!-- ════════════ EDIT MODAL ════════════ -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <h3>Edit Time Block</h3>
+    <label>Activity</label>
+    <input type="text" id="editText" placeholder="e.g., Summer Workbook">
+    <p class="modal-hint">Enter to save · Esc to cancel</p>
+    <label>Type</label>
+    <select id="editType">
+      <option value="routine">Morning Routine</option>
+      <option value="reading">Reading</option>
+      <option value="education">Education</option>
+      <option value="lunch">Lunch / Break</option>
+      <option value="screen">Screen Time</option>
+      <option value="outdoor">Outdoor Play</option>
+      <option value="fieldtrip">Field Trip</option>
+      <option value="free">Free / Creative</option>
+      <option value="camp">Sports Camp</option>
+      <option value="trip">Family Trip</option>
+      <option value="school">School</option>
+      <option value="blank">Blank</option>
+    </select>
+    <div class="modal-btns">
+      <button class="btn btn-danger" onclick="resetCell()">↩ Reset</button>
+      <button class="btn" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveCell()">Save</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Camp Hyde · Built on Maggie's original ·
+  <a href="https://github.com/dariusk/corpora" target="_blank">corpora</a> ·
+  <a href="https://github.com/uberspot/OpenTriviaQA" target="_blank">OpenTriviaQA</a> ·
+  <a href="https://apod.nasa.gov" target="_blank">NASA APOD</a> ·
+  <a href="https://open-meteo.com" target="_blank">Open-Meteo</a>
+  <span class="swatch">
+    <span style="background:#E63946"></span>
+    <span style="background:#1098C7"></span>
+    <span style="background:#F4D35E"></span>
+    <span style="background:#0B1418"></span>
+  </span>
+  Cherry · Cyan · Canary · Ink
+</footer>
+
+<script src="./data/legacy_catalogs.js"></script>
+<script src="./data/badges.js"></script>
+<script src="./data/spines.js"></script>
+<script>
+// ════════════════════════════════════════════════════
+//  CAMP HYDE · APP LOGIC (riso build)
+// ════════════════════════════════════════════════════
+
+const DAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday'];
+const DAYS_SHORT = ['Mon','Tue','Wed','Thu','Fri'];
+const HOURS = ['8:00','9:00','10:00','11:00','12:00','1:00','2:00','3:00'];
+const HOURS_NUM = ['8','9','10','11','12','1','2','3'];
+const HOURS_AMPM = ['AM','AM','AM','AM','PM','PM','PM','PM'];
+
+const SUMMER_START = new Date('2026-05-21T00:00:00');
+const SUMMER_END   = new Date('2026-08-12T00:00:00');
+const TRIP_START   = new Date('2026-07-02T00:00:00');
+const TRIP_END     = new Date('2026-07-07T00:00:00');
+const MEMORIAL_DAY = new Date('2026-05-25T00:00:00');
+const SPORTS_CAMP_DAYS = ['2026-06-15','2026-06-16','2026-06-17','2026-06-18','2026-06-19'];
+
+const TYPE_ICON_IDS = {
+  routine:'ico-routine', reading:'ico-reading', education:'ico-education',
+  lunch:'ico-lunch', screen:'ico-screen', outdoor:'ico-outdoor',
+  fieldtrip:'ico-fieldtrip', free:'ico-free', camp:'ico-camp',
+  trip:'ico-trip', school:'ico-school', blank:'ico-blank',
+};
+const CATEGORY_ICON_IDS = {
+  science:'ico-science', technology:'ico-technology',
+  engineering:'ico-engineering', math:'ico-math',
+  drawing:'ico-drawing', painting:'ico-painting',
+  crafts:'ico-crafts', digital:'ico-digital',
+};
+const TYPE_TAGS = {
+  routine:'Routine', reading:'Reading', education:'Education',
+  lunch:'Lunch', screen:'Screen', outdoor:'Outdoor',
+  fieldtrip:'Field Trip', free:'Free', camp:'Camp',
+  trip:'Trip', school:'School', blank:'',
+};
+
+function stripEmoji(s) {
+  if (!s) return '';
+  return s.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2700}-\u{27BF}️‍]/gu, '').replace(/\s+/g,' ').trim();
+}
+
+const WEEKLY_THEMES = {
+  '2026-05-18': { num:'01', title:'Last Bell, First Bonfire',  stemId:null, artId:113,   fieldTrip:'Boise River Greenbelt' },
+  '2026-05-25': { num:'02', title:'Backyard Naturalist',       stemId:3,    artId:114,   fieldTrip:'MK Nature Center' },
+  '2026-06-01': { num:'03', title:'Water & Wonder',            stemId:2,    artId:116,   fieldTrip:'Lucky Peak State Park' },
+  '2026-06-08': { num:'04', title:'Build It Week',             stemId:6,    artId:107,   fieldTrip:'Discovery Center of Idaho' },
+  '2026-06-15': { num:'05', title:'Leo STEM Camp Week',        stemId:1,    artId:108,   fieldTrip:'Jump Time Trampoline Park' },
+  '2026-06-22': { num:'06', title:'Mountain West Travelers',   stemId:null, artId:119,   fieldTrip:'Fallon / June Lake' },
+  '2026-06-29': { num:'07', title:'Stars & Sky',               stemId:8,    artId:121,   fieldTrip:'Idaho Botanical Garden' },
+  '2026-07-06': { num:'08', title:'Family Trip',               stemId:null, artId:122,   fieldTrip:'Family Trip' },
+  '2026-07-13': { num:'09', title:'Idaho Stories',             stemId:10,   artId:109,   fieldTrip:'Idaho State Museum' },
+  '2026-07-20': { num:'10', title:'Maker Days',                stemId:7,    artId:110,   fieldTrip:'Wahooz Family Fun Zone' },
+  '2026-07-27': { num:'11', title:'Heat Wave Workshop',        stemId:9,    artId:111,   fieldTrip:'Roaring Springs Water Park' },
+  '2026-08-03': { num:'12', title:'Long Light',                stemId:11,   artId:126,   fieldTrip:'Zoo Boise' },
+  '2026-08-10': { num:'13', title:'Last Hurrah',               stemId:12,   artId:127,   fieldTrip:'Shoshone Falls' },
+};
+
+function generateWeeks() {
+  const weeks = [];
+  let d = new Date('2026-05-18T00:00:00');
+  const stop = new Date('2026-08-17T00:00:00');
+  while (d <= stop) {
+    weeks.push(new Date(d));
+    d = new Date(d.getTime() + 7 * 86400000);
+  }
+  return weeks;
+}
+const WEEKS = generateWeeks();
+
+function weekKey(d) { return d.toISOString().slice(0,10); }
+function dayDate(wDate, i) { const d = new Date(wDate); d.setDate(d.getDate()+i); return d; }
+function dayKey(d) { return d.toISOString().slice(0,10); }
+function sameDay(a,b) { return a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate(); }
+function isSchoolDay(d) { return d < SUMMER_START || d >= SUMMER_END; }
+function isTripDay(d) { return d >= TRIP_START && d <= TRIP_END; }
+function isMemorialDay(d) { return sameDay(d, MEMORIAL_DAY); }
+function isSportsCamp(d) { return SPORTS_CAMP_DAYS.includes(dayKey(d)); }
+function isLeoFootballCamp(d) { return typeof LEO_FOOTBALL_CAMP_DAYS !== 'undefined' && LEO_FOOTBALL_CAMP_DAYS.includes(dayKey(d)); }
+function dayOfYear(d) { const start = new Date(d.getFullYear(),0,0); return Math.floor((d - start)/86400000); }
+
+let currentWeekIndex = 0;
+let editContext = null;
+let userEditedName = false;
+let currentCatFilter = 'all';
+let currentArtFilter = 'all';
+let forecastData = null;
+
+const PREFIX = 'hyde26_';
+const lsKey = (wk,d,s) => `${PREFIX}cell_${wk}_${d}_${s}`;
+const parentKey = (wk,d,s) => `${PREFIX}parent_${wk}_${d}_${s}`;
+const notesKey = wk => `${PREFIX}notes_${wk}`;
+const readingKey = (wk,kid) => `${PREFIX}reading_${wk}_${kid}`;
+const heatDismissKey = d => `${PREFIX}heatdismiss_${d}`;
+
+function getSaved(wk,d,s) { try { const v = localStorage.getItem(lsKey(wk,d,s)); return v?JSON.parse(v):null; } catch(e){return null;} }
+function setSaved(wk,d,s,data) { try { localStorage.setItem(lsKey(wk,d,s), JSON.stringify(data)); } catch(e){} }
+function removeSaved(wk,d,s) { try { localStorage.removeItem(lsKey(wk,d,s)); } catch(e){} }
+function getNotes(wk) { try { return localStorage.getItem(notesKey(wk))||''; } catch(e){return '';} }
+function saveNotes() {
+  const wk = weekKey(WEEKS[currentWeekIndex]);
+  try { localStorage.setItem(notesKey(wk), document.getElementById('weekNotes').value); } catch(e){}
+}
+function getParent(wk,d,s) { try { return localStorage.getItem(parentKey(wk,d,s))||''; } catch(e){return '';} }
+function setParent(wk,d,s,v) { try { v?localStorage.setItem(parentKey(wk,d,s),v):localStorage.removeItem(parentKey(wk,d,s)); } catch(e){} }
+
+const PARENT_CYCLE  = ['', 'M', 'S', 'both'];
+const PARENT_LABELS = { '':'+', 'M':'M', 'S':'S', 'both':'M+S' };
+const PARENT_CLASSES = { '':'pb-none', 'M':'pb-M', 'S':'pb-S', 'both':'pb-both' };
+
+function applyWeeklyOverrides(wDate, dayIdx, slotIdx, baseData) {
+  const theme = WEEKLY_THEMES[weekKey(wDate)];
+  if (!theme) return baseData;
+  if (dayIdx === 1 && slotIdx === 2 && theme.stemId) {
+    const stem = STEM_ACTIVITIES.find(a => a.id === theme.stemId);
+    if (stem) return { text: stripEmoji(stem.title), type: 'education' };
+  }
+  if (dayIdx === 1 && slotIdx === 6 && theme.artId) {
+    const art = ART_ACTIVITIES.find(a => a.id === theme.artId);
+    if (art) return { text: stripEmoji(art.title), type: 'free' };
+  }
+  if (dayIdx === 2 && (slotIdx === 5 || slotIdx === 6) && theme.fieldTrip
+      && theme.fieldTrip !== 'Family Trip') {
+    return { text: theme.fieldTrip, type: 'fieldtrip' };
+  }
+  if (dayIdx === 4 && slotIdx === 6 && theme.stemId) {
+    const stem = STEM_ACTIVITIES.find(a => a.id === theme.stemId);
+    if (stem) return { text: `${stripEmoji(stem.title)} (Pt. 2)`, type: 'education' };
+  }
+  return baseData;
+}
+
+function getCellData(wDate, dayIdx, slotIdx) {
+  const wk = weekKey(wDate);
+  const saved = getSaved(wk, dayIdx, slotIdx);
+  if (saved) return saved;
+  const dd = dayDate(wDate, dayIdx);
+  if (isSchoolDay(dd)) return { text:'School', type:'school' };
+  if (isMemorialDay(dd)) return { text:'Memorial Day', type:'free' };
+  if (isTripDay(dd)) return { text:'Family Trip', type:'trip' };
+  const ddKey = dayKey(dd);
+  if (SPECIAL_DAY_EVENTS[ddKey]) {
+    const ev = SPECIAL_DAY_EVENTS[ddKey];
+    return { text: stripEmoji(ev.text), type: ev.type };
+  }
+  if (isLeoFootballCamp(dd) && slotIdx >= 1 && slotIdx <= 3) {
+    return { text: 'Leo Football Camp (9am–12pm)', type: 'camp' };
+  }
+  if (isSportsCamp(dd) && slotIdx >= 1) {
+    const labels = ['','Drop-off (9am)','Leo STEM Camp','Leo STEM Camp','Leo STEM Camp (Lunch)','Leo STEM Camp','Leo STEM Camp','Leo STEM Camp / Pick-up'];
+    return { text: labels[slotIdx], type: 'camp' };
+  }
+  const base = DEFAULT_SCHEDULE[dayIdx][slotIdx];
+  return applyWeeklyOverrides(wDate, dayIdx, slotIdx, { ...base, text: stripEmoji(base.text) });
+}
+
+function isHeatDay(d) {
+  if (!forecastData) return false;
+  const k = dayKey(d);
+  if (forecastData[k] !== undefined && forecastData[k] >= 95) {
+    if (!localStorage.getItem(heatDismissKey(k))) return true;
+  }
+  return false;
+}
+
+function el(tag, cls, txt) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (txt != null) e.textContent = txt;
+  return e;
+}
+
+function renderGrid() {
+  const wDate = WEEKS[currentWeekIndex];
+  const wk = weekKey(wDate);
+  const grid = document.getElementById('scheduleGrid');
+  grid.innerHTML = '';
+  const today = new Date();
+
+  grid.appendChild(el('div','gh','Time'));
+  for (let i = 0; i < 5; i++) {
+    const dd = dayDate(wDate, i);
+    const isT = sameDay(dd, today);
+    const h = el('div','gh' + (isT ? ' is-today' : ''));
+    const dateStr = dd.toLocaleDateString('en-US',{ month:'short', day:'numeric' });
+    h.innerHTML = `${DAYS_SHORT[i]}<span class="day-date">${dateStr}</span>`;
+    grid.appendChild(h);
+  }
+
+  for (let slotIdx = 0; slotIdx < HOURS.length; slotIdx++) {
+    const tl = document.createElement('div');
+    tl.className = 'tl';
+    tl.innerHTML = `<span class="num">${HOURS_NUM[slotIdx]}</span>${HOURS_AMPM[slotIdx]}`;
+    grid.appendChild(tl);
+    for (let dayIdx = 0; dayIdx < 5; dayIdx++) {
+      const data = getCellData(wDate, dayIdx, slotIdx);
+      const parent = getParent(wk, dayIdx, slotIdx);
+      const dd = dayDate(wDate, dayIdx);
+      const isT = sameDay(dd, today);
+
+      const cellDoneFlag = localStorage.getItem(`${PREFIX}celldone_${wk}_${dayIdx}_${slotIdx}`) === 'true';
+      const cell = document.createElement('div');
+      cell.className = `sc t-${data.type || 'blank'}${isT ? ' is-today' : ''}${cellDoneFlag ? ' is-done' : ''}`;
+      cell.dataset.parent = parent;
+      cell.dataset.dayidx = dayIdx;
+      cell.dataset.slotidx = slotIdx;
+      cell.onclick = () => openModal(dayIdx, slotIdx, wDate);
+
+      const iconId = TYPE_ICON_IDS[data.type] || 'ico-blank';
+      const iconSvg = data.type && data.type !== 'blank'
+        ? `<svg class="ico"><use href="#${iconId}"/></svg>` : '';
+      const tagText = TYPE_TAGS[data.type] || '';
+      const cc = document.createElement('div');
+      cc.className = 'cc';
+      cc.innerHTML = `
+        ${tagText ? `<div class="ct-tag">${tagText}</div>` : ''}
+        <div class="ci">${iconSvg}<span class="ct">${data.text || '—'}</span></div>`;
+      cell.appendChild(cc);
+
+      const badge = document.createElement('button');
+      badge.className = `parent-badge ${PARENT_CLASSES[parent]}`;
+      badge.textContent = PARENT_LABELS[parent];
+      badge.id = `pb_${dayIdx}_${slotIdx}`;
+      badge.onclick = (e) => { e.stopPropagation(); toggleParent(dayIdx, slotIdx); };
+      cell.appendChild(badge);
+
+      const doneBtn = document.createElement('button');
+      doneBtn.className = `cell-done${cellDoneFlag ? ' is-done' : ''}`;
+      doneBtn.textContent = cellDoneFlag ? '✓' : '○';
+      doneBtn.title = 'Mark as done';
+      doneBtn.onclick = (e) => { e.stopPropagation(); toggleCellDone(wk, dayIdx, slotIdx); };
+      cell.appendChild(doneBtn);
+
+      if (isHeatDay(dd) && (data.type === 'outdoor' || (data.type === 'free' && slotIdx >= 5))
+          && slotIdx >= 5) {
+        const hf = document.createElement('span');
+        hf.className = 'heat-flag';
+        hf.innerHTML = '<svg class="ico"><use href="#ico-heat"/></svg>SWAP';
+        hf.title = `Forecast ${forecastData[dayKey(dd)]}°F — consider indoor swap. Click to dismiss.`;
+        hf.onclick = (e) => {
+          e.stopPropagation();
+          localStorage.setItem(heatDismissKey(dayKey(dd)), '1');
+          renderGrid();
+        };
+        cell.appendChild(hf);
+      }
+
+      const eh = document.createElement('span');
+      eh.className = 'eh';
+      eh.textContent = '✎';
+      cell.appendChild(eh);
+      grid.appendChild(cell);
+    }
+  }
+}
+
+function toggleParent(dayIdx, slotIdx) {
+  const wk = weekKey(WEEKS[currentWeekIndex]);
+  const cur = getParent(wk, dayIdx, slotIdx);
+  const next = PARENT_CYCLE[(PARENT_CYCLE.indexOf(cur) + 1) % PARENT_CYCLE.length];
+  setParent(wk, dayIdx, slotIdx, next);
+  const badge = document.getElementById(`pb_${dayIdx}_${slotIdx}`);
+  badge.className = `parent-badge ${PARENT_CLASSES[next]}`;
+  badge.textContent = PARENT_LABELS[next];
+}
+
+function updateBanner(wDate) {
+  const wk = weekKey(wDate);
+  const theme = WEEKLY_THEMES[wk];
+  if (!theme) {
+    document.getElementById('wkNum').textContent = '—';
+    document.getElementById('wkKicker').textContent = '';
+    document.getElementById('wkTitle').textContent = 'Off-Season';
+    return;
+  }
+  document.getElementById('wkNum').textContent = theme.num;
+  const start = wDate.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  const endDate = new Date(wDate); endDate.setDate(endDate.getDate()+4);
+  const end = endDate.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  document.getElementById('wkKicker').textContent = `WEEK OF ${start.toUpperCase()} — ${end.toUpperCase()}`;
+  document.getElementById('wkTitle').textContent = theme.title;
+  // Bird of the week
+  const idx = parseInt(theme.num, 10) - 1;
+  const bird = CORPORA.birds_backyard[idx * 11 % CORPORA.birds_backyard.length];
+  document.getElementById('wkBird').textContent = bird.name;
+}
+
+function updateSpotlight(wDate) {
+  const wk = weekKey(wDate);
+  const theme = WEEKLY_THEMES[wk];
+  const idx = theme ? (parseInt(theme.num, 10) - 1) : 0;
+  const apod = APOD_WEEKS.weeks[idx] || APOD_WEEKS.weeks[0];
+  const tour = ['Idaho','Nevada','Oregon','Wyoming','Montana','California','Washington','Utah','Colorado','New Mexico','Arizona','Alaska','Hawaii'];
+  const stateName = tour[idx] || 'Idaho';
+  const statePair = STATE_CAPITALS.pairs.find(p => p.state === stateName);
+  const plant = CORPORA.plants[idx * 7 % CORPORA.plants.length];
+
+  document.getElementById('apodImg').src = apod.img;
+  document.getElementById('apodImg').alt = apod.title;
+  document.getElementById('apodImg').style.display = '';
+  document.getElementById('apodTitle').textContent = apod.title;
+  document.getElementById('apodCredit').textContent = apod.credit;
+  document.getElementById('apodKid').textContent = apod.kid;
+  document.getElementById('spotState').textContent = stateName;
+  document.getElementById('spotCap').textContent = statePair ? statePair.capital : '—';
+  document.getElementById('spotPlant').textContent = plant;
+}
+
+function updateTrivia() {
+  const today = new Date();
+  const doy = dayOfYear(today);
+  const q = TRIVIA.questions[doy % TRIVIA.questions.length];
+  document.getElementById('triviaDate').textContent =
+    today.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  const choicesHtml = q.choices.map((c,i) =>
+    `<li onclick="answerTrivia(this, '${c.replace(/'/g,"\\'").replace(/"/g,'&quot;')}', '${q.a.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">${String.fromCharCode(65+i)}. ${c}</li>`
+  ).join('');
+  document.getElementById('triviaContent').innerHTML = `
+    <div class="trivia-q-num">${q.cat}</div>
+    <div class="trivia-q">${q.q}</div>
+    <ul class="trivia-choices">${choicesHtml}</ul>
+  `;
+}
+function answerTrivia(li, picked, correct) {
+  const ul = li.parentElement;
+  [...ul.children].forEach(c => {
+    const text = c.textContent.replace(/^[A-D]\.\s/,'');
+    if (text === correct) c.classList.add('correct');
+    else if (text === picked) c.classList.add('wrong');
+    c.onclick = null;
+  });
+}
+
+function updateReadingLog() {
+  const wk = weekKey(WEEKS[currentWeekIndex]);
+  const container = document.getElementById('readingLog');
+  const kids = ['lincoln','leo'];
+  const labels = ['Lincoln', 'Leo'];
+  container.innerHTML = kids.map((k, i) => {
+    const saved = JSON.parse(localStorage.getItem(readingKey(wk,k)) || '{}');
+    return `
+      <div class="reading-row">
+        <div class="kid-label">${labels[i]}</div>
+        <input type="text" placeholder="Book title…" value="${(saved.title || '').replace(/"/g,'&quot;')}"
+               onchange="saveReading('${k}','title',this.value)">
+        <div class="pages-row">
+          <span>Pages this week:</span>
+          <input type="number" min="0" placeholder="0" value="${saved.pages || ''}"
+                 onchange="saveReading('${k}','pages',this.value)">
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+function saveReading(kid, field, val) {
+  const wk = weekKey(WEEKS[currentWeekIndex]);
+  const cur = JSON.parse(localStorage.getItem(readingKey(wk,kid)) || '{}');
+  cur[field] = val;
+  localStorage.setItem(readingKey(wk,kid), JSON.stringify(cur));
+}
+
+function updateWeekLabel(wDate) {
+  const endDate = new Date(wDate); endDate.setDate(endDate.getDate()+4);
+  const start = wDate.toLocaleDateString('en-US',{month:'long',day:'numeric'});
+  const end   = endDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  document.getElementById('weekLabel').textContent = `${start} – ${end}`;
+  document.getElementById('weekProgress').textContent =
+    `Week ${currentWeekIndex + 1} of ${WEEKS.length}`;
+}
+function updateNotes(wk) { document.getElementById('weekNotes').value = getNotes(wk); }
+
+function updateScreenBar() {
+  const wDate = WEEKS[currentWeekIndex];
+  let total = 0;
+  for (let dayIdx = 0; dayIdx < 5; dayIdx++) {
+    for (let slotIdx = 0; slotIdx < HOURS.length; slotIdx++) {
+      const data = getCellData(wDate, dayIdx, slotIdx);
+      if (data.type === 'screen') total++;
+    }
+  }
+  const avg = total / 5;
+  const pct = Math.min((avg / 2) * 100, 130);
+  const fill = document.getElementById('screenFill');
+  fill.style.width = pct + '%';
+  fill.classList.toggle('over', avg > 2);
+  document.getElementById('screenAmt').textContent = `${avg.toFixed(1)} / 2.0 HRS · AVG`;
+}
+
+function updateNavBtns() {
+  document.getElementById('prevBtn').disabled = currentWeekIndex === 0;
+  document.getElementById('nextBtn').disabled = currentWeekIndex === WEEKS.length - 1;
+}
+
+function changeWeek(dir) {
+  const ni = currentWeekIndex + dir;
+  if (ni < 0 || ni >= WEEKS.length) return;
+  currentWeekIndex = ni;
+  renderAll();
+}
+function jumpToToday() {
+  const today = new Date();
+  let bestIdx = 0;
+  for (let i = 0; i < WEEKS.length; i++) if (today >= WEEKS[i]) bestIdx = i;
+  currentWeekIndex = bestIdx;
+  renderAll();
+}
+
+function renderAll() {
+  const wDate = WEEKS[currentWeekIndex];
+  const wk = weekKey(wDate);
+  updateWeekLabel(wDate);
+  updateBanner(wDate);
+  renderGrid();
+  updateNotes(wk);
+  updateScreenBar();
+  updateNavBtns();
+  updateSpotlight(wDate);
+  updateReadingLog();
+  document.getElementById('heatBanner').classList.toggle('show', hasAnyHeatDay());
+  updateParentPivot();
+}
+
+function hasAnyHeatDay() {
+  if (!forecastData) return false;
+  const wDate = WEEKS[currentWeekIndex];
+  for (let i = 0; i < 5; i++) if (isHeatDay(dayDate(wDate, i))) return true;
+  return false;
+}
+
+// Modal
+function openModal(dayIdx, slotIdx, wDate) {
+  editContext = { dayIdx, slotIdx, wDate };
+  userEditedName = false;
+  const data = getCellData(wDate, dayIdx, slotIdx);
+  document.getElementById('editText').value = data.text || '';
+  document.getElementById('editType').value = data.type || 'blank';
+  document.getElementById('editModal').classList.add('show');
+  setTimeout(() => document.getElementById('editText').select(), 50);
+}
+function closeModal() {
+  document.getElementById('editModal').classList.remove('show');
+  editContext = null;
+}
+function saveCell() {
+  if (!editContext) return;
+  const { dayIdx, slotIdx, wDate } = editContext;
+  const wk = weekKey(wDate);
+  const text = document.getElementById('editText').value.trim();
+  const type = document.getElementById('editType').value;
+  if (!text) removeSaved(wk, dayIdx, slotIdx);
+  else setSaved(wk, dayIdx, slotIdx, { text, type });
+  closeModal();
+  renderGrid();
+  updateScreenBar();
+}
+function resetCell() {
+  if (!editContext) return;
+  const { dayIdx, slotIdx, wDate } = editContext;
+  removeSaved(weekKey(wDate), dayIdx, slotIdx);
+  closeModal();
+  renderGrid();
+  updateScreenBar();
+}
+document.addEventListener('keydown', (e) => {
+  if (!document.getElementById('editModal').classList.contains('show')) return;
+  if (e.key === 'Enter') { e.preventDefault(); saveCell(); }
+  else if (e.key === 'Escape') closeModal();
+});
+document.getElementById('editModal').addEventListener('click', (e) => {
+  if (e.target.id === 'editModal') closeModal();
+});
+document.getElementById('editText').addEventListener('input', () => { userEditedName = true; });
+document.getElementById('editType').addEventListener('change', () => {
+  if (userEditedName) return;
+  const map = {
+    routine:'Morning Routine & Chores', reading:'Reading Time',
+    education:'Summer Workbook', lunch:'Lunch & Free Reading',
+    screen:'Screen Time', outdoor:'Outdoor Free Play',
+    fieldtrip:'Field Trip', free:'Creative Time',
+    camp:'Sports Camp', trip:'Family Trip', school:'School', blank:''
+  };
+  document.getElementById('editText').value = map[document.getElementById('editType').value] || '';
+});
+
+// Field trip list
+function renderFieldTrips() {
+  const list = document.getElementById('ftList');
+  if (!list) return;
+  const cols = [
+    { label: 'Quick Stop · 1–2 hrs', items: typeof QUICK_TRIPS !== 'undefined' ? QUICK_TRIPS : [], cls: 'ft-col-quick' },
+    { label: 'Half-Day Out · 3–5 hrs', items: typeof HALFDAY_TRIPS !== 'undefined' ? HALFDAY_TRIPS : [], cls: 'ft-col-half' },
+    { label: 'Full-Day Adventure', items: typeof FULLDAY_TRIPS !== 'undefined' ? FULLDAY_TRIPS : [], cls: 'ft-col-full' },
+  ];
+  list.innerHTML = '';
+  cols.forEach(col => {
+    const colEl = document.createElement('div');
+    colEl.className = 'ft-col ' + col.cls;
+    const lbl = document.createElement('div');
+    lbl.className = 'ft-col-label';
+    lbl.textContent = col.label;
+    colEl.appendChild(lbl);
+    col.items.forEach(t => {
+      const d = document.createElement('div');
+      d.className = 'ft-item';
+      d.innerHTML = `<span class="ft-name">${stripEmoji(t.name)}</span><span class="ft-detail">${stripEmoji(t.detail)}</span>`;
+      d.onclick = () => copyTrip(d, stripEmoji(t.name));
+      colEl.appendChild(d);
+    });
+    list.appendChild(colEl);
+  });
+}
+function copyTrip(el, name) {
+  try { navigator.clipboard.writeText(name); } catch(e) {}
+  el.classList.add('copied');
+  setTimeout(() => el.classList.remove('copied'), 1400);
+}
+
+// Weather forecast (Open-Meteo)
+async function loadForecast() {
+  const cacheKey = PREFIX + 'forecast_v1';
+  try {
+    const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
+    if (cached && Date.now() - cached.ts < 6 * 3600 * 1000) {
+      forecastData = cached.data;
+      return;
+    }
+  } catch(e) {}
+  try {
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=43.61&longitude=-116.20'
+              + '&daily=temperature_2m_max&temperature_unit=fahrenheit&timezone=America%2FDenver'
+              + '&forecast_days=14';
+    const res = await fetch(url);
+    const j = await res.json();
+    forecastData = {};
+    j.daily.time.forEach((d, i) => { forecastData[d] = Math.round(j.daily.temperature_2m_max[i]); });
+    localStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), data: forecastData }));
+  } catch(e) {
+    console.warn('Open-Meteo fetch failed:', e);
+    forecastData = null;
+  }
+}
+
+// Tabs
+function showPage(name) {
+  ['schedule','stem','art','album','badges','shopping','poster','jobs','3dprint'].forEach(p => {
+    const pg = document.getElementById('page-'+p);
+    if (pg) pg.style.display = (p===name) ? '' : 'none';
+    const tb = document.getElementById('tab-'+p);
+    if (tb) tb.classList.toggle('active', p===name);
+  });
+  if (name === 'stem' && document.getElementById('stemGrid').children.length === 0) renderStem();
+  if (name === 'art' && document.getElementById('artGrid').children.length === 0) renderArt();
+  if (name === 'album') renderAlbum();
+  if (name === 'badges') renderBadges();
+  if (name === 'shopping') renderShopping();
+  if (name === 'poster') renderPoster();
+  if (name === 'jobs') renderJobs();
+  if (name === '3dprint') renderPrint();
+}
+
+// STEM/Art cards
+function renderStem() {
+  const grid = document.getElementById('stemGrid');
+  grid.innerHTML = '';
+  const items = currentCatFilter === 'all' ? STEM_ACTIVITIES
+    : STEM_ACTIVITIES.filter(a => a.cat === currentCatFilter);
+  items.forEach(a => grid.appendChild(buildActivityCard(a)));
+}
+function filterStem(cat) {
+  currentCatFilter = cat;
+  document.querySelectorAll('#page-stem .filter-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('f-' + (cat === 'all' ? 'all' : cat)).classList.add('active');
+  renderStem();
+}
+function renderArt() {
+  const grid = document.getElementById('artGrid');
+  grid.innerHTML = '';
+  const items = currentArtFilter === 'all' ? ART_ACTIVITIES
+    : ART_ACTIVITIES.filter(a => a.cat === currentArtFilter);
+  items.forEach(a => grid.appendChild(buildActivityCard(a)));
+}
+function filterArt(cat) {
+  currentArtFilter = cat;
+  document.querySelectorAll('#page-art .filter-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('af-' + (cat === 'all' ? 'all' : cat)).classList.add('active');
+  renderArt();
+}
+function buildActivityCard(a) {
+  const card = document.createElement('div');
+  const isDone = localStorage.getItem(`${PREFIX}done_${a.id}`) === 'true';
+  card.className = 'ac' + (isDone ? ' is-done' : '');
+  card.dataset.activityId = a.id;
+  const stars = '★'.repeat(a.difficulty || 1) + '☆'.repeat(3 - (a.difficulty || 1));
+  const catIcon = CATEGORY_ICON_IDS[a.cat] || 'ico-blank';
+  card.innerHTML = `
+    <div class="ac-header" onclick="this.parentElement.classList.toggle('expanded')">
+      <div class="ico-block cat-${a.cat}"><svg class="ico"><use href="#${catIcon}"/></svg></div>
+      <div class="meta-block">
+        <div class="title">${stripEmoji(a.title)}</div>
+        <div class="tags">
+          ${a.duration} <span class="dot">·</span>
+          <span class="difficulty">${stars}</span> <span class="dot">·</span>
+          ${a.ages}
+        </div>
+      </div>
+    </div>
+    <div class="ac-body">
+      <div class="desc">${a.description}</div>
+      <div class="section-label">Materials</div>
+      <table>
+        ${a.materials.map(m => `<tr><td>${m.item}</td><td>${m.qty}</td><td>${m.where}</td></tr>`).join('')}
+      </table>
+      <div class="section-label">Steps</div>
+      <ol>${a.steps.map(s => `<li>${s}</li>`).join('')}</ol>
+      ${a.tip ? `<div class="tip">${a.tip}</div>` : ''}
+    </div>
+    <div class="ac-footer" onclick="event.stopPropagation()">
+      <label class="done-toggle">
+        <input type="checkbox" ${isDone ? 'checked' : ''} onchange="toggleActivityDone(${a.id}, this.checked)">
+        Mark Complete
+      </label>
+      <button class="photo-btn" onclick="capturePhoto(${a.id})">📸 Add Photo</button>
+      <div class="thumb-strip" id="thumbs_${a.id}">${renderThumbs(a.id)}</div>
+    </div>
+  `;
+  return card;
+}
+
+// Print shopping list
+function printShoppingList() {
+  const items = currentCatFilter === 'all' ? STEM_ACTIVITIES
+    : STEM_ACTIVITIES.filter(a => a.cat === currentCatFilter);
+  printList(items, 'STEM Shopping List');
+}
+function printArtList() {
+  const items = currentArtFilter === 'all' ? ART_ACTIVITIES
+    : ART_ACTIVITIES.filter(a => a.cat === currentArtFilter);
+  printList(items, 'Art Supplies List');
+}
+function printList(items, title) {
+  const w = window.open('','_blank');
+  const rows = items.map(a => `
+    <h3 style="font-family:'Caprasimo',Georgia,serif;font-style:italic;color:#E63946;border-bottom:3px double #0B1418;padding-bottom:5px;margin-top:24px;font-size:1.6rem;">
+      ${stripEmoji(a.title)}
+      <span style="float:right;font-family:'DM Mono',monospace;font-size:0.7rem;color:#888;text-transform:uppercase;font-style:normal;letter-spacing:0.15em;">${a.cat}</span>
+    </h3>
+    <table style="width:100%;border-collapse:collapse;font-family:Georgia,serif;font-size:0.92rem;">
+      ${a.materials.map(m => `
+        <tr>
+          <td style="padding:4px 8px;border-bottom:1px dashed #ccc;width:24px;"><input type="checkbox"></td>
+          <td style="padding:4px 8px;border-bottom:1px dashed #ccc;font-weight:600;">${m.item}</td>
+          <td style="padding:4px 8px;border-bottom:1px dashed #ccc;font-family:monospace;font-size:0.85rem;">${m.qty}</td>
+          <td style="padding:4px 8px;border-bottom:1px dashed #ccc;font-style:italic;color:#666;">${m.where}</td>
+        </tr>
+      `).join('')}
+    </table>`).join('');
+  w.document.write(`<!doctype html><html><head><title>${title}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Mono&display=swap" rel="stylesheet"></head>
+    <body style="font-family:Georgia,serif;max-width:760px;margin:30px auto;padding:0 20px;color:#0B1418;">
+      <h1 style="font-family:'Caprasimo',serif;font-style:italic;color:#E63946;text-shadow:2px 2px 0 #1098C7;">${title}</h1>
+      <p style="color:#666;font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;">Camp Hyde · Summer 2026</p>
+      ${rows}
+    </body></html>`);
+  w.document.close();
+  setTimeout(() => w.print(), 300);
+}
+
+// ════════════ KID-EXPERIENCE + PARENT-OPS ════════════
+
+// Cell-level done toggle
+function toggleCellDone(wk, dayIdx, slotIdx) {
+  const k = `${PREFIX}celldone_${wk}_${dayIdx}_${slotIdx}`;
+  if (localStorage.getItem(k) === 'true') localStorage.removeItem(k);
+  else localStorage.setItem(k, 'true');
+  renderGrid();
+  updateParentPivot();
+}
+
+// Activity-level done toggle
+function toggleActivityDone(id, done) {
+  const k = `${PREFIX}done_${id}`;
+  if (done) localStorage.setItem(k, 'true');
+  else localStorage.removeItem(k);
+  // Refresh card styling
+  const card = document.querySelector(`.ac[data-activity-id="${id}"]`);
+  if (card) card.classList.toggle('is-done', done);
+}
+
+// Photo capture: compress to ~80KB jpg and stash in localStorage
+let pendingPhotoActivityId = null;
+function capturePhoto(activityId) {
+  pendingPhotoActivityId = activityId;
+  document.getElementById('photoInput').click();
+}
+function handlePhotoFile(e) {
+  const file = e.target.files[0];
+  if (!file || !pendingPhotoActivityId) return;
+  compressPhoto(file).then(base64 => {
+    const key = `${PREFIX}photo_${pendingPhotoActivityId}_${Date.now()}`;
+    try {
+      localStorage.setItem(key, base64);
+      const strip = document.getElementById(`thumbs_${pendingPhotoActivityId}`);
+      if (strip) strip.innerHTML = renderThumbs(pendingPhotoActivityId);
+    } catch (err) {
+      alert('Out of storage. Export your scrapbook from the Album tab and clear some photos.');
+    }
+    pendingPhotoActivityId = null;
+    e.target.value = '';
+  });
+}
+function compressPhoto(file) {
+  return new Promise(resolve => {
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const img = new Image();
+      img.onload = () => {
+        const MAX = 800;
+        const scale = Math.min(MAX / img.width, MAX / img.height, 1);
+        const w = Math.round(img.width * scale);
+        const h = Math.round(img.height * scale);
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL('image/jpeg', 0.7));
+      };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+function renderThumbs(activityId) {
+  const photos = getPhotosForActivity(activityId);
+  if (!photos.length) return '';
+  return photos.map(p =>
+    `<img src="${p.data}" onclick="viewPhoto('${p.key}')" alt="">`
+  ).join('');
+}
+function getPhotosForActivity(activityId) {
+  const out = [];
+  const prefix = `${PREFIX}photo_${activityId}_`;
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith(prefix)) {
+      out.push({ key: k, ts: parseInt(k.slice(prefix.length), 10), data: localStorage.getItem(k) });
+    }
+  }
+  return out.sort((a, b) => a.ts - b.ts);
+}
+function getAllPhotos() {
+  const out = [];
+  const prefix = `${PREFIX}photo_`;
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith(prefix)) {
+      const rest = k.slice(prefix.length);
+      const parts = rest.split('_');
+      const activityId = parseInt(parts[0], 10);
+      const ts = parseInt(parts[1], 10);
+      out.push({ key: k, activityId, ts, data: localStorage.getItem(k) });
+    }
+  }
+  return out.sort((a, b) => a.ts - b.ts);
+}
+function viewPhoto(key) {
+  const data = localStorage.getItem(key);
+  if (!data) return;
+  if (confirm('Delete this photo?')) {
+    localStorage.removeItem(key);
+    // Refresh nearest strip
+    document.querySelectorAll('.thumb-strip').forEach(s => {
+      const id = parseInt(s.id.replace('thumbs_', ''), 10);
+      s.innerHTML = renderThumbs(id);
+    });
+    if (document.getElementById('page-album').style.display !== 'none') renderAlbum();
+  }
+}
+
+// Kid mode
+function toggleKidMode() {
+  const cur = localStorage.getItem(`${PREFIX}kidmode`) === 'true';
+  setKidMode(!cur);
+}
+function setKidMode(on) {
+  localStorage.setItem(`${PREFIX}kidmode`, on ? 'true' : 'false');
+  document.body.classList.toggle('kid-mode', on);
+  const btn = document.getElementById('kidmodeBtn');
+  if (btn) {
+    btn.textContent = 'Kid Mode: ' + (on ? 'On' : 'Off');
+    btn.classList.toggle('on', on);
+  }
+}
+
+// Boredom button
+let lastBoredomPick = null;
+function openBoredom() {
+  const wDate = WEEKS[currentWeekIndex];
+  const today = new Date();
+  const isHot = forecastData && forecastData[dayKey(today)] >= 95;
+  const hour = today.getHours();
+
+  const allActivities = [...ART_ACTIVITIES, ...STEM_ACTIVITIES];
+  let pool = allActivities.filter(a => localStorage.getItem(`${PREFIX}done_${a.id}`) !== 'true');
+  if (!pool.length) pool = allActivities;
+  if (isHot) {
+    const indoor = pool.filter(a => !/outdoor|river|cairn|sun print|cyanot|nature print|driveway|sagebrush|basalt|snake river/i.test(a.title));
+    if (indoor.length) pool = indoor;
+  }
+  if (hour >= 19) {
+    const easy = pool.filter(a => (a.difficulty || 1) <= 2);
+    if (easy.length) pool = easy;
+  }
+  let pick = pool[Math.floor(Math.random() * pool.length)];
+  if (lastBoredomPick && pool.length > 1) {
+    let tries = 0;
+    while (pick && pick.id === lastBoredomPick && tries < 5) {
+      pick = pool[Math.floor(Math.random() * pool.length)];
+      tries++;
+    }
+  }
+  lastBoredomPick = pick.id;
+  document.getElementById('boredomEmoji').textContent = pick.emoji || '🎲';
+  document.getElementById('boredomTitle').textContent = stripEmoji(pick.title);
+  document.getElementById('boredomBlurb').textContent = (pick.description || '').slice(0, 200);
+  document.getElementById('boredomOverlay').classList.add('show');
+  document.getElementById('boredomOverlay').dataset.pickId = pick.id;
+  document.getElementById('boredomOverlay').dataset.pickType = STEM_ACTIVITIES.find(s => s.id === pick.id) ? 'stem' : 'art';
+}
+function closeBoredom() { document.getElementById('boredomOverlay').classList.remove('show'); }
+function openBoredomTab() {
+  const ov = document.getElementById('boredomOverlay');
+  const type = ov.dataset.pickType;
+  closeBoredom();
+  showPage(type);
+}
+
+// Parent divide pivot
+function updateParentPivot() {
+  const wk = weekKey(WEEKS[currentWeekIndex]);
+  let m = 0, s = 0, both = 0;
+  for (let d = 0; d < 5; d++) {
+    for (let sl = 0; sl < HOURS.length; sl++) {
+      const p = getParent(wk, d, sl);
+      if (p === 'M') m++;
+      else if (p === 'S') s++;
+      else if (p === 'both') both++;
+    }
+  }
+  const total = m + s + both;
+  const pivot = document.getElementById('parentPivot');
+  if (!pivot) return;
+  if (total === 0) { pivot.style.display = 'none'; return; }
+  pivot.style.display = 'flex';
+  document.getElementById('pivCountM').textContent = m;
+  document.getElementById('pivCountS').textContent = s;
+  document.getElementById('pivCountB').textContent = both;
+  const bal = document.getElementById('pivBalance');
+  if (Math.abs(m - s) <= 2) bal.textContent = '⚖️ balanced';
+  else if (m > s) bal.textContent = `↔️ M leads by ${m - s}`;
+  else bal.textContent = `↔️ S leads by ${s - m}`;
+}
+function highlightParent(which) {
+  document.querySelectorAll('.sc.pivot-highlight').forEach(c => c.classList.remove('pivot-highlight'));
+  document.querySelectorAll('.sc').forEach(c => {
+    if (c.dataset.parent === which) c.classList.add('pivot-highlight');
+  });
+  setTimeout(() => {
+    document.querySelectorAll('.sc.pivot-highlight').forEach(c => c.classList.remove('pivot-highlight'));
+  }, 2500);
+}
+
+// Album / scrapbook
+function renderAlbum() {
+  const body = document.getElementById('albumBody');
+  const photos = getAllPhotos();
+  if (!photos.length) {
+    body.innerHTML = '<div class="album-empty">No photos yet. Click 📸 Add Photo on any activity card to start your summer scrapbook.</div>';
+    return;
+  }
+  const byWeek = {};
+  WEEKS.forEach(w => byWeek[weekKey(w)] = []);
+  photos.forEach(p => {
+    const photoDate = new Date(p.ts);
+    const weekStart = WEEKS.find(w => {
+      const end = new Date(w.getTime() + 7 * 86400000);
+      return photoDate >= w && photoDate < end;
+    });
+    const key = weekStart ? weekKey(weekStart) : weekKey(WEEKS[0]);
+    if (!byWeek[key]) byWeek[key] = [];
+    byWeek[key].push(p);
+  });
+  let html = '';
+  for (const w of WEEKS) {
+    const k = weekKey(w);
+    const ps = byWeek[k] || [];
+    if (!ps.length) continue;
+    const theme = WEEKLY_THEMES[k];
+    html += `<div class="album-week"><h3>Week ${theme ? theme.num : '—'} · ${theme ? theme.title : k}</h3><div class="album-photos">`;
+    ps.forEach(p => {
+      const allAct = [...ART_ACTIVITIES, ...STEM_ACTIVITIES];
+      const act = allAct.find(a => a.id === p.activityId);
+      const dateStr = new Date(p.ts).toLocaleDateString('en-US', { month:'short', day:'numeric' });
+      html += `<div class="album-photo"><img src="${p.data}" alt="" onclick="viewPhoto('${p.key}')"><div class="caption">${act ? stripEmoji(act.title) : 'Activity ' + p.activityId}<br>${dateStr}</div></div>`;
+    });
+    html += '</div></div>';
+  }
+  body.innerHTML = html || '<div class="album-empty">No photos yet.</div>';
+}
+function exportScrapbook() {
+  const photos = getAllPhotos();
+  if (!photos.length) { alert('No photos yet to export.'); return; }
+  const allAct = [...ART_ACTIVITIES, ...STEM_ACTIVITIES];
+  let body = `<!doctype html><html><head><meta charset="utf-8"><title>Camp Hyde 2026 Scrapbook</title>
+    <style>
+      body{font-family:Georgia,serif;background:#FAF6E8;color:#0B1418;max-width:1100px;margin:0 auto;padding:30px}
+      h1{font-family:Georgia,serif;font-style:italic;color:#E63946;font-size:3rem;text-shadow:3px 3px 0 #1098C7}
+      h2{font-style:italic;color:#E63946;border-bottom:2px solid #0B1418;padding-bottom:6px;margin-top:36px}
+      .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin:20px 0}
+      .card{background:white;border:2px solid #0B1418;box-shadow:5px 5px 0 #0B1418;padding:8px}
+      .card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+      .cap{font-size:0.78rem;padding:8px 4px 4px;text-align:center;font-family:monospace}
+    </style></head><body>
+    <h1>Camp Hyde · Summer MMXXVI</h1>
+    <p style="font-family:monospace;letter-spacing:0.15em;text-transform:uppercase;color:#555">Boise · 13 weeks · ${photos.length} photographs</p>`;
+  for (const w of WEEKS) {
+    const k = weekKey(w);
+    const ps = photos.filter(p => {
+      const pd = new Date(p.ts);
+      const end = new Date(w.getTime() + 7 * 86400000);
+      return pd >= w && pd < end;
+    });
+    if (!ps.length) continue;
+    const theme = WEEKLY_THEMES[k];
+    body += `<h2>Week ${theme ? theme.num : '—'} · ${theme ? theme.title : k}</h2><div class="grid">`;
+    ps.forEach(p => {
+      const act = allAct.find(a => a.id === p.activityId);
+      const dateStr = new Date(p.ts).toLocaleDateString('en-US', { month:'short', day:'numeric' });
+      body += `<div class="card"><img src="${p.data}"><div class="cap">${act ? stripEmoji(act.title) : 'Activity'}<br>${dateStr}</div></div>`;
+    });
+    body += '</div>';
+  }
+  // Add badges page
+  const unlocked = computeUnlockedBadges();
+  if (unlocked.length) {
+    body += '<h2>Merit Badges Earned</h2><div class="grid">';
+    unlocked.forEach(b => {
+      body += `<div class="card" style="text-align:center;padding:16px">${b.svg}<div class="cap" style="font-size:0.9rem;color:#E63946;font-style:italic">${b.title}</div></div>`;
+    });
+    body += '</div>';
+  }
+  body += '</body></html>';
+  const blob = new Blob([body], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `camphyde-2026-scrapbook.html`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+function checkStorage() {
+  let total = 0;
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    total += (localStorage.getItem(k) || '').length + k.length;
+  }
+  const mb = (total / 1024 / 1024).toFixed(2);
+  alert(`Using ~${mb} MB of localStorage (browser cap is typically 5–10 MB).`);
+}
+
+// Badges
+function computeUnlockedBadges() {
+  if (typeof MERIT_BADGES === 'undefined') return [];
+  const allAct = [...ART_ACTIVITIES, ...STEM_ACTIVITIES];
+  const doneActs = allAct.filter(a => localStorage.getItem(`${PREFIX}done_${a.id}`) === 'true');
+  return MERIT_BADGES.filter(b => {
+    if (b.id === 'campveteran') {
+      const weeks = new Set();
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.startsWith(`${PREFIX}celldone_`)) {
+          weeks.add(k.split('_')[2]);
+        }
+      }
+      return weeks.size >= b.threshold;
+    }
+    const matched = doneActs.filter(b.match);
+    return matched.length >= b.threshold;
+  });
+}
+function renderBadges() {
+  if (typeof MERIT_BADGES === 'undefined') return;
+  const grid = document.getElementById('badgesGrid');
+  const allAct = [...ART_ACTIVITIES, ...STEM_ACTIVITIES];
+  const doneActs = allAct.filter(a => localStorage.getItem(`${PREFIX}done_${a.id}`) === 'true');
+  grid.innerHTML = MERIT_BADGES.map(b => {
+    let progress = 0;
+    if (b.id === 'campveteran') {
+      const weeks = new Set();
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.startsWith(`${PREFIX}celldone_`)) weeks.add(k.split('_')[2]);
+      }
+      progress = weeks.size;
+    } else {
+      progress = doneActs.filter(b.match).length;
+    }
+    const unlocked = progress >= b.threshold;
+    const stored = localStorage.getItem(`${PREFIX}badge_${b.id}`);
+    if (unlocked && !stored) {
+      localStorage.setItem(`${PREFIX}badge_${b.id}`, new Date().toISOString().slice(0, 10));
+    }
+    const earnedDate = localStorage.getItem(`${PREFIX}badge_${b.id}`);
+    const pct = Math.min(100, Math.round(100 * progress / b.threshold));
+    return `<div class="badge-card${unlocked ? '' : ' locked'}">
+      ${b.svg}
+      <div class="b-title">${b.title}</div>
+      <div class="b-blurb">${b.blurb}</div>
+      <div class="b-status ${unlocked ? 'unlocked' : ''}">${unlocked ? `Earned ${earnedDate || 'today'}` : `${progress} of ${b.threshold}`}</div>
+      <div class="badge-progress-bar"><div class="fill" style="width:${pct}%"></div></div>
+    </div>`;
+  }).join('');
+}
+
+// Shopping list aggregator
+let shoppingSelectedWeeks = null;
+function initShoppingWeeks() {
+  if (shoppingSelectedWeeks !== null) return;
+  shoppingSelectedWeeks = new Set();
+  const idx = currentWeekIndex;
+  [idx, idx + 1, idx + 2].forEach(i => {
+    if (i >= 0 && i < WEEKS.length) shoppingSelectedWeeks.add(weekKey(WEEKS[i]));
+  });
+}
+function renderShopping() {
+  initShoppingWeeks();
+  const toggles = document.getElementById('weekToggles');
+  toggles.innerHTML = WEEKS.map(w => {
+    const k = weekKey(w);
+    const theme = WEEKLY_THEMES[k];
+    const on = shoppingSelectedWeeks.has(k);
+    return `<button class="week-toggle${on ? ' on' : ''}" onclick="toggleShoppingWeek('${k}')">${theme ? theme.num : '—'} · ${theme ? theme.title : k}</button>`;
+  }).join('');
+  const body = document.getElementById('shoppingBody');
+  const byItem = {};
+  shoppingSelectedWeeks.forEach(k => {
+    const theme = WEEKLY_THEMES[k];
+    if (!theme) return;
+    const acts = [];
+    if (theme.artId) {
+      const art = ART_ACTIVITIES.find(a => a.id === theme.artId);
+      if (art) acts.push(art);
+    }
+    if (theme.stemId) {
+      const stem = STEM_ACTIVITIES.find(a => a.id === theme.stemId);
+      if (stem) acts.push(stem);
+    }
+    acts.forEach(a => {
+      (a.materials || []).forEach(m => {
+        const slug = m.item.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        if (!byItem[slug]) byItem[slug] = { item: m.item, qtys: new Set(), wheres: new Set(), forActs: new Set() };
+        byItem[slug].qtys.add(m.qty);
+        byItem[slug].wheres.add(m.where);
+        byItem[slug].forActs.add(stripEmoji(a.title));
+      });
+    });
+  });
+  const rows = Object.entries(byItem).sort((a, b) => a[1].item.localeCompare(b[1].item));
+  if (!rows.length) {
+    body.innerHTML = '<tr><td colspan="5" style="padding:30px;text-align:center;font-family:monospace;color:#999">Select one or more weeks above to see materials.</td></tr>';
+    return;
+  }
+  body.innerHTML = rows.map(([slug, info]) => {
+    const checked = localStorage.getItem(`${PREFIX}shopping_${slug}`) === 'true';
+    return `<tr class="${checked ? 'checked' : ''}" data-slug="${slug}">
+      <td><input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleShoppingItem('${slug}', this.checked)"></td>
+      <td>${info.item}</td>
+      <td>${[...info.qtys].join(' + ')}</td>
+      <td style="font-style:italic;font-size:0.85rem">${[...info.forActs].join(', ')}</td>
+      <td style="font-size:0.85rem;color:#666">${[...info.wheres][0]}</td>
+    </tr>`;
+  }).join('');
+}
+function toggleShoppingWeek(k) {
+  if (shoppingSelectedWeeks.has(k)) shoppingSelectedWeeks.delete(k);
+  else shoppingSelectedWeeks.add(k);
+  renderShopping();
+}
+function toggleShoppingItem(slug, on) {
+  if (on) localStorage.setItem(`${PREFIX}shopping_${slug}`, 'true');
+  else localStorage.removeItem(`${PREFIX}shopping_${slug}`);
+  document.querySelector(`tr[data-slug="${slug}"]`)?.classList.toggle('checked', on);
+}
+function emailShoppingList() {
+  const rows = document.querySelectorAll('#shoppingBody tr[data-slug]');
+  let body = 'Camp Hyde shopping list:\n\n';
+  rows.forEach(r => {
+    const tds = r.querySelectorAll('td');
+    body += `□ ${tds[1].textContent} — ${tds[2].textContent} (${tds[3].textContent})\n`;
+  });
+  window.location.href = `mailto:?subject=${encodeURIComponent('Camp Hyde · Shopping list')}&body=${encodeURIComponent(body)}`;
+}
+
+// Poster
+function renderPoster() {
+  const wDate = WEEKS[currentWeekIndex];
+  const wk = weekKey(wDate);
+  const theme = WEEKLY_THEMES[wk];
+  if (!theme) {
+    document.getElementById('posterPage').innerHTML = '<p>No theme for this week.</p>';
+    return;
+  }
+  const end = new Date(wDate.getTime() + 6 * 86400000);
+  const startStr = wDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const endStr = end.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+  const art = theme.artId ? ART_ACTIVITIES.find(a => a.id === theme.artId) : null;
+  const stem = theme.stemId ? STEM_ACTIVITIES.find(a => a.id === theme.stemId) : null;
+
+  // Day grid: pull primary cells per day
+  let gridHtml = '';
+  for (let d = 0; d < 5; d++) {
+    const dd = dayDate(wDate, d);
+    const dateStr = dd.toLocaleDateString('en-US', { month:'short', day:'numeric' });
+    const lines = [];
+    for (let sl = 1; sl < HOURS.length; sl++) {
+      const cd = getCellData(wDate, d, sl);
+      if (cd && cd.text && cd.type !== 'blank' && cd.type !== 'school' && cd.type !== 'lunch') {
+        lines.push(cd.text);
+      }
+    }
+    const uniq = [...new Set(lines)].slice(0, 5);
+    gridHtml += `<div class="poster-day"><h4>${DAYS_SHORT[d]} · ${dateStr}</h4><ul>${uniq.map(l => `<li>${l}</li>`).join('')}</ul></div>`;
+  }
+
+  // Weather strip
+  let weatherHtml = '';
+  for (let d = 0; d < 5; d++) {
+    const dd = dayDate(wDate, d);
+    const k = dayKey(dd);
+    const temp = forecastData ? forecastData[k] : null;
+    const hot = temp >= 95;
+    weatherHtml += `<div class="poster-day-temp${hot ? ' hot' : ''}"><span class="t-d">${DAYS_SHORT[d]}</span><div class="t-hi">${temp ? Math.round(temp) + '°' : '—'}</div></div>`;
+  }
+
+  // Shopping mini-list (top items from this week's art project)
+  const mats = (art ? art.materials : []).slice(0, 6);
+  const shopHtml = mats.map(m => `<li>${m.item} <span style="color:#888">— ${m.qty}</span></li>`).join('');
+
+  document.getElementById('posterPage').innerHTML = `
+    <div class="poster-head">
+      <div class="pw-num">${theme.num}</div>
+      <div>
+        <div class="pw-title">${theme.title}</div>
+        <div class="pw-dates">${startStr} — ${endStr}</div>
+      </div>
+    </div>
+
+    <div class="poster-grid">${gridHtml}</div>
+
+    <div class="poster-features">
+      <div class="poster-feature">
+        <h5>This Week's Art</h5>
+        <div class="val">${art ? stripEmoji(art.title) : '—'}</div>
+      </div>
+      <div class="poster-feature">
+        <h5>This Week's STEM</h5>
+        <div class="val">${stem ? stripEmoji(stem.title) : '—'}</div>
+      </div>
+      <div class="poster-feature">
+        <h5>Field Trip</h5>
+        <div class="val">${theme.fieldTrip || '—'}</div>
+      </div>
+    </div>
+
+    <div class="poster-weather">${weatherHtml}</div>
+
+    ${mats.length ? `<div class="poster-shop"><h5>Shopping for the art project</h5><ul>${shopHtml}</ul></div>` : ''}
+
+    <div class="poster-footer">
+      <span>Camp Hyde · Week ${theme.num} · Summer MMXXVI</span>
+      <span>Boise · 43.6°N</span>
+    </div>
+  `;
+}
+function printPoster() {
+  document.body.classList.add('printing-poster');
+  setTimeout(() => {
+    window.print();
+    setTimeout(() => document.body.classList.remove('printing-poster'), 500);
+  }, 100);
+}
+function shareWeekEmail() {
+  const wDate = WEEKS[currentWeekIndex];
+  const wk = weekKey(wDate);
+  const theme = WEEKLY_THEMES[wk];
+  if (!theme) return;
+  const art = theme.artId ? ART_ACTIVITIES.find(a => a.id === theme.artId) : null;
+  const stem = theme.stemId ? STEM_ACTIVITIES.find(a => a.id === theme.stemId) : null;
+  let body = `Camp Hyde · Week ${theme.num} · ${theme.title}\n\n`;
+  body += `Art project: ${art ? stripEmoji(art.title) : '—'}\n`;
+  body += `STEM project: ${stem ? stripEmoji(stem.title) : '—'}\n`;
+  body += `Field trip: ${theme.fieldTrip || '—'}\n\n`;
+  body += `Open the app: https://iamstevenhyde.github.io/HydeCamp/`;
+  window.location.href = `mailto:?subject=${encodeURIComponent(`Camp Hyde · Week ${theme.num}`)}&body=${encodeURIComponent(body)}`;
+}
+
+// ════════════ END KID/PARENT FEATURES ════════════
+
+// ════════════ SUMMER JOBS ════════════
+const JOB_PREFIX = `${PREFIX}job_`;
+let currentJobFilter = 'all';
+
+function jobsDone() {
+  if (typeof SUMMER_JOBS === 'undefined') return 0;
+  return SUMMER_JOBS.filter(j => localStorage.getItem(JOB_PREFIX + j.id) === 'true').length;
+}
+function updateJobsTotal() {
+  const el = document.getElementById('jobsTotal');
+  if (el) el.textContent = '$' + jobsDone().toFixed(2);
+}
+function toggleJob(id, checked) {
+  if (checked) localStorage.setItem(JOB_PREFIX + id, 'true');
+  else localStorage.removeItem(JOB_PREFIX + id);
+  updateJobsTotal();
+  const card = document.querySelector(`.job-card[data-job-id="${id}"]`);
+  if (card) card.classList.toggle('is-done', checked);
+}
+function resetJobs() {
+  if (!confirm('Reset all job earnings to $0? This cannot be undone.')) return;
+  if (typeof SUMMER_JOBS === 'undefined') return;
+  SUMMER_JOBS.forEach(j => localStorage.removeItem(JOB_PREFIX + j.id));
+  renderJobs();
+}
+function filterJobs(cat) {
+  currentJobFilter = cat;
+  document.querySelectorAll('#page-jobs .filter-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('jf-' + (cat === 'all' ? 'all' : cat)).classList.add('active');
+  renderJobs();
+}
+function renderJobs() {
+  if (typeof SUMMER_JOBS === 'undefined') return;
+  updateJobsTotal();
+  const grid = document.getElementById('jobsGrid');
+  if (!grid) return;
+  const items = currentJobFilter === 'all' ? SUMMER_JOBS
+    : SUMMER_JOBS.filter(j => j.cat === currentJobFilter);
+  grid.innerHTML = items.map(j => {
+    const done = localStorage.getItem(JOB_PREFIX + j.id) === 'true';
+    return `<label class="job-card${done ? ' is-done' : ''}" data-job-id="${j.id}">
+      <input type="checkbox" ${done ? 'checked' : ''} onchange="toggleJob(${j.id}, this.checked)">
+      <span class="job-emoji">${j.emoji}</span>
+      <span class="job-label">${j.label}</span>
+      <span class="job-pay">$1</span>
+    </label>`;
+  }).join('');
+}
+
+// ════════════ 3D PRINTER PROJECTS ════════════
+let currentPrintFilter = 'all';
+const DIFF_STARS = n => '★'.repeat(n) + '☆'.repeat(3 - n);
+const PRINT_CAT_EMOJI = { functional:'🔧', toys:'🧸', games:'🎲', science:'🔬', art:'🎨' };
+
+function filterPrint(cat) {
+  currentPrintFilter = cat;
+  document.querySelectorAll('#page-3dprint .filter-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('pf-' + (cat === 'all' ? 'all' : cat)).classList.add('active');
+  renderPrint();
+}
+function renderPrint() {
+  if (typeof PRINTER_PROJECTS === 'undefined') return;
+  const grid = document.getElementById('printGrid');
+  if (!grid) return;
+  const items = currentPrintFilter === 'all' ? PRINTER_PROJECTS
+    : PRINTER_PROJECTS.filter(p => p.cat === currentPrintFilter);
+  const isDone = id => localStorage.getItem(`${PREFIX}print_${id}`) === 'true';
+  grid.innerHTML = '';
+  items.forEach(p => {
+    const done = isDone(p.id);
+    const card = document.createElement('div');
+    card.className = 'ac' + (done ? ' is-done' : '');
+    card.dataset.printId = p.id;
+    card.innerHTML = `
+      <div class="ac-header" onclick="this.parentElement.classList.toggle('expanded')">
+        <div class="ico-block cat-technology"><span style="font-size:1.4rem">${p.emoji}</span></div>
+        <div class="meta-block">
+          <div class="title">${p.title}</div>
+          <div class="tags">
+            🕒 ${p.printTime} <span class="dot">·</span>
+            🧵 ${p.filament} <span class="dot">·</span>
+            <span class="difficulty">${DIFF_STARS(p.difficulty)}</span>
+          </div>
+        </div>
+      </div>
+      <div class="ac-body">
+        <div class="desc">${p.description}</div>
+        <div class="section-label">Where to find the file</div>
+        <p style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--cyan-dark);padding:6px 0">${p.source}</p>
+        ${p.tip ? `<div class="tip"><strong>Tip:</strong> ${p.tip}</div>` : ''}
+      </div>
+      <div class="ac-footer" onclick="event.stopPropagation()">
+        <label class="done-toggle">
+          <input type="checkbox" ${done ? 'checked' : ''} onchange="togglePrintDone(${p.id}, this.checked)">
+          Mark Printed
+        </label>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+function togglePrintDone(id, done) {
+  const k = `${PREFIX}print_${id}`;
+  if (done) localStorage.setItem(k, 'true'); else localStorage.removeItem(k);
+  const card = document.querySelector(`.ac[data-print-id="${id}"]`);
+  if (card) card.classList.toggle('is-done', done);
+}
+
+// Boot
+async function boot() {
+  // Apply kid mode from URL or localStorage before render
+  const params = new URLSearchParams(location.search);
+  if (params.get('mode') === 'kid') setKidMode(true);
+  else setKidMode(localStorage.getItem(`${PREFIX}kidmode`) === 'true');
+
+  // Wire photo input
+  const input = document.getElementById('photoInput');
+  if (input) input.addEventListener('change', handlePhotoFile);
+
+  renderFieldTrips();
+  jumpToToday();
+  updateTrivia();
+  await loadForecast();
+  renderAll();
+}
+boot();
+</script>
+
+</body>
+</html>
+
+# Camp Hyde · Summer 2026
+
+### → **[Open the app](https://iamstevenhyde.github.io/HydeCamp/)** ←
+
+A home curriculum app for two kids (ages 8 & 10) in Boise, ID. Built on top of
+Maggie Hyde's original `Summer_2026_Schedule.html`, with content variety pulled
+in from open-source GitHub repos.
+
+**Live design:** Risograph Camp Poster — cherry + cyan overprint on cream, sticker
+cells with offset shadows, Caprasimo + Bricolage Grotesque + DM Mono.
+
+## Open
+
+Easiest: click **[iamstevenhyde.github.io/HydeCamp](https://iamstevenhyde.github.io/HydeCamp/)**.
+
+Offline: clone the repo or download the ZIP, then double-click `index.html`.
+Google Fonts and the Open-Meteo forecast load over the internet if available;
+the app falls back gracefully if they don't.
+
+## Files
+
+```
+HydeCamp/
+├── index.html                   ← the app (riso build)
+├── index-v2-fieldjournal.html   ← v2 backup (editorial field-journal aesthetic)
+├── experiments/
+│   ├── 01-risograph-camp.html   ← static design experiments
+│   ├── 02-cosmic-editorial.html
+│   └── 03-nordic-almanac.html
+├── data/
+│   ├── legacy_catalogs.js       ← STEM activities (27), art projects (12),
+│   │                              default schedule, field trips — verbatim from
+│   │                              Maggie's original
+│   ├── spines.js                ← consolidated corpora + trivia + capitals + APOD
+│   ├── corpora_subset.json      ← raw spine data (also embedded in spines.js)
+│   ├── trivia_easy.json
+│   ├── state_capitals.json
+│   └── apod_2026.json
+├── scripts/
+│   └── build_data.py            ← run once to rebuild spines from raw downloads
+├── CREDITS.md
+└── README.md
+```
+
+## Features
+
+- **13 weeks** auto-generated from May 18 → Aug 17, 2026
+- **Click-to-edit cells** — type + activity, saved to localStorage
+- **Parent badges** — click any cell's M/S/M+S badge to assign Mom, Dad, or Both
+- **Weekly themes** — one per week, each rotating in a STEM activity, an art
+  project, and a Boise field trip ("Water & Wonder", "Build It Week", etc.)
+- **Sports Camp week (Jun 15–19)** — full days (9 AM–4 PM) blocked out as Sports Camp
+- **Today highlight** — current day's cells get a cherry marching-ant shadow
+- **Spotlight card** — NASA APOD with kid-friendly caption, plus State of the
+  Week, Capital, and Plant of the Week
+- **Daily trivia** — one 3-choice question per day, deterministic by day-of-year
+- **Reading log** — Big Kid / Little Kid, book title + pages, persisted per week
+- **Heat-flag indoor swap** — Open-Meteo 14-day forecast for Boise; outdoor
+  afternoon blocks ≥ 95°F get a SWAP flag, click to dismiss
+- **Screen-time tracker** — average hours/day across the week, capped at 2 hr
+- **STEM tab** — 27 activities with materials/steps/pro tips, filter by S/T/E/M,
+  print a checklist shopping list
+- **Art tab** — 32 projects, same shape
+- **22 Boise field trips** — 5 free, 17 paid (incl. 8 day-trip options), click to copy the name
+- **Custom SVG icon set** — 24 icons in field-journal/woodblock stroke style, no
+  emojis anywhere in the UI
+- **Print stylesheet** — clean B&W landscape view for posting on the fridge
+
+## Summer Keepsake Features
+
+These turn the planner into a keepsake the kids keep.
+
+- **📸 Photo capture** — Every activity card has an "Add Photo" button. Take a
+  picture of the finished project; thumbnails appear on the card. Compressed
+  to ~80KB and stored in localStorage.
+- **Album tab** — All photos grouped by week, with a one-click **Export
+  Scrapbook** that downloads a standalone HTML page (`camphyde-2026-scrapbook.html`)
+  — email or AirDrop the whole summer to grandparents in one file.
+- **Badges tab** — 12 merit badges (Naturalist, Maker, Cartographer,
+  Printmaker, Star Charter, Painter, Sculptor, Coder, Mathematician,
+  Storyteller, Fabric Artist, Camp Veteran). Earn by completing activities in
+  a category. Locked badges grayscaled; unlocked badges show earned date.
+- **Shopping tab** — Pick which weeks to include and get a deduplicated
+  materials list across all assigned art + STEM projects. Email or print.
+  Checkbox state persists.
+- **Poster tab** — Pre-formatted printable fridge poster for the current
+  week: 5-day grid, this week's art + STEM + field trip, weather strip,
+  shopping mini-list. Save as PDF or print landscape. Includes a "Share
+  with co-parent" `mailto:` button.
+- **Parent divide pivot** — Counts Maggie/Steven/Both badges across the
+  current week; flags imbalance.
+- **Mark Done** — Activity cards and individual schedule cells have a
+  done toggle that feeds the badge engine.
+- **Boredom button ("I'm bored")** — Header button picks a random
+  not-yet-done activity, weighted to indoor on hot days and easy on late
+  evenings.
+- **Kid Mode** — Header toggle (or `?mode=kid` URL) hides parent badges,
+  screen-time bar, week notes, heat banner, and bumps font sizes.
+
+## Content sources
+
+All data spines are open-source and embedded:
+
+- [dariusk/corpora](https://github.com/dariusk/corpora) (CC0) — birds, plants, animals
+- [uberspot/OpenTriviaQA](https://github.com/uberspot/OpenTriviaQA) (CC-BY-SA) — daily trivia
+- [stdlib-js/datasets-us-states-capitals](https://github.com/stdlib-js/datasets-us-states-capitals) (MIT) — State of the Week
+- [NASA APOD](https://apod.nasa.gov) (public domain) — 13 hand-curated kid-friendly entries
+- [Open-Meteo](https://open-meteo.com) (CC-BY) — Boise heat forecast
+
+See `CREDITS.md` for full attribution.
+
+## Rebuilding the spines
+
+```bash
+cd HydeCamp
+# (re-download raw corpora / trivia files into data/ first — URLs in build_data.py)
+python scripts/build_data.py
+```
+
+APOD picks are hand-curated, not auto-generated.
+
+## Design history
+
+Three sharply different design experiments are preserved in `experiments/`:
+- **01 Risograph Camp Poster** — kid-facing, loud, cherry/cyan/canary on cream
+- **02 Cosmic Editorial** — dark NYT-science-section feel, PT Serif + Newsreader
+- **03 Nordic Almanac** — calm Hay-catalog/Skandi planner, sage + dusty rose
+
+The main `index.html` ships the riso direction built out into a full app.
+The v2 field-journal version is preserved as `index-v2-fieldjournal.html`.
+
+## License
+
+Family / educational use. Content spines retain their original licenses (see
+`CREDITS.md`). Maggie's original schedule structure and activity content remain
+hers.
